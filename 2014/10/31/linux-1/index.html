@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vincent&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vincent's Blog">
+<meta property="og:url" content="http://yoursite.com/2014/10/31/linux-1/">
+<meta property="og:site_name" content="Vincent's Blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vincent's Blog">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Vincent&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  	<SCRIPT type=text/javascript src="/js/scrolltop.js"></SCRIPT>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Vincent&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Walk steps step by step</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-github-link" class="nav-icon" href="https://github.com/vincent-wjj" title="Github" target="_blank"></a>
+        
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-linux-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/10/31/linux-1/" class="article-date">
+  <time datetime="2014-10-31T10:38:53.000Z" itemprop="datePublished">10月 31 2014</time>
+</a>
+
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		<div id="toc" class="toc-article">
+			<h2 class="toc-title"><span>文章目录</span></h2>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:linux，Unix"><span class="toc-number">1.</span> <span class="toc-text">tagcloud:linux，Unix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number"></span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日常"><span class="toc-number"></span> <span class="toc-text">日常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理"><span class="toc-number"></span> <span class="toc-text">数据处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调试"><span class="toc-number"></span> <span class="toc-text">系统调试</span></a>
+		
+		</div>
+		
+        <p>title: linux-1<br>date: 2014-10-31 18:38:53<br>categories: linux<br>tags: [技术，文章]</p>
+<h2 id="tagcloud:linux，Unix">tagcloud:linux，Unix</h2>
+<p>这篇文章来源于Quroa的一个问答《<a href="http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know#" target="_blank" rel="external">What are some time-saving tips that every Linux user should know?</a>》—— Linux用户有哪些应该知道的提高效率的技巧。我觉得挺好的，总结得比较好，把其转过来，并加了一些自己的理解。 首先，我想告诉大家，<strong>在Unix/Linux下，最有效率技巧的不是操作图形界面，而是命令行操作，因为命令行意味着自动化</strong>。如果你看过《<a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">你可能不知道的Shell</a>》以及《<a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">28个Unix/Linux的命令行神器</a>》你就会知道Linux有多强大，这个强大完全来自于命令行，于是，就算你不知道怎么去<a href="http://coolshell.cn/articles/7186.html" target="_blank" rel="external">做一个环保主义的程序员</a>，至少他们可以让你少熬点夜，从而有利于你的身体健康和性生活。下面是一个有点长的列表，正如作者所说，你并不需要知道所有的这些东西，但是如果你还在很沉重地在使用Linux的话，这些东西都值得你看一看。 （注：如果你想知道下面涉及到的命令的更多的用法，你一定要man一点。对于一些命令，你可以需要先yum或apt-get来安装一下，如果有什么问题，别忘了Google。如果你要Baidu的话，我仅代表这个地球上所有的生物包括微生物甚至细菌病毒和小强BS你到宇宙毁灭）</p>
+<h1 id="基础">基础</h1>
+<ol>
+<li><strong>学习</strong> <a href="http://www.quora.com/Bash-shell" target="_blank" rel="external">Bash</a> 。你可以man bash来看看bash的东西，并不复杂也并不长。你用别的shell也行，但是bash是很强大的并且也是系统默认的。（学习zsh或tsch只会让你在很多情况下受到限制）</li>
+<li><strong>学习 vim</strong> 。在Linux下，基本没有什么可与之竞争的编译辑器（就算你是一个Emacs或Eclipse的重度用户）。你可以看看《<a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">简明vim攻略</a>》和 《<a href="http://coolshell.cn/articles/7166.html" target="_blank" rel="external">Vim的冒险游戏</a>》以及《<a href="http://coolshell.cn/articles/5479.html" target="_blank" rel="external">给程序员的Vim速查卡</a>》还有《<a href="http://coolshell.cn/articles/894.html" target="_blank" rel="external">把Vim变成一个编程的IDE</a>》等等。</li>
+<li><strong>了解 ssh</strong>。明白不需要口令的用户认证（通过ssh-agent, ssh-add），学会用ssh翻墙，用scp而不是ftp传文件，等等。你知道吗？scp 远端的时候，你可以按tab键来查看远端的目录和文件（当然，需要无口令的用户认证），这都是bash的功劳。</li>
+<li><strong>熟悉bash的作业管理</strong>，如： &amp;, Ctrl-Z, Ctrl-C, jobs, fg, bg, kill, 等等。当然，你也要知道Ctrl+\（SIGQUIT）和Ctrl+C （SIGINT）的区别。</li>
+<li><strong>简单的文件管理</strong>： ls 和 ls -l (你最好知道 “ls -l” 的每一列的意思), less, head, tail 和 tail -f, ln 和 ln -s (你知道明白hard link和soft link的不同和优缺点), chown, chmod, du (如果你想看看磁盘的大小 du -sk *), df, mount。当然，原作者忘了find命令。</li>
+<li><strong>基础的网络管理</strong>： ip 或 ifconfig, dig。当然，原作者还忘了如netstat, ping, traceroute, 等</li>
+<li><strong>理解正则表达式</strong>，还有grep/egrep的各种选项。比如： -o, -A, 和 -B 这些选项是很值得了解的。<br>学习使用 <strong>apt-get</strong> 和 <strong>yum</strong> 来查找和安装软件（前者的经典分发包是Ubuntu，后者的经典分发包是Redhat），我还建议你试着从源码编译安装软件。<h1 id="日常">日常</h1>
+</li>
+</ol>
+<ul>
+<li>在 bash 里，使用 Ctrl-R 而不是上下光标键来查找历史命令。</li>
+<li>在 bash里，使用 Ctrl-W 来删除最后一个单词，使用 Ctrl-U 来删除一行。请man bash后查找Readline Key Bindings一节来看看bash的默认热键，比如：Alt-. 把上一次命令的最后一个参数打出来，而Alt-* 则列出你可以输入的命令。</li>
+<li>回到上一次的工作目录： cd –  （回到home是 cd ~）</li>
+<li>使用 xargs。这是一个很强大的命令。你可以使用-L来限定有多少个命令，也可以用-P来指定并行的进程数。如果你不知道你的命令会变成什么样，你可以使用xargs echo来看看会是什么样。当然， -I{} 也很好用。示例：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">find . -name \*.py | xargs grep some_function</div><div class="line">cat hosts | xargs -<span class="keyword">I</span><span class="list">{}</span> ssh root@<span class="list">{}</span> hostname</div></pre></td></tr></table></figure>
+
+<ul>
+<li>pstree -p 可以帮你显示进程树。（读过我的那篇《<a href="http://coolshell.cn/articles/7965.html" target="_blank" rel="external">一个fork的面试题</a>》的人应该都不陌生）</li>
+<li>使用 pgrep 和 pkill 来找到或是kill 某个名字的进程。 (-f 选项很有用).</li>
+<li>了解可以发给进程的信号。例如：要挂起一个进程，使用 kill -STOP [pid]. 使用 man 7 signal 来查看各种信号，使用kill -l 来查看数字和信号的对应表</li>
+<li>使用 nohup 或  disown 如果你要让某个进程运行在后台。</li>
+<li>使用netstat -lntp来看看有侦听在网络某端口的进程。当然，也可以使用 lsof。</li>
+<li>在bash的脚本中，你可以使用 set -x 来debug输出。使用 set -e 来当有错误发生的时候abort执行。考虑使用 set -o pipefail 来限制错误。还可以使用trap来截获信号（如截获ctrl+c）。</li>
+<li>在bash 脚本中，subshells (写在圆括号里的) 是一个很方便的方式来组合一些命令。一个常用的例子是临时地到另一个目录中，例如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># <span class="flow">do</span> something <span class="flow">in</span> current <span class="keyword">dir</span></div><div class="line">(<span class="keyword">cd</span> /some/other/<span class="keyword">dir</span>; other-command)</div><div class="line"># continue <span class="flow">in</span> original <span class="keyword">dir</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>在 bash 中，注意那里有很多的变量展开。如：检查一个变量是否存在: ${name:?error message}。如果一个bash的脚本需要一个参数，也许就是这样一个表达式 input_file=${1:?usage: $0 input_file}。一个计算表达式： i=$(( (i + 1) % 5 ))。一个序列： {1..10}。 截断一个字符串： ${var%suffix} 和 ${var#prefix}。 示例： if var=foo.pdf, then echo ${var%.pdf}.txt prints “foo.txt”.</li>
+<li>通过 &lt;(some command) 可以把某命令当成一个文件。示例：比较一个本地文件和远程文件 /etc/hosts： diff /etc/hosts &lt;(ssh somehost cat /etc/hosts)</li>
+<li>了解什么叫 <a href="http://zh.wikipedia.org/wiki/Here%E6%96%87%E6%A1%A3" target="_blank" rel="external">“here documents”</a> ，就是诸如 cat &lt;&lt;EOF 这样的东西。</li>
+<li>在 bash中，使用重定向到标准输出和标准错误。如： some-command &gt;logfile 2&gt;&amp;1。另外，要确认某命令没有把某个打开了的文件句柄重定向给标准输入，最佳实践是加上 “&lt;/dev/null”，把/dev/null重定向到标准输入。</li>
+<li>使用 man ascii 来查看 ASCII 表。</li>
+<li>在远端的 ssh 会话里，使用 screen 或 dtach 来保存你的会话。（参看《28个Unix/Linux的命令行神器》）</li>
+<li>要来debug Web，试试curl 和 curl -I 或是 wget 。我觉得debug Web的利器是firebug，curl和wget是用来抓网页的，呵呵。</li>
+<li>把 HTML 转成文本： lynx -dump -stdin<br>如果你要处理XML，使用 xmlstarlet</li>
+<li>对于 Amazon S3， s3cmd 是一个很方便的命令（还有点不成熟）</li>
+<li>在 ssh中，知道怎么来使用ssh隧道。通过 -L or -D (还有-R) ，翻墙神器。</li>
+<li>你还可以对你的ssh 做点优化。比如，.ssh/config 包含着一些配置：避免链接被丢弃，链接新的host时不需要确认，转发认证，以前使用压缩（如果你要使用scp传文件）：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="setting">TCPKeepAlive=<span class="value"><span class="keyword">yes</span></span></span></div><div class="line"><span class="setting">ServerAliveInterval=<span class="value"><span class="number">15</span></span></span></div><div class="line"><span class="setting">ServerAliveCountMax=<span class="value"><span class="number">6</span></span></span></div><div class="line"><span class="setting">StrictHostKeyChecking=<span class="value"><span class="keyword">no</span></span></span></div><div class="line"><span class="setting">Compression=<span class="value"><span class="keyword">yes</span></span></span></div><div class="line"><span class="setting">ForwardAgent=<span class="value"><span class="keyword">yes</span></span></span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>如果你有输了个命令行，但是你改变注意了，但你又不想删除它，因为你要在历史命令中找到它，但你也不想执行它。那么，你可以按下 Alt-# ，于是这个命令关就被加了一个#字符，于是就被注释掉了。<h1 id="数据处理">数据处理</h1>
+</li>
+<li>了解 sort 和 uniq 命令 (包括 uniq 的 -u 和 -d 选项).</li>
+<li>了解用 cut, paste, 和 join 命令来操作文本文件。很多人忘了在cut前使用join。</li>
+<li>如果你知道怎么用sort/uniq来做集合交集、并集、差集能很大地促进你的工作效率。假设有两个文本文件a和b已解被 uniq了，那么，用sort/uniq会是最快的方式，无论这两个文件有多大（sort不会被内存所限，你甚至可以使用-T选项，如果你的/tmp目录很小）</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat a b | <span class="built_in">sort</span> | uniq &gt; <span class="built_in">c</span>   # <span class="built_in">c</span> <span class="keyword">is</span> a union b 并集</div><div class="line"> </div><div class="line">cat a b | <span class="built_in">sort</span> | uniq -d &gt; <span class="built_in">c</span>   # <span class="built_in">c</span> <span class="keyword">is</span> a intersect b 交集</div><div class="line"> </div><div class="line">cat a b b | <span class="built_in">sort</span> | uniq -u &gt; <span class="built_in">c</span>   # <span class="built_in">c</span> <span class="keyword">is</span> <span class="keyword">set</span> difference a - b 差集</div></pre></td></tr></table></figure>
+
+<ul>
+<li>了解和字符集相关的命令行工具，包括排序和性能。很多的Linux安装程序都会设置LANG 或是其它和字符集相关的环境变量。这些东西可能会让一些命令（如：sort）的执行性能慢N多倍（注：就算是你用UTF-8编码文本文件，你也可以很安全地使用ASCII来对其排序）。如果你想Disable那个i18n 并使用传统的基于byte的排序方法，那就设置export LC_ALL=C （实际上，你可以把其放在 .bashrc）。如果这设置这个变量，你的sort命令很有可能会是错的。</li>
+<li>了解 awk 和 sed，并用他们来做一些简单的数据修改操作。例如：求第三列的数字之和： awk ‘{ x += $3 } END { print x }’。这可能会比Python快3倍，并比Python的代码少三倍。</li>
+<li>使用 shuf 来打乱一个文件中的行或是选择文件中一个随机的行。</li>
+<li>了解sort命令的选项。了解key是什么（-t和-k）。具体说来，你可以使用-k1,1来对第一列排序，-k1来对全行排序。</li>
+<li>Stable sort (sort -s) 会很有用。例如：如果你要想对两例排序，先是以第二列，然后再以第一列，那么你可以这样： sort -k1,1 | sort -s -k2,2</li>
+<li>我们知道，在bash命令行下，Tab键是用来做目录文件自动完成的事的。但是如果你想输入一个Tab字符（比如：你想在sort -t选项后输入<tab>字符），你可以先按Ctrl-V，然后再按Tab键，就可以输入<tab>字符了。当然，你也可以使用$’\t’。</tab></tab></li>
+<li>如果你想查看二进制文件，你可以使用hd命令（在CentOS下是hexdump命令），如果你想编译二进制文件，你可以使用bvi命令（<a href="http://bvi.sourceforge.net/" target="_blank" rel="external">http://bvi.sourceforge.net/</a> 墙）</li>
+<li>另外，对于二进制文件，你可以使用strings（配合grep等）来查看二进制中的文本。</li>
+<li>对于文本文件转码，你可以试一下 iconv。或是试试更强的 uconv 命令（这个命令支持更高级的Unicode编码）<br>如果你要分隔一个大文件，你可以使用split命令（split by size）和csplit命令（split by a pattern）。<h1 id="系统调试">系统调试</h1>
+</li>
+<li>如果你想知道磁盘、CPU、或网络状态，你可以使用 iostat, netstat, top (或更好的 htop), 还有 dstat 命令。你可以很快地知道你的系统发生了什么事。关于这方面的命令，还有iftop, iotop等（参看《<a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">28个Unix/Linux的命令行神器》</a>）</li>
+<li>要了解内存的状态，你可以使用free和vmstat命令。具体来说，你需要注意 “cached” 的值，这个值是Linux内核占用的内存。还有free的值。</li>
+<li>Java 系统监控有一个小的技巧是，你可以使用kill -3 <pid> 发一个SIGQUIT的信号给JVM，可以把堆栈信息（包括垃圾回收的信息）dump到stderr/logs。</pid></li>
+<li>使用 mtr 会比使用 traceroute 要更容易定位一个网络问题。</li>
+<li>如果你要找到哪个socket或进程在使用网络带宽，你可以使用 iftop 或 nethogs。</li>
+<li>Apache的一个叫 ab 的工具是一个很有用的，用quick-and-dirty的方式来测试网站服务器的性能负载的工作。如果你需要更为复杂的测试，你可以试试 siege。</li>
+<li>如果你要抓网络包的话，试试 wireshark 或 tshark。</li>
+<li>了解 strace 和 ltrace。这两个命令可以让你查看进程的系统调用，这有助于你分析进程的hang在哪了，怎么crash和failed的。你还可以用其来做性能profile，使用 -c 选项，你可以使用-p选项来attach上任意一个进程。</li>
+<li>了解用ldd命令来检查相关的动态链接库。注意：<a href="http://coolshell.cn/articles/1626.html" target="_blank" rel="external">ldd的安全问题</a></li>
+<li>使用gdb来调试一个正在运行的进程或分析core dump文件。参看我写的《<a href="http://coolshell.cn/articles/3643.html" target="_blank" rel="external">GDB中应该知道的几个调试方法</a>》</li>
+<li>学会到 /proc 目录中查看信息。这是一个Linux内核运行时记录的整个操作系统的运行统计和信息，比如： /proc/cpuinfo, /proc/xxx/cwd, /proc/xxx/exe, /proc/xxx/fd/, /proc/xxx/smaps.</li>
+<li>如果你调试某个东西为什么出错时，sar命令会有用。它可以让你看看 CPU, 内存, 网络, 等的统计信息。</li>
+<li>使用 dmesg 来查看一些硬件或驱动程序的信息或问题。<br>作者最后加了一个免责声明：Disclaimer: Just because you can do something in bash, doesn’t necessarily mean you should. ;) （全文完）</li>
+</ul>
+<p>转载自：<a href="http://coolshell.cn/articles/8883.html" target="_blank" rel="external">http://coolshell.cn/articles/8883.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <!-- 百度分享 Start -->
+	  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+	  <!-- 百度分享 End -->
+	  
+      
+	  
+<span>
+更新日期:<time datetime="2014-10-31T10:57:57.000Z" itemprop="dateModified">10月 31 2014</time>
+</span>
+
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/10/30/hexo-config/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo 配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-linux-1" data-title="" data-url="http://yoursite.com/2014/10/31/linux-1/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'junjie'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+</section>
+        
+          
+  <div id="toc" class="toc-aside">
+  <h2 class="toc-title">文章目录</h2>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:linux，Unix"><span class="toc-number">1.</span> <span class="toc-text">tagcloud:linux，Unix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number"></span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日常"><span class="toc-number"></span> <span class="toc-text">日常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理"><span class="toc-number"></span> <span class="toc-text">数据处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调试"><span class="toc-number"></span> <span class="toc-text">系统调试</span></a>
+  </div>
+
+<aside id="sidebar">
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">ABOUT ME</h3>
+  <ul class="widget about-me">
+    
+    <li><img class="author" title="About me" src="http://www.gravatar.com/avatar/2d4d8140ce05769ecdf75daa1da2908e?s=180" /></li>
+    
+    
+    <li>Hi,I'm vincent.This is a shared world.</li>
+    
+  </ul>
+</div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/博客/" style="font-size: NaNpx; color: #NaNNaNNaN;">博客</a><a href="/tags/文章/" style="font-size: NaNpx; color: #NaNNaNNaN;">文章</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">archive</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">日历</h3>
+  <div class="widget">
+    <div id="g-calendar" class="g-calendar">
+        <span class="g-calendar-prev"></span>
+		 
+        <span class="g-calendar-back"></span>
+        <span class="g-calendar-now"></span>
+		 
+        <span class="g-calendar-next"></span>
+        <div class="g-calendar-hd"></div>
+        <div class="g-calendar-tit"></div>
+        <div class="g-calendar-bd"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+function LGY_calendar(wrapId, options){
+    this.oWrap = this.getId(wrapId);
+    this.oHead = this.getByClassName('g-calendar-hd',this.oWrap)[0];
+    this.oBody = this.getByClassName('g-calendar-bd',this.oWrap)[0];
+    this.oTit = this.getByClassName('g-calendar-tit',this.oWrap)[0];
+    this.oPrev = this.getByClassName('g-calendar-prev',this.oWrap)[0];
+    this.oNext = this.getByClassName('g-calendar-next',this.oWrap)[0];
+    this.oNow = this.getByClassName('g-calendar-now',this.oWrap)[0];
+    this.oBack = this.getByClassName('g-calendar-back',this.oWrap)[0];
+    this.init();
+}
+LGY_calendar.prototype = {
+    ///////////获取ID元素
+    getId:function(id){
+        return document.getElementById(id);
+    },
+    ////////获取css类名元素
+    getByClassName:function(className,parent){
+        var elem = [],
+            node = parent != undefined&&parent.nodeType==1?parent.getElementsByTagName('*'):document.getElementsByTagName('*'),
+            p = new RegExp("(^|\\s)"+className+"(\\s|$)");
+        for(var n=0,i=node.length;n<i;n++){
+            if(p.test(node[n].className)){
+                elem.push(node[n]);
+            }
+        }
+        return elem;
+    },
+    //填充日历
+    fillDate:function(year,month){
+        //本月份第一天是星期几-为显示上个月的天数做铺垫
+        var first_day = new Date(year,month,1).getDay(),
+        //如果刚好是星期天，则空出一行（显示上个月的天数）
+            first_day = first_day == 0?first_day=7:first_day;
+        //本月份最后一天是几号
+        var final_date = new Date(year,month+1,0).getDate(),
+        //上个月的最后一天是几号
+            last_date = new Date(year,month,0).getDate(),
+        //剩余的格子数--即排在末尾的格子数
+            surplus = 42 - first_day - final_date;
+		//设置年的链接
+		var yearHead = "<a href='/" + "archives/" + year + "/'>" + year + " "+ "</a>"; 
+		//设置年的链接
+		var monthHead = "";
+		var month1 = month + 1;
+		if (month1 < 10) {
+			monthHead = "<a href='/" + "archives/" + year + "/" + "0" + month1 + "/'>" + " " + month1 + " " + "</a>";
+		} else {
+			monthHead = "<a href='/" + "archives/" + year + "/" + month1 + "/'>" + " " + month1 + " " + "</a>";
+		}
+        //设置表头的日历
+        this.oHead.innerHTML = yearHead+'年'+monthHead+'月';
+        //填充日历执行
+        var html = '';
+        //上个月的显示天数
+        for(var i=0;i<first_day;i++){
+            html+='<span class="g-calendar-grey">'+(last_date-(first_day-1)+i)+'</span>';
+        }
+        //本月的显示天数
+        var postdate = new Date("Fri Oct 31 2014 18:38:53 GMT+0800"); 
+		if (true && postdate.getFullYear() == year && postdate.getMonth() == month) { 
+			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span><a href="/2014/10/30/hexo-guide-4/" title="当天有7篇博客,第一篇:hexo系列教程：（四）hexo博客的优化技巧">30</a></span><span><a href="/2014/10/31/linux-1/" title="">31</a></span>';
+		} else {
+			for(var j=0;j<final_date;j++){        
+				html+='<span id="d'+(j+1)+'">'+(j+1)+'</span>';
+			}
+		}
+        //下个月的显示天数
+        for(var k=0;k<surplus;k++){
+            html+='<span class="g-calendar-grey">'+(k+1)+'</span>';
+        }
+        //fill
+        this.oBody.innerHTML = html;
+        // 当前状态
+        if(year==this.c_year&&this.c_month==month){
+            this.oBody.getElementsByTagName('span')[first_day+this.date-1].className='g-calendar-on';
+        }
+
+		// 对所有文章遍历,然后将有文章的日期加上链接,如果文章太多的话,生成页面会很大,去掉了
+		
+    },
+    // next切换
+    next:function(){
+        var _that = this;
+        this.oNext.onclick = function(){
+            _that.month++;
+            if(_that.month>11){
+                _that.month = 0;
+                _that.year++;
+            }
+            // 填充日历
+            _that.fillDate(_that.year,_that.month);
+        }
+        
+    },
+    // back 切换
+    back:function(){
+        var _that = this;
+        this.oBack.onclick = function(){
+            var postdate = new Date("Fri Oct 31 2014 18:38:53 GMT+0800"); 
+            _that.year = postdate.getFullYear();
+            _that.month = postdate.getMonth();
+            // 填充日历
+            _that.fillDate(_that.year,_that.month);
+        }
+        
+    },
+    // now切换
+    now:function(){
+        var _that = this;
+        this.oNow.onclick = function(){
+            var nowDate = new Date(); 
+            _that.year = nowDate.getFullYear();
+            _that.month = nowDate.getMonth();
+            // 填充日历
+            _that.fillDate(_that.year,_that.month);
+        }
+        
+    },
+    // prev切换
+    prev:function(){
+        var _that = this;
+        this.oPrev.onclick = function(){
+            _that.month--;
+            if(_that.month<0){
+                _that.month = 11;
+                _that.year--;
+            }
+            // 填充日历
+            _that.fillDate(_that.year,_that.month);
+        }
+        
+    },
+    init:function(){
+        this.oTit.innerHTML = '<span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>';
+        // 获取今天的日历时间
+        var now = new Date();
+        this.c_year = this.year = now.getFullYear();
+        this.c_month = this.month = now.getMonth();
+        this.date = now.getDate();
+        // 初始化--填充日历
+        this.fillDate(this.year,this.month);
+        //next切换
+        this.next();
+        //prev切换
+        this.prev();
+        //back 切换
+        this.back();
+        //now 切换
+        this.now();
+    }
+}
+new LGY_calendar('g-calendar');
+</script>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/31/linux-1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/30/hexo-config/">hexo 配置</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/30/esay-markdown/">轻松搞定Markdown</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/30/hexo-guide-4/">hexo系列教程：（四）hexo博客的优化技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/30/hexo-guide-3/">hexo系列教程:（三）hexo博客的配置、使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">最新评论</h3>
+  <ul class="widget ds-recent-comments" data-num-items="5" data-show-avatars="0" data-show-title="1" data-show-time="1"></ul>
+</div>
+<!-- 需要多说的公用代码 -->
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">友情链接</h3>
+  <ul class="widget">
+    
+    <li><a href="https://github.com/zippera" target="_BLANK">404 page</a></li>
+    
+  </ul>
+</div>
+
+
+  
+
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 junjiewang<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/howiefh/hexo-theme-landscape-f" target="_blank" title="Landscape-F">Landscape-F</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"junjie"};
+  (function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+<!-- 多说公共JS代码 end -->
+
+<!-- 百度分享 start -->
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","douban","bdysc","sqq","qq","hi","baidu","huaban","youdao","sdo","mail","xg","diandian","fx","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+-->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<div class="bottom-btn">
+
+	<a class="icon-gotop" href="javascript:void(0)" title="返回顶部"></a>
+	<script src="/js/gotop.js" type="text/javascript"></script>
+
+	<!--
+	<script src="/js/gotop.js"></script>
+	-->
+
+
+	<a class="icon-toc-toggle" href="javascript:void(0)" title="文章目录"></a>
+	<!--
+	<script src="/js/toc_aside_toggle.js"></script>
+	-->
+
+</div>
+<script src="/js/toc_aside_toggle.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+  <DIV style="DISPLAY: none" id=goTopBtn title="Scroll Back to Top"><IMG border=0 src="/images/top.jpg"></DIV>
+<SCRIPT type=text/javascript>goTopEx();</SCRIPT>
+</body>
+</html>
