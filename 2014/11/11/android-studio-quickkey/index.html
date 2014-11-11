@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo 配置 | Vincent&#39;s Blog</title>
+  <title>Vincent&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo 配置">
-<meta property="og:url" content="http://yoursite.com/2014/10/30/hexo-config/">
+<meta property="og:title" content="Vincent's Blog">
+<meta property="og:url" content="http://yoursite.com/2014/11/11/android-studio-quickkey/">
 <meta property="og:site_name" content="Vincent's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo 配置">
+<meta name="twitter:title" content="Vincent's Blog">
 <meta name="twitter:description">
 
   
@@ -72,32 +72,18 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hexo-config" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-android-studio-quickkey" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-<a href="/2014/10/30/hexo-config/" class="article-date">
-  <time datetime="2014-10-30T12:10:34.000Z" itemprop="datePublished">10月 30 2014</time>
+<a href="/2014/11/11/android-studio-quickkey/" class="article-date">
+  <time datetime="2014-11-11T13:23:08.000Z" itemprop="datePublished">11月 11 2014</time>
 </a>
 
 
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hexo 配置
-    </h1>
-  
-
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -105,62 +91,12 @@
 		<div id="toc" class="toc-article">
 			<h2 class="toc-title"><span>文章目录</span></h2>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置google_analytics"><span class="toc-number">1.</span> <span class="toc-text">设置google analytics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sitemap"><span class="toc-number">2.</span> <span class="toc-text">sitemap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rss"><span class="toc-number">3.</span> <span class="toc-text">rss</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加菜单"><span class="toc-number">4.</span> <span class="toc-text">添加菜单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改新建post的框架"><span class="toc-number">5.</span> <span class="toc-text">修改新建post的框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改widgets"><span class="toc-number">6.</span> <span class="toc-text">修改widgets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建文件后在编辑器中打开"><span class="toc-number">7.</span> <span class="toc-text">创建文件后在编辑器中打开</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#read_more"><span class="toc-number">8.</span> <span class="toc-text">read more</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新部署问题"><span class="toc-number">9.</span> <span class="toc-text">重新部署问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#widget增加日历"><span class="toc-number">10.</span> <span class="toc-text">widget增加日历</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:android,keyword"><span class="toc-number">1.</span> <span class="toc-text">tagcloud:android,keyword</span></a></li></ol>
 		
 		</div>
 		
-        <h1 id="设置google_analytics">设置google analytics</h1>
-<p>在themes/light/_config.yml中添加<br>google_analytics: [id]<br>这里的id填上你自己的谷歌分析的id即可，比如：UA-<strong><em>**</em></strong>-*</p>
-<h1 id="sitemap">sitemap</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-sitemap <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>激活<br>在 <code>_config.yml</code>中 <code>plugins</code>下添加 <code>hexo-generator-sitemap</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-sitemap</div></pre></td></tr></table></figure>
-
-<h1 id="rss">rss</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-feed <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>激活<br>在 <code>_config.yml 中 plugins</code>下添加 <code>hexo-generator-feed</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-feed</div></pre></td></tr></table></figure>
-
-<p>在<code>themes/light/_config.yml</code>中添加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="label">menu:</span></div><div class="line">  RSS: /atom.xml</div></pre></td></tr></table></figure>
-
-<h1 id="添加菜单">添加菜单</h1>
-<p>themes/light/_config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">menu</span>:</div><div class="line">   Home: /</div><div class="line">   Archives: /archives</div><div class="line">   GitHub: https:<span class="comment">//github.com/howiefh</span></div></pre></td></tr></table></figure>
-
-<h1 id="修改新建post的框架">修改新建post的框架</h1>
-<p>scaffolds/post.md</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: hexo后记</div><div class="line">date: Fri Feb 07 2014 10:15:39 GMT+0800 (CST)</div><div class="line">categories:</div><div class="line"><span class="header">tags:</span></div><div class="line">---</div></pre></td></tr></table></figure>
-
-<h1 id="修改widgets">修改widgets</h1>
-<p>themes/light/_config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">widgets: </div><div class="line"> -<span class="ruby"> search</span></div><div class="line"> -<span class="ruby"> category</span></div><div class="line"> -<span class="ruby"> tag</span></div><div class="line"> -<span class="ruby"> twitter</span></div><div class="line"> -<span class="ruby"> tagcloud</span></div><div class="line"> -<span class="ruby"> recent_posts</span></div></pre></td></tr></table></figure>
-
-<h1 id="创建文件后在编辑器中打开">创建文件后在编辑器中打开</h1>
-<p>scripts/autoOpenNewPost.js</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(target)</span></span>{</div><div class="line">	spawn(<span class="string">'gvim'</span>, [target]);</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>使用<code>hexo new &quot;title&quot;</code>新建后会调用gvim打开新建的文件</p>
-<h1 id="read_more">read more</h1>
-<p>文章中添加<code>&lt;!--more--&gt;</code>可以实现read more功能。</p>
-<h1 id="重新部署问题">重新部署问题</h1>
-<p>修改后无法部署到github 删除 .deploy<br>删除tags 需要删除db.json</p>
-<p>pagination设置</p>
-<p>分页，设置每页显示10篇，archive，tag，category都激活每页10篇</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">per_page: <span class="number">10</span></div><div class="line"><span class="preprocessor"># Archives</span></div><div class="line"><span class="preprocessor">## 2: Enable pagination</span></div><div class="line"><span class="preprocessor">## 1: Disable pagination</span></div><div class="line"><span class="preprocessor">## 0: Fully Disable</span></div><div class="line">archive: <span class="number">2</span></div><div class="line">category: <span class="number">2</span></div><div class="line">tag: <span class="number">2</span></div></pre></td></tr></table></figure>
-
-<h1 id="widget增加日历">widget增加日历</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/howiefh/hexo-calendar.git</div></pre></td></tr></table></figure>
-
-<p>配置：<br>Add the following content in the _config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-calendar</div></pre></td></tr></table></figure>
-
-<a id="more"></a>
+        <p>title: android-studio-quickkey<br>date: 2014-11-11 21:23:08<br>categories:android studio<br>tags:[安卓]</p>
+<h2 id="tagcloud:android,keyword">tagcloud:android,keyword</h2>
 
       
     </div>
@@ -171,11 +107,9 @@
 	  <!-- 百度分享 End -->
 	  
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-
 	  
 <span>
-更新日期:<time datetime="2014-10-30T13:09:51.000Z" itemprop="dateModified">10月 30 2014</time>
+更新日期:<time datetime="2014-11-11T13:26:41.000Z" itemprop="dateModified">11月 11 2014</time>
 </span>
 
 
@@ -185,20 +119,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/10/31/linux-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/11/11/second/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          second
         
       </div>
     </a>
   
-  
-    <a href="/2014/10/30/esay-markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">轻松搞定Markdown</div>
-    </a>
   
 </nav>
 
@@ -208,7 +137,7 @@
 
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-hexo-config" data-title="hexo 配置" data-url="http://yoursite.com/2014/10/30/hexo-config/"></div>
+    <div class="ds-thread" data-thread-key="post-android-studio-quickkey" data-title="" data-url="http://yoursite.com/2014/11/11/android-studio-quickkey/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -230,7 +159,7 @@
           
   <div id="toc" class="toc-aside">
   <h2 class="toc-title">文章目录</h2>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置google_analytics"><span class="toc-number">1.</span> <span class="toc-text">设置google analytics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sitemap"><span class="toc-number">2.</span> <span class="toc-text">sitemap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rss"><span class="toc-number">3.</span> <span class="toc-text">rss</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加菜单"><span class="toc-number">4.</span> <span class="toc-text">添加菜单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改新建post的框架"><span class="toc-number">5.</span> <span class="toc-text">修改新建post的框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改widgets"><span class="toc-number">6.</span> <span class="toc-text">修改widgets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建文件后在编辑器中打开"><span class="toc-number">7.</span> <span class="toc-text">创建文件后在编辑器中打开</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#read_more"><span class="toc-number">8.</span> <span class="toc-text">read more</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新部署问题"><span class="toc-number">9.</span> <span class="toc-text">重新部署问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#widget增加日历"><span class="toc-number">10.</span> <span class="toc-text">widget增加日历</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:android,keyword"><span class="toc-number">1.</span> <span class="toc-text">tagcloud:android,keyword</span></a></li></ol>
   </div>
 
 <aside id="sidebar">
@@ -255,7 +184,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"></ul>
     </div>
   </div>
 
@@ -265,7 +194,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"></ul>
     </div>
   </div>
 
@@ -285,7 +214,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -367,9 +296,9 @@ LGY_calendar.prototype = {
             html+='<span class="g-calendar-grey">'+(last_date-(first_day-1)+i)+'</span>';
         }
         //本月的显示天数
-        var postdate = new Date("Thu Oct 30 2014 20:10:34 GMT+0800"); 
+        var postdate = new Date("Tue Nov 11 2014 21:23:08 GMT+0800"); 
 		if (true && postdate.getFullYear() == year && postdate.getMonth() == month) { 
-			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span><a href="/2014/10/30/hexo-guide-4/" title="当天有7篇博客,第一篇:hexo系列教程：（四）hexo博客的优化技巧">30</a></span><span><a href="/2014/10/31/linux-1/" title="">31</a></span>';
+			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span><a href="/2014/11/11/android-studio-quickkey/" title="当天有2篇博客,第一篇:">11</a></span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>';
 		} else {
 			for(var j=0;j<final_date;j++){        
 				html+='<span id="d'+(j+1)+'">'+(j+1)+'</span>';
@@ -407,7 +336,7 @@ LGY_calendar.prototype = {
     back:function(){
         var _that = this;
         this.oBack.onclick = function(){
-            var postdate = new Date("Thu Oct 30 2014 20:10:34 GMT+0800"); 
+            var postdate = new Date("Tue Nov 11 2014 21:23:08 GMT+0800"); 
             _that.year = postdate.getFullYear();
             _that.month = postdate.getMonth();
             // 填充日历
@@ -471,23 +400,11 @@ new LGY_calendar('g-calendar');
       <ul>
         
           <li>
-            <a href="/2014/10/31/linux-1/">(no title)</a>
+            <a href="/2014/11/11/second/">second</a>
           </li>
         
           <li>
-            <a href="/2014/10/30/hexo-config/">hexo 配置</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/30/esay-markdown/">轻松搞定Markdown</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/30/hexo-guide-4/">hexo系列教程：（四）hexo博客的优化技巧</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/30/hexo-guide-3/">hexo系列教程:（三）hexo博客的配置、使用</a>
+            <a href="/2014/11/11/android-studio-quickkey/">(no title)</a>
           </li>
         
       </ul>
