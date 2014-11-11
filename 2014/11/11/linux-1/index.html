@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Vincent&#39;s Blog</title>
+  <title>linux-1 | Vincent&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vincent's Blog">
-<meta property="og:url" content="http://yoursite.com/2014/10/31/linux-1/">
+<meta property="og:title" content="linux-1">
+<meta property="og:url" content="http://yoursite.com/2014/11/11/linux-1/">
 <meta property="og:site_name" content="Vincent's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vincent's Blog">
+<meta name="twitter:title" content="linux-1">
 <meta name="twitter:description">
 
   
@@ -75,15 +75,29 @@
         <section id="main"><article id="post-linux-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-<a href="/2014/10/31/linux-1/" class="article-date">
-  <time datetime="2014-10-31T12:41:47.000Z" itemprop="datePublished">10月 31 2014</time>
+<a href="/2014/11/11/linux-1/" class="article-date">
+  <time datetime="2014-11-11T13:46:10.000Z" itemprop="datePublished">11月 11 2014</time>
 </a>
 
 
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux-1
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -91,13 +105,11 @@
 		<div id="toc" class="toc-article">
 			<h2 class="toc-title"><span>文章目录</span></h2>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:linux"><span class="toc-number">1.</span> <span class="toc-text">tagcloud:linux</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number"></span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日常"><span class="toc-number"></span> <span class="toc-text">日常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理"><span class="toc-number"></span> <span class="toc-text">数据处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调试"><span class="toc-number"></span> <span class="toc-text">系统调试</span></a>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日常"><span class="toc-number">2.</span> <span class="toc-text">日常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理"><span class="toc-number">3.</span> <span class="toc-text">数据处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调试"><span class="toc-number">4.</span> <span class="toc-text">系统调试</span></a></li></ol>
 		
 		</div>
 		
-        <p>title: linux-1<br>date: 2014-11-11 21:46:10<br>categories:linux<br>tags:[linux操作系统]</p>
-<h2 id="tagcloud:linux">tagcloud:linux</h2>
-<p>这篇文章来源于Quroa的一个问答《<a href="http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know#" target="_blank" rel="external">What are some time-saving tips that every Linux user should know?</a>》—— Linux用户有哪些应该知道的提高效率的技巧。我觉得挺好的，总结得比较好，把其转过来，并加了一些自己的理解。 首先，我想告诉大家，<strong>在Unix/Linux下，最有效率技巧的不是操作图形界面，而是命令行操作，因为命令行意味着自动化</strong>。如果你看过《<a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">你可能不知道的Shell</a>》以及《<a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">28个Unix/Linux的命令行神器</a>》你就会知道Linux有多强大，这个强大完全来自于命令行，于是，就算你不知道怎么去<a href="http://coolshell.cn/articles/7186.html" target="_blank" rel="external">做一个环保主义的程序员</a>，至少他们可以让你少熬点夜，从而有利于你的身体健康和性生活。下面是一个有点长的列表，正如作者所说，你并不需要知道所有的这些东西，但是如果你还在很沉重地在使用Linux的话，这些东西都值得你看一看。 （注：如果你想知道下面涉及到的命令的更多的用法，你一定要man一点。对于一些命令，你可以需要先yum或apt-get来安装一下，如果有什么问题，别忘了Google。如果你要Baidu的话，我仅代表这个地球上所有的生物包括微生物甚至细菌病毒和小强BS你到宇宙毁灭）</p>
+        <p>这篇文章来源于Quroa的一个问答《<a href="http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know#" target="_blank" rel="external">What are some time-saving tips that every Linux user should know?</a>》—— Linux用户有哪些应该知道的提高效率的技巧。我觉得挺好的，总结得比较好，把其转过来，并加了一些自己的理解。 首先，我想告诉大家，<strong>在Unix/Linux下，最有效率技巧的不是操作图形界面，而是命令行操作，因为命令行意味着自动化</strong>。如果你看过《<a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">你可能不知道的Shell</a>》以及《<a href="http://coolshell.cn/articles/7829.html" target="_blank" rel="external">28个Unix/Linux的命令行神器</a>》你就会知道Linux有多强大，这个强大完全来自于命令行，于是，就算你不知道怎么去<a href="http://coolshell.cn/articles/7186.html" target="_blank" rel="external">做一个环保主义的程序员</a>，至少他们可以让你少熬点夜，从而有利于你的身体健康和性生活。下面是一个有点长的列表，正如作者所说，你并不需要知道所有的这些东西，但是如果你还在很沉重地在使用Linux的话，这些东西都值得你看一看。 （注：如果你想知道下面涉及到的命令的更多的用法，你一定要man一点。对于一些命令，你可以需要先yum或apt-get来安装一下，如果有什么问题，别忘了Google。如果你要Baidu的话，我仅代表这个地球上所有的生物包括微生物甚至细菌病毒和小强BS你到宇宙毁灭）</p>
 <h1 id="基础">基础</h1>
 <ol>
 <li><strong>学习</strong> <a href="http://www.quora.com/Bash-shell" target="_blank" rel="external">Bash</a> 。你可以man bash来看看bash的东西，并不复杂也并不长。你用别的shell也行，但是bash是很强大的并且也是系统默认的。（学习zsh或tsch只会让你在很多情况下受到限制）</li>
@@ -188,9 +200,11 @@
 	  <!-- 百度分享 End -->
 	  
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux操作系统/">linux操作系统</a></li></ul>
+
 	  
 <span>
-更新日期:<time datetime="2014-11-11T13:50:54.000Z" itemprop="dateModified">11月 11 2014</time>
+更新日期:<time datetime="2014-11-11T13:54:02.000Z" itemprop="dateModified">11月 11 2014</time>
 </span>
 
 
@@ -214,7 +228,7 @@
 
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-linux-1" data-title="" data-url="http://yoursite.com/2014/10/31/linux-1/"></div>
+    <div class="ds-thread" data-thread-key="post-linux-1" data-title="linux-1" data-url="http://yoursite.com/2014/11/11/linux-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -236,7 +250,7 @@
           
   <div id="toc" class="toc-aside">
   <h2 class="toc-title">文章目录</h2>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:linux"><span class="toc-number">1.</span> <span class="toc-text">tagcloud:linux</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number"></span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日常"><span class="toc-number"></span> <span class="toc-text">日常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理"><span class="toc-number"></span> <span class="toc-text">数据处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调试"><span class="toc-number"></span> <span class="toc-text">系统调试</span></a>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日常"><span class="toc-number">2.</span> <span class="toc-text">日常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理"><span class="toc-number">3.</span> <span class="toc-text">数据处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调试"><span class="toc-number">4.</span> <span class="toc-text">系统调试</span></a></li></ol>
   </div>
 
 <aside id="sidebar">
@@ -261,7 +275,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -271,7 +285,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux操作系统/">linux操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -281,7 +295,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/淘宝，文章/" style="font-size: 13.00px; color: #7dc3de;">淘宝，文章</a>
+      <a href="/tags/linux操作系统/" style="font-size: 13.00px; color: #7dc3de;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/淘宝，文章/" style="font-size: 13.00px; color: #7dc3de;">淘宝，文章</a>
     </div>
   </div>
 
@@ -291,7 +305,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -373,9 +387,9 @@ LGY_calendar.prototype = {
             html+='<span class="g-calendar-grey">'+(last_date-(first_day-1)+i)+'</span>';
         }
         //本月的显示天数
-        var postdate = new Date("Fri Oct 31 2014 20:41:47 GMT+0800"); 
+        var postdate = new Date("Tue Nov 11 2014 21:46:10 GMT+0800"); 
 		if (true && postdate.getFullYear() == year && postdate.getMonth() == month) { 
-			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span><a href="/2014/10/30/hexo-guide-3/" title="当天有6篇博客,第一篇:hexo系列教程:（三）hexo博客的配置、使用">30</a></span><span><a href="/2014/10/31/taobaocode-guide/" title="当天有3篇博客,第一篇:taobaocode-guide">31</a></span>';
+			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span><a href="/2014/11/11/linux-1/" title="linux-1">11</a></span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>';
 		} else {
 			for(var j=0;j<final_date;j++){        
 				html+='<span id="d'+(j+1)+'">'+(j+1)+'</span>';
@@ -413,7 +427,7 @@ LGY_calendar.prototype = {
     back:function(){
         var _that = this;
         this.oBack.onclick = function(){
-            var postdate = new Date("Fri Oct 31 2014 20:41:47 GMT+0800"); 
+            var postdate = new Date("Tue Nov 11 2014 21:46:10 GMT+0800"); 
             _that.year = postdate.getFullYear();
             _that.month = postdate.getMonth();
             // 填充日历
@@ -477,7 +491,7 @@ new LGY_calendar('g-calendar');
       <ul>
         
           <li>
-            <a href="/2014/10/31/linux-1/">(no title)</a>
+            <a href="/2014/11/11/linux-1/">linux-1</a>
           </li>
         
           <li>
