@@ -74,6 +74,266 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-android-studio-guide-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/11/11/android-studio-guide-2/" class="article-date">
+  <time datetime="2014-11-11T14:04:55.000Z" itemprop="datePublished">11月 11 2014</time>
+</a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android-studio/">android_studio</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/11/android-studio-guide-2/">AndroidStudio单元测试——instrumentation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		<div id="toc" class="toc-article">
+			<h2 class="toc-title"><span>文章目录</span></h2>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Enabling_Unit_Testing_In_Android_Studio"><span class="toc-number">1.</span> <span class="toc-text">Enabling Unit Testing In Android Studio</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating_Your_Unit_Testing_Folder"><span class="toc-number">2.</span> <span class="toc-text">Creating Your Unit Testing Folder</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#*REMEMBER*"><span class="toc-number">3.</span> <span class="toc-text">*REMEMBER*</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuring_The_Project_For_Unit_Testing"><span class="toc-number">4.</span> <span class="toc-text">Configuring The Project For Unit Testing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running_Our_Unit_Tests"><span class="toc-number">5.</span> <span class="toc-text">Running Our Unit Tests</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The_following_sources_were_helpful_in_compiling_this_article:"><span class="toc-number">6.</span> <span class="toc-text">The following sources were helpful in compiling this article:</span></a></li></ol>
+		
+		</div>
+		
+        <p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/02/vs1.png" alt=""><br>This article covers the basics of using Android Unit Tests with Android Studio.</p>
+<h1 id="Enabling_Unit_Testing_In_Android_Studio">Enabling Unit Testing In Android Studio</h1>
+<p>Many guides out there will encourage you to add some lines  in your “build.gradle” to enable “instrument tests” and also tell you to include the Android testing libraries in your dependencies…</p>
+<p>This is completely unnecessary and you won’t need to worry about doing that.</p>
+<p>Android Studio supports Android Unit Tests natively and you can enable them by setting a few options in your project configuration.</p>
+<p>Note: There are several popular unit testing frameworks such as <code>Robolectric</code> for Android which involve more set up and configuration than what I cover here. I hope to write a guide on that topic in the future.</p>
+<h1 id="Creating_Your_Unit_Testing_Folder">Creating Your Unit Testing Folder</h1>
+<p>I like to keep my unit tests in my main project package e.g. “com.mypath.tests.” You can put your own tests  wherever  you want. To get started, create a new directory “tests” in your desired test location like so:<br><img src="http://i0.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.26.20-PM.png" alt=""></p>
+<p>Next, create a new class and name it “ExampleTest.” Have it inherit from “InstrumentationTestCase:”</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/instrumentationtest.png" alt=""></p>
+<p>Lets add a simple test which we know will fail:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span> <span class="keyword">extends</span> <span class="title">InstrumentationTestCase</span> </span>{</div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>() <span class="keyword">throws</span> Exception {</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> reality = <span class="number">5</span>;</div><div class="line">        assertEquals(expected, reality);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h1 id="*REMEMBER*"><strong>*</strong>REMEMBER<strong>*</strong></h1>
+<p><strong><em>All test methods MUST start with the “test-” prefix or Android Studio will not detect them as tests and you will get all kinds of weird errors and nothing will work.</em></strong></p>
+<h1 id="Configuring_The_Project_For_Unit_Testing">Configuring The Project For Unit Testing</h1>
+<p>Now that we have a test case which is doomed for failure, we must now run it.</p>
+<p>Start by clicking “Run -&gt; Edit Configurations.”</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/edit-configurations.png" alt=""></p>
+<p>Now select “+ -&gt; Android Tests” from the upper left hand corner and select “Android Tests” and name your new test configuration “test” or something equally relevant.</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.42.43-PM.png" alt=""></p>
+<p>This will create a new test project configuration like this:</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.46.19-PM.png" alt=""></p>
+<p>Select your current app module from the drop down menu.</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.35.01-PM.png" alt=""></p>
+<p>Next, select the “All in Package” option and navigate to your “test” folder you just created. You can also select “All in Module” and Android Studio will automatically find any test inside your whole Module! You can also get more specific and select “Class” or even “Method” option to narrow the scope of your testing down further.</p>
+<p>The results should look like this:</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/settings.png" alt=""></p>
+<p>I also like to set the run configuration to “Show Chooser” so I can decide how to run the tests when needed:</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/configurations.png" alt=""></p>
+<p>Now click “Apply” and then “Close.” You should now see your test cases as being a runnable project configuration in the bar across the top of your Android Studio instance.</p>
+<p><img src="http://i0.wp.com/rexstjohn.com/wp-content/uploads/2014/01/test-config.png" alt=""></p>
+<h1 id="Running_Our_Unit_Tests">Running Our Unit Tests</h1>
+<p>I use <code>Genymotion for everything</code>, so fire up your Genymotion instance and run the test.</p>
+<p>Put a break point next to the assertion line in the test case we just created and click the “run debug mode.” The purpose is to prove to ourselves that Android Studio is really running our Unit Test case.</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/test.png" alt=""></p>
+<p>When you start your tests, you will now see a special testing display window “Running Tests…”</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-7.10.25-PM.png" alt=""></p>
+<p>When your test fails, click “Logcat” and view the results for a comprehensive output as to why your test failed:</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/LogCat.png" alt=""></p>
+<p>If you go through the console, you will find the given reason should be: “junit.framework.AssertionFailedError: expected:<1> but was:<5>”</5></1></p>
+<p>Congratulations, you have failed!</p>
+<h1 id="The_following_sources_were_helpful_in_compiling_this_article:">The following sources were helpful in compiling this article:</h1>
+<p><a href="http://mobilengineering.blogspot.com/2012/05/tdd-testing-asynctasks-on-android.html" target="_blank" rel="external">http://mobilengineering.blogspot.com/2012/05/tdd-testing-asynctasks-on-android.html</a><br><a href="http://www.vogella.com/tutorials/AndroidTesting/article.html" target="_blank" rel="external">http://www.vogella.com/tutorials/AndroidTesting/article.html</a><br><a href="http://nikolaj.hesselholtskov.dk/2013/10/how-to-add-unit-tests-to-android-studio.html" target="_blank" rel="external">http://nikolaj.hesselholtskov.dk/2013/10/how-to-add-unit-tests-to-android-studio.html</a></p>
+<p>转载自：<a href="http://rexstjohn.com/unit-testing-with-android-studio/" target="_blank" rel="external">http://rexstjohn.com/unit-testing-with-android-studio/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <a data-url="http://yoursite.com/2014/11/11/android-studio-guide-2/" data-id="iy0n33u4lizrl8b8" data_title="AndroidStudio单元测试——instrumentation" data_summary="This article covers the bas..." class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://yoursite.com/2014/11/11/android-studio-guide-2/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/11/11/android-studio-guide-2/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+
+	  
+<span>
+更新日期:<time datetime="2014-11-11T14:22:16.000Z" itemprop="dateModified">11月 11 2014</time>
+</span>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-android-studio-guide-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/11/11/android-studio-guide-1/" class="article-date">
+  <time datetime="2014-11-11T14:01:26.000Z" itemprop="datePublished">11月 11 2014</time>
+</a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android-studio/">android_studio</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/11/android-studio-guide-1/">android_studio快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		<div id="toc" class="toc-article">
+			<h2 class="toc-title"><span>文章目录</span></h2>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快捷键"><span class="toc-number">1.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最常用快捷键"><span class="toc-number">2.</span> <span class="toc-text">最常用快捷键</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IntelliJ_IDEA使用技巧一览表"><span class="toc-number">3.</span> <span class="toc-text">IntelliJ IDEA使用技巧一览表</span></a></li></ol>
+		
+		</div>
+		
+        <h1 id="快捷键">快捷键</h1>
+<p>Alt+回车 导入包,自动修正<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>Ctrl+Alt+L  格式化代码<br>Ctrl+Alt+O 优化导入的类和包<br>Alt+Insert 生成代码(如get,set方法,构造函数等)<br>Ctrl+E或者Alt+Shift+C  最近更改的代码<br>Ctrl+R 替换文本<br>Ctrl+F 查找文本<br>Ctrl+Shift+Space 自动补全代码<br>Ctrl+空格 代码提示<br>Ctrl+Alt+Space 类名或接口名提示<br>Ctrl+P 方法参数提示<br>Ctrl+Shift+Alt+N 查找类中的方法或变量<br>Alt+Shift+C 对比最近修改的代码</p>
+<p>Shift+F6  重构-重命名<br>Ctrl+Shift+先上键<br>Ctrl+X 删除行<br>Ctrl+D 复制行<br>Ctrl+/ 或 Ctrl+Shift+/  注释（// 或者/<em>…</em>/ ）<br>Ctrl+J  自动代码<br>Ctrl+E 最近打开的文件<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>Alt+F1 查找代码所在位置<br>Alt+1 快速打开或隐藏工程面板<br>Ctrl+Alt+ left/right 返回至上次浏览的位置<br>Alt+ left/right 切换代码视图<br>Alt+ Up/Down 在方法间快速移动定位<br>Ctrl+Shift+Up/Down 代码向上/下移动。<br>F2 或Shift+F2 高亮错误或警告快速定位</p>
+<p>代码标签输入完成后，按Tab，生成代码。<br>选中文本，按Ctrl+Shift+F7 ，高亮显示所有该文本，按Esc高亮消失。<br>Ctrl+W 选中代码，连续按会有其他效果<br>选中文本，按Alt+F3 ，逐个往下查找相同文本，并高亮显示。<br>Ctrl+Up/Down 光标跳转到第一行或最后一行下<br>Ctrl+B 快速打开光标处的类或方法 </p>
+<h1 id="最常用快捷键">最常用快捷键</h1>
+<p>1.Ctrl＋E，可以显示最近编辑的文件列表<br>2.Shift＋Click可以关闭文件<br>3.Ctrl＋[或]可以跳到大括号的开头结尾<br>4.Ctrl＋Shift＋Backspace可以跳转到上次编辑的地方<br>5.Ctrl＋F12，可以显示当前文件的结构<br>6.Ctrl＋F7可以查询当前元素在当前文件中的引用，然后按F3可以选择<br>7.Ctrl＋N，可以快速打开类<br>8.Ctrl＋Shift＋N，可以快速打开文件<br>9.Alt＋Q可以看到当前方法的声明<br>10.Ctrl＋W可以选择单词继而语句继而行继而函数<br>11.Alt＋F1可以将正在编辑的元素在各个面板中定位<br>12.Ctrl＋P，可以显示参数信息<br>13.Ctrl＋Shift＋Insert可以选择剪贴板内容并插入<br>14.Alt＋Insert可以生成构造器/Getter/Setter等<br>15.Ctrl＋Alt＋V 可以引入变量。例如把括号内的SQL赋成一个变量<br>16.Ctrl＋Alt＋T可以把代码包在一块内，例如try/catch<br>17.Alt＋Up and Alt＋Down可在方法间快速移动<br>下面的不是很有用<br>18.在一些地方按Alt＋Enter可以得到一些Intention Action，例如将”==”改为”equals()”<br>19.Ctrl＋Shift＋Alt＋N可以快速打开符号<br>20.Ctrl＋Shift＋Space在很多时候都能够给出Smart提示<br>21.Alt＋F3可以快速寻找<br>22.Ctrl＋/和Ctrl＋Shift＋/可以注释代码<br>23.Ctrl＋Alt＋B可以跳转到抽象方法的实现<br>24.Ctrl＋O可以选择父类的方法进行重写<br>25.Ctrl＋Q可以看JavaDoc<br>26.Ctrl＋Alt＋Space是类名自动完成<br>27.快速打开类/文件/符号时，可以使用通配符，也可以使用缩写<br>28.Live Templates! Ctrl＋J<br>29.Ctrl＋Shift＋F7可以高亮当前元素在当前文件中的使用<br>30.Ctrl＋Alt＋Up /Ctrl＋Alt＋Down可以快速跳转搜索结果<br>31.Ctrl＋Shift＋J可以整合两行<br>32.Alt＋F8是计算变量值</p>
+<h1 id="IntelliJ_IDEA使用技巧一览表">IntelliJ IDEA使用技巧一览表</h1>
+<p>在使用 InelliJ IDEA 的过程中，通过查找资料以及一些自己的摸索，发现这个众多 Java 程序员喜欢的 IDE 里有许多值得一提的小窍门，如果能熟练的将它们应用于实际开发过程中，相信它会大大节省你的开发时间，而且随之而来的还会有那么一点点成就感：） Try it ！ </p>
+<p>1 、写代码时用 Alt-Insert （ Code|Generate… ）可以创建类里面任何字段的 getter 与 setter 方法。<br>&lt;?xml:namespace prefix = v ns = “urn:schemas-microsoft-com:vml” /&gt; </p>
+<p>2 、右键点击断点标记（在文本的左边栏里）激活速查菜单，你可以快速设置 enable/disable 断点或者条件它的属性。</p>
+<p>3 、 CodeCompletion （代码完成）属性里的一个特殊的变量是，激活 Ctrl-Alt-Space 可以完成在或不在当前文件里的类名。如果类没有引入则 import 标志会自动创建。</p>
+<p>4 、使用 Ctrl-Shift-V 快捷键可以将最近使用的剪贴板内容选择插入到文本。使用时系统会弹出一个含有剪贴内容的对话框，从中你可以选择你要粘贴的部分。 </p>
+<p>5 、利用 CodeCompletion （代码完成）属性可以快速地在代码中完成各种不同地语句，方法是先键入一个类名地前几个字母然后再用 Ctrl-Space 完成全称。如果有多个选项，它们会列在速查列表里。 </p>
+<p>6 、用 Ctrl-/ 与 Ctrl-Shift-/ 来注释 / 反注释代码行与代码块。 </p>
+<p>-/ 用单行注释标记（“ //… ”）来注释 / 反注释当前行或者选择地代码块。而 Ctrl-Shift-/ 则可以用块注释标记（“ /<em>…</em>/ ”）把所选块包围起来。要反注释一个代码块就在块中任何一个地方按 Ctrl-Shift-/ 即可。</p>
+<p>7 、按 Alt-Q （ View|Context Info ）可以不需要移动代码就能查看当前方法地声明。连续按两次会显示当前所编辑的类名。 </p>
+<p>8 、使用 Refactor|Copy Class… 可以创建一个所选择的类的“副本”。这一点很有用，比如，在你想要创建一个大部分内容都和已存在类相同的类时。 </p>
+<p>9 、在编辑器里 Ctrl-D 可以复制选择的块或者没有所选块是的当前行。 </p>
+<p>10 、 Ctrl-W （选择字）在编辑器里的功能是先选择脱字符处的单词，然后选择源代码的扩展区域。举例来说，先选择一个方法名，然后是调用这个方法的表达式，然后是整个语句，然后包容块，等等。</p>
+<p>11 、如果你不想让指示事件细节的“亮球”图标在编辑器上显示，通过按 Alt-Enter 组合键打开所有事件列表然后用鼠标点击它就可以把这个事件文本附件的亮球置成非活动状态。 </p>
+<p>这样以后就不会有指示特殊事件的亮球出现了，但是你仍然可以用 Alt-Enter 快捷键使用它。</p>
+<p>12 、在使用 CodeCompletion 时，可以用逗点（ . ）字符，逗号（，）分号（；），空格和其它字符输入弹出列表里的当前高亮部分。选择的名字会随着输入的字符自动输入到编辑器里。 </p>
+<p>13 、在任何工具窗口里使用 Escape 键都可以把焦点移到编辑器上。 </p>
+<p>Shift-Escape 不仅可以把焦点移到编辑器上而且还可以隐藏当前（或最后活动的）工具窗口。 </p>
+<p>F12 键把焦点从编辑器移到最近使用的工具窗口。 </p>
+<p>14 、在调试程序时查看任何表达式值的一个容易的方法就是在编辑器中选择文本（可以按几次 Ctrl-W 组合键更有效地执行这个操作）然后按 Alt-F8 。 </p>
+<p>15 、要打开编辑器脱字符处使用的类或者方法 Java 文档的浏览器，就按 Shift-F1 （右键菜单的 External JavaDoc ）。 </p>
+<p>要使用这个功能须要把加入浏览器的路径，在“ General ”选项中设置（ Options | IDE Settings ），另外还要把创建的 Java 文档加入到工程中（ File | Project Properties ）。 </p>
+<p>16 、用 Ctrl-F12 （ View | File Structure Popup ）键你可以在当前编辑的文件中快速导航。 </p>
+<p>这时它会显示当前类的成员列表。选中一个要导航的元素然后按 Enter 键或 F4 键。要轻松地定位到列表中的一个条目，只需键入它的名字即可。 </p>
+<p>17 、在代码中把光标置于标记符或者它的检查点上再按 Alt-F7 （右键菜单中的 Find Usages… ）会很快地查找到在整个工程中使用地某一个类、方法或者变量的位置。</p>
+<p>18 、按 Ctrl-N （ Go to | Class… ）再键入类的名字可以快速地在编辑器里打开任何一个类。从显示出来的下拉列表里选择类。<br>同样的方法你可以通过使用 Ctrl-Shift-N （ Go to | File… ）打开工程中的非 Java 文件。</p>
+<p>19 、要导航代码中一些地方使用到的类、方法或者变量的声明，把光标放在查看项上再按 Ctrl-B 即可。也可以通过按 Ctrl 键的同时在查看点上单击鼠标键调转到声明处。 </p>
+<p>20 、把光标放到查看点上再按 Ctrl-Alt-B 可以导航到一个抽象方法的实现代码。</p>
+<p>21 、要看一个所选择的类的继承层次，按 Ctrl-H （ Browse Type Hierarchy ）即可。也可以激活编辑器中的继承关系视图查看当前编辑类的继承关系。22 、使用 Ctrl-Shift-F7 （ Search | Highlight Usages in File ）可以快速高亮显示当前文件中某一变量的使用地方。按 Escape 清除高亮显示。 </p>
+<p>23 、用 Alt-F3 （ Search | Incremental Search ）在编辑器中实现快速查查找功能。 </p>
+<p>在“ Search for: ”提示工具里输入字符，使用箭头键朝前和朝后搜索。按 Escape 退出。</p>
+<p>24 、按 Ctrl-J 组合键来执行一些你记不起来的 Live Template 缩写。比如，键“ it ”然后按 Ctrl-J 看看有什么发生。</p>
+<p>25 、 Introduce Variable 整合帮助你简化代码中复杂的声明。举个例子，在下面的代码片断里，在代码中选择一个表达式：然后按 Ctrl-Alt-V 。</p>
+<p>26 、 Ctrl-Shift-J 快捷键把两行合成一行并把不必要的空格去掉以匹配你的代码格式。</p>
+<p>27 、 Ctrl-Shift-Backspace （ Go to | Last Edit Location ）让你调转到代码中所做改变的最后一个地方。 </p>
+<p>多按几次 Ctrl-Shift-Backspace 查看更深的修改历史。 </p>
+<p>28 、用 Tools | Reformat Code… 根据你的代码样式参考（查看 Options | IDE Setting | Code Style ）格式化代码。 </p>
+<p>使用 Tools | Optimize Imports… 可以根据设置（查看 Options | IDE Setting | Code Style | Imports ）自动“优化” imports （清除无用的 imports 等）。</p>
+<p>29 、使用 IDEA 的 Live Templates | Live Templates 让你在眨眼间创建许多典型代码。比如，在一个方法里键入 </p>
+<p>再按 Tab 键看有什么事情发生了。<br>用 Tab 键在不同的模板域内移动。查看 Options | Live Templates 获取更多的细节。</p>
+<p>30 、要查看一个文件中修改的本地历史，激活右键菜单里的 Local VCS | Show History… 。也许你可以导航不同的文件版本，看看它们的不同之处再回滚到以前的任何一个版本吧。 </p>
+<p>使用同样的右键菜单条目还可以看到一个目录里修改的历史。有了这个特性你就不会丢失任何代码了。</p>
+<p>31 、如果要了解主菜单里每一个条目的用途，把鼠标指针移到菜单条目上再应用程序框架的底部的状态栏里就会显示它们的一些简短描述，也许会对你有帮助。 </p>
+<p>32 、要在编辑器里显示方法间的分隔线，打开 Options | IDE Settings | Editor ，选中“ Show method separators ”检查盒（ checkbox ）。 </p>
+<p>33 、用 Alt-Up 和 Alt-Down 键可以在编辑器里不同的方法之间快速移动。 </p>
+<p>34 、用 F2/Shift-F2 键在高亮显示的语法错误间跳转。 </p>
+<p>用 Ctrl-Alt-Down/Ctrl-Alt-Up 快捷键则可以在编译器错误信息或者查找操作结果间跳转。</p>
+<p>35 、通过按 Ctrl-O （ Code | Override Methods… ）可以很容易地重载基本类地方法。 </p>
+<p>要完成当前类 implements 的（或者抽象基本类的）接口的方法，就使用 Ctrl-I （ Code | Implement Methods… ）。 </p>
+<p>36 、如果光标置于一个方法调用的括号间，按 Ctrl-P 会显示一个可用参数的列表。</p>
+<p>37 、要快速查看编辑器脱字符处使用的类或方法的 Java 文档，按 Ctrl-Q （在弹出菜单的 Show Quick JavaDoc 里）即可。 </p>
+<p>38 、像 Ctrl-Q （ Show Quick JavaDoc 显示简洁 Java 文档）， Ctrl-P （ Show Parameter Info 显示参数信息）， Ctrl-B （ Go to Declaration 跳转到声明）， Shift-F1 （ External JavaDoc 外部 Java 文档）以及其它一些快捷键不仅可以在编辑器里使用，也可以应用在代码完成右键列表里。 </p>
+<p>39 、 Ctrl-E （ View | Recent Files ）弹出最近访问的文件右键列表。选中文件按 Enter 键打开。 </p>
+<p>40 、在 IDEA 中可以很容易地对你的类，方法以及变量进行重命名并在所有使用到它们的地方自动更正。 </p>
+<p>试一下，把编辑器脱字符置于任何一个变量名字上然后按 Shift-F6 （ Refactor | Rename… ）。在对话框里键入要显示地新名字再按 Enter 。你会浏览到使用这个变量地所有地方然后按“ Do Refactor ”按钮结束重命名操作。 </p>
+<p>41 、要在任何视图（ Project View 工程视图， Structure View 结构视图或者其它视图）里快速 </p>
+<p>选择当前编辑地部分（类，文件，方法或者字段），按 Alt-F1 （ View | Select in… ）。 </p>
+<p>42 、在“ new ”字符后实例化一个已知类型对象时也许你会用到 SmartType 代码完成这个特性。比如，键入 </p>
+<p>再按 Ctrl-Shift-Space ：</p>
+<p>43 、通过使用 SmartType 代码完成，在 IDEA 中创建接口的整个匿名 implementation 也是非常容易的，比如，对于一些 listener （监听器），可以键入 </p>
+<p>Component component; </p>
+<p>component.addMouseListener( </p>
+<p>  new <caret is="" here="">   </caret></p>
+<p>); </p>
+<p>然后再按 Ctrl-Shift-Space 看看有什么发生了。 </p>
+<p>44 、在你需要设置一个已知类型的表达式的值时用 SmartType 代码完成也很有帮助。比如，键入 </p>
+<p>String s = ( <caret is="" here="">   </caret></p>
+<p>再按 Ctrl-Shift-Space 看看会有什么出现。 </p>
+<p>45 、在所有视图里都提供了速查功能：在树里只需键入字符就可以快速定位到一个条目。 </p>
+<p>46 、当你想用代码片断捕捉异常时，在编辑器里选中这个片断，按 Ctrl-Alt-T （ Code | Surround with… ）然后选择“ try/catch ”。它会自动产生代码片断中抛出的所有异常的捕捉块。在 Options | File Templates | Code tab 中你还可以自己定制产生捕捉块的模板。 </p>
+<p>用列表中的其它项可以包围别的一些结构。 </p>
+<p>47 、在使用代码完成时，用 Tab 键可以输入弹出列表里的高亮显示部分。 </p>
+<p>不像用 Enter 键接受输入，这个选中的名字会覆盖掉脱字符右边名字的其它部分。这一点在用一个方法或者变量名替换另一个时特别有用。 </p>
+<p>48 、在声明一个变量时代码完成特性会给你显示一个建议名。比如，开始键入“ private FileOutputStream ”然后按 Ctrl-Space </p>
+<p>在 Options | IDE Setting | Code Style 中还可以为本地变量，参数，实例及静态字段定制名字。</p>
+<p>转载自：<a href="http://blog.csdn.net/altair86/article/details/8972178" target="_blank" rel="external">http://blog.csdn.net/altair86/article/details/8972178</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <a data-url="http://yoursite.com/2014/11/11/android-studio-guide-1/" data-id="ilpz0ovh5v4xooyb" data_title="android_studio快捷键" data_summary="快捷键
+Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://yoursite.com/2014/11/11/android-studio-guide-1/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/11/11/android-studio-guide-1/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快捷键/">快捷键</a></li></ul>
+
+	  
+<span>
+更新日期:<time datetime="2014-11-11T14:08:44.000Z" itemprop="dateModified">11月 11 2014</time>
+</span>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-linux-guide" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -365,247 +625,9 @@
 
 
   
-    <article id="post-hexo-config" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-<a href="/2014/10/30/hexo-config/" class="article-date">
-  <time datetime="2014-10-30T12:10:34.000Z" itemprop="datePublished">10月 30 2014</time>
-</a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/30/hexo-config/">hexo 配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="设置google_analytics">设置google analytics</h1>
-<p>在themes/light/_config.yml中添加<br>google_analytics: [id]<br>这里的id填上你自己的谷歌分析的id即可，比如：UA-<strong><em>**</em></strong>-*</p>
-<h1 id="sitemap">sitemap</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-sitemap <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>激活<br>在 <code>_config.yml</code>中 <code>plugins</code>下添加 <code>hexo-generator-sitemap</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-sitemap</div></pre></td></tr></table></figure>
-
-<h1 id="rss">rss</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-feed <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>激活<br>在 <code>_config.yml 中 plugins</code>下添加 <code>hexo-generator-feed</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-feed</div></pre></td></tr></table></figure>
-
-<p>在<code>themes/light/_config.yml</code>中添加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="label">menu:</span></div><div class="line">  RSS: /atom.xml</div></pre></td></tr></table></figure>
-
-<h1 id="添加菜单">添加菜单</h1>
-<p>themes/light/_config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">menu</span>:</div><div class="line">   Home: /</div><div class="line">   Archives: /archives</div><div class="line">   GitHub: https:<span class="comment">//github.com/howiefh</span></div></pre></td></tr></table></figure>
-
-<h1 id="修改新建post的框架">修改新建post的框架</h1>
-<p>scaffolds/post.md</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: hexo后记</div><div class="line">date: Fri Feb 07 2014 10:15:39 GMT+0800 (CST)</div><div class="line">categories:</div><div class="line"><span class="header">tags:</span></div><div class="line">---</div></pre></td></tr></table></figure>
-
-<h1 id="修改widgets">修改widgets</h1>
-<p>themes/light/_config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">widgets: </div><div class="line"> -<span class="ruby"> search</span></div><div class="line"> -<span class="ruby"> category</span></div><div class="line"> -<span class="ruby"> tag</span></div><div class="line"> -<span class="ruby"> twitter</span></div><div class="line"> -<span class="ruby"> tagcloud</span></div><div class="line"> -<span class="ruby"> recent_posts</span></div></pre></td></tr></table></figure>
-
-<h1 id="创建文件后在编辑器中打开">创建文件后在编辑器中打开</h1>
-<p>scripts/autoOpenNewPost.js</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(target)</span></span>{</div><div class="line">	spawn(<span class="string">'gvim'</span>, [target]);</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>使用<code>hexo new &quot;title&quot;</code>新建后会调用gvim打开新建的文件</p>
-<h1 id="read_more">read more</h1>
-<p>文章中添加<code>&lt;!--more--&gt;</code>可以实现read more功能。</p>
-<h1 id="重新部署问题">重新部署问题</h1>
-<p>修改后无法部署到github 删除 .deploy<br>删除tags 需要删除db.json</p>
-<p>pagination设置</p>
-<p>分页，设置每页显示10篇，archive，tag，category都激活每页10篇</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">per_page: <span class="number">10</span></div><div class="line"><span class="preprocessor"># Archives</span></div><div class="line"><span class="preprocessor">## 2: Enable pagination</span></div><div class="line"><span class="preprocessor">## 1: Disable pagination</span></div><div class="line"><span class="preprocessor">## 0: Fully Disable</span></div><div class="line">archive: <span class="number">2</span></div><div class="line">category: <span class="number">2</span></div><div class="line">tag: <span class="number">2</span></div></pre></td></tr></table></figure>
-
-<h1 id="widget增加日历">widget增加日历</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/howiefh/hexo-calendar.git</div></pre></td></tr></table></figure>
-
-<p>配置：<br>Add the following content in the _config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-calendar</div></pre></td></tr></table></figure>
-
-
-        
-          <p class="article-more-link">
-            <a href="/2014/10/30/hexo-config/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-	  
-	  <a data-url="http://yoursite.com/2014/10/30/hexo-config/" data-id="nfd636h3eyd8n3sd" data_title="hexo 配置" data_summary="设置google analytics
-在themes/..." class="article-share-link">Share</a>
-      
-
-      
-        <a href="http://yoursite.com/2014/10/30/hexo-config/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/10/30/hexo-config/">暂无评论</a>
-      
-	  
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-
-	  
-<span>
-更新日期:<time datetime="2014-11-11T13:50:48.000Z" itemprop="dateModified">11月 11 2014</time>
-</span>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-esay-markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-<a href="/2014/10/30/esay-markdown/" class="article-date">
-  <time datetime="2014-10-30T12:10:34.000Z" itemprop="datePublished">10月 30 2014</time>
-</a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/30/esay-markdown/">轻松搞定Markdown</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/2.jpg" alt=""></p>
-<h3 id="为什么学习Markdown？">为什么学习Markdown？</h3>
-<p>别问为什么，尽管学习就好了。这么简单的东西，一会就能学会，受益可能终生，太值了。</p>
-<h3 id="怎么学习Markdown？">怎么学习Markdown？</h3>
-<p>我认为最好的方法是通过示例，本文正式采用这样的方法。</p>
-<h3 id="在哪可以使用Markdown？">在哪可以使用Markdown？</h3>
-<p>你可以在<a href="http://www.jianshu.com/" target="_blank" rel="external">简书</a>、<a href="http://logdown.com/" target="_blank" rel="external">Logdown</a>这样的免费平台用Markdown写博客。如果你愿意折腾，也可以像我一样，使用hexo搭建自己的博客，并用Markdown书写博客。<br>怎样开始？打开<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">这个网址</a>，把下面学到的东西在这个里面练习。左侧是Markdown，右侧是实时的显示。<br>还要注意什么？一个效果，有时候可以通过不同的方式生成，比如无序列表可以用<code>- + *</code>。本文从实践出发，只列举最好用的一种。读者也只需要学习一种。<br>以下是Markdown代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="header">#这里是一级标题</span></div><div class="line"><span class="header">###这里是三级标题</span></div><div class="line"><span class="header">######这里是六级标题，就到这里了，木有七级！</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">段落前面没有缩进，看到了吧。</div><div class="line"></div><div class="line">　　要想使用缩进，在中文输入法中改成「全角」输入，再按两个空格</div><div class="line"></div><div class="line">行尾一个回车换行，显示效果依然是是一行。</div><div class="line">我说的对吧~</div><div class="line"></div><div class="line">想要分成两行，需要在行尾输入两个空格。  </div><div class="line">我说的对吧~</div><div class="line"></div><div class="line">想要开始一个新的段落，乖乖的按两下回车吧</div><div class="line"></div><div class="line">我说的对吧~</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="strong">**两个星号包围的是粗体**</span></div><div class="line"></div><div class="line"><span class="emphasis">*一个星号包围的是斜体*</span></div><div class="line"></div><div class="line"><span class="blockquote">&gt; 引用内容，多行的话，用两个空格结尾吧  </span></div><div class="line">是吧~</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="code">`反引号包围的是行内代码`</span>，这个按键在「Tab」上边</div><div class="line"></div><div class="line"><span class="code">``嵌套的话，可以使用`</span>两个双引号<span class="code">`嵌套在外面`</span>`</div><div class="line"></div><div class="line"><span class="header">#三个反引号包围的是代码块。</span></div><div class="line"><span class="header">#会显示行号。</span></div><div class="line"><span class="header">#也有高亮显示</span></div><div class="line"><span class="header">#我上面加了python，你也可以不加。如果不能高亮，那么还是加上吧。。另外，如果你的代码块包围的是html，那你应该写html而不是python</span></div><div class="line">import os</div><div class="line">print os.sep</div><div class="line"></div><div class="line">嵌套的话，可以使用六个反引号嵌套在外面。</div><div class="line"><span class="bullet">1. </span>有序列表1，注意点之后的空格。</div><div class="line"><span class="bullet">2. </span>有序列表2.</div><div class="line"><span class="bullet">1. </span>我这里写成1，在显示时还是3，厉害不。</div><div class="line"></div><div class="line"><span class="bullet">1. </span>有序列表1</div><div class="line"> 详细内容，注意前面有一个空格</div><div class="line"><span class="bullet">2. </span>有序列表2</div><div class="line"> 详细内容</div><div class="line"></div><div class="line"><span class="bullet">- </span>无序列表1</div><div class="line"><span class="bullet">- </span>无序列表2</div><div class="line"><span class="bullet">- </span>无序列表3</div><div class="line"> - 小1，注意前面有一个空格</div><div class="line"> - 小2</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">超级链接：[<span class="link_label">我的博客</span>](<span class="link_url">http://zipperary.com</span>)</div><div class="line"></div><div class="line">插入图片：![<span class="link_label">好看不</span>](<span class="link_url">http://ww2.sinaimg.cn/large/5e8cb366jw1e62o63tkv3j20dh078q5a.jpg</span>)</div><div class="line"></div><div class="line">另外，markdown完全兼容html，你可以用html插入这些东西，例如：</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">height</span>=<span class="value">498</span> <span class="attribute">width</span>=<span class="value">510</span> <span class="attribute">src</span>=<span class="value">"http://player.youku.com/embed/XMjI2MjU3MDMy"</span> <span class="attribute">frameborder</span>=<span class="value">0</span> <span class="attribute">allowfullscreen</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line">~~删除线~~</div><div class="line"></div><div class="line"></div><div class="line">分割线用<span class="code">`---`</span>，注意单独一样，上面必须是一个空行</div><div class="line"></div><div class="line"><span class="horizontal_rule">---</span></div><div class="line"></div><div class="line">更多高级的格式，请果断插入html标签</div></pre></td></tr></table></figure>
-
-<p>以下到结尾处是效果：</p>
-<h1 id="这里是一级标题">这里是一级标题</h1>
-<h3 id="这里是三级标题">这里是三级标题</h3>
-<h6 id="这里是六级标题，就到这里了，木有七级！">这里是六级标题，就到这里了，木有七级！</h6>
-<p>段落前面没有缩进，看到了吧。</p>
-<p>　　要想使用缩进，在中文输入法中改成「全角」输入，再按两个空格</p>
-<p>行尾一个回车换行，显示效果依然是是一行。<br>我说的对吧~</p>
-<p>想要分成两行，需要在行尾输入两个空格。<br>我说的对吧~</p>
-<p>想要开始一个新的段落，乖乖的按两下回车吧</p>
-<p>我说的对吧~</p>
-<p><strong>两个星号包围的是粗体</strong></p>
-<p><em>一个星号包围的是斜体</em></p>
-<blockquote>
-<p>引用内容，多行的话，用两个空格结尾吧<br>是吧~</p>
-</blockquote>
-<p><code>反引号包围的是行内代码</code>，这个按键在「Tab」上边</p>
-<p><code>嵌套的话，可以使用`两个双引号`嵌套在外面</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#三个反引号包围的是代码块。</span></div><div class="line"><span class="comment">#会显示行号。</span></div><div class="line"><span class="comment">#也有高亮显示</span></div><div class="line"><span class="comment">#我上面加了python，你也可以不加。如果不能高亮，那么还是加上吧。。另外，如果你的代码块包围的是html，那你应该写html而不是python</span></div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">print</span> os.sep</div></pre></td></tr></table></figure>
-
-<p>嵌套的话，可以使用六个反引号嵌套在外面。</p>
-<ol>
-<li>有序列表1，注意点之后的空格。</li>
-<li>有序列表2.</li>
-<li><p>我这里写成1，在显示时还是3，厉害不。</p>
-</li>
-<li><p>有序列表1<br>详细内容，注意前面有一个空格</p>
-</li>
-<li>有序列表2<br>详细内容</li>
-</ol>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
-<li>无序列表3<ul>
-<li>小1，注意前面有一个空格</li>
-<li>小2</li>
-</ul>
-</li>
-</ul>
-<p>超级链接：<a href="http://zipperary.com" target="_blank" rel="external">我的博客</a></p>
-<p>插入图片：<img src="http://ww2.sinaimg.cn/large/5e8cb366jw1e62o63tkv3j20dh078q5a.jpg" alt="好看不"><br>插入本地图片: <img src="/img/2.jpg" alt=""></p>
-<p>另外，markdown完全兼容html，你可以用html插入这些东西，例如：</p>
-<iframe height="498" width="510" src="http://player.youku.com/embed/XODEzNjgyNjQ4" frameborder="0" allowfullscreen></iframe>
-
-
-
-<p><del>删除线</del></p>
-<p>分割线用<code>---</code>，注意单独一样，上面必须是一个空行</p>
-<hr>
-<p>更多高级的格式，请果断插入html标签</p>
-<p>可以到这里学习更多关于markdown的相关知识：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a><br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/30/esay-markdown/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-	  
-	  <a data-url="http://yoursite.com/2014/10/30/esay-markdown/" data-id="0rhea2c7q5qtw4l4" data_title="轻松搞定Markdown" data_summary="
-为什么学习Markdown？
-别问为什么，尽管学习就..." class="article-share-link">Share</a>
-      
-
-      
-        <a href="http://yoursite.com/2014/10/30/esay-markdown/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/10/30/esay-markdown/">暂无评论</a>
-      
-	  
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-
-	  
-<span>
-更新日期:<time datetime="2014-10-30T14:08:47.000Z" itemprop="dateModified">10月 30 2014</time>
-</span>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -633,7 +655,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android-studio/">android_studio</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -643,7 +665,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓/">安卓</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -653,7 +675,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/linux/" style="font-size: 16.50px; color: #4dbc6f;">linux</a><a href="/tags/linux操作系统/" style="font-size: 13.00px; color: #7dc3de;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/淘宝，文章/" style="font-size: 16.50px; color: #4dbc6f;">淘宝，文章</a>
+      <a href="/tags/linux/" style="font-size: 15.33px; color: #5dbe94;">linux</a><a href="/tags/linux操作系统/" style="font-size: 13.00px; color: #7dc3de;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/安卓/" style="font-size: 17.67px; color: #3db94a;">安卓</a><a href="/tags/快捷键/" style="font-size: 15.33px; color: #5dbe94;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/测试/" style="font-size: 15.33px; color: #5dbe94;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 15.33px; color: #5dbe94;">淘宝，文章</a>
     </div>
   </div>
 
@@ -663,7 +685,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -846,6 +868,14 @@ new LGY_calendar('g-calendar');
       <ul>
         
           <li>
+            <a href="/2014/11/11/android-studio-guide-2/">AndroidStudio单元测试——instrumentation</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/11/android-studio-guide-1/">android_studio快捷键</a>
+          </li>
+        
+          <li>
             <a href="/2014/11/11/linux-guide/">linux-guide</a>
           </li>
         
@@ -855,14 +885,6 @@ new LGY_calendar('g-calendar');
         
           <li>
             <a href="/2014/10/31/taobaocode-guide/">taobaocode-guide</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/30/hexo-config/">hexo 配置</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/30/esay-markdown/">轻松搞定Markdown</a>
           </li>
         
       </ul>

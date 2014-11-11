@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo系列教程:（二）搭建hexo博客 | Vincent&#39;s Blog</title>
+  <title>AndroidStudio单元测试——instrumentation | Vincent&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo系列教程:（二）搭建hexo博客">
-<meta property="og:url" content="http://yoursite.com/2014/10/30/hexo-guide-2/">
+<meta property="og:title" content="AndroidStudio单元测试——instrumentation">
+<meta property="og:url" content="http://yoursite.com/2014/11/11/android-studio-guide-2/">
 <meta property="og:site_name" content="Vincent's Blog">
 <meta property="og:description">
-<meta property="og:image" content="/img/1.png">
+<meta property="og:image" content="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/02/vs1.png">
+<meta property="og:image" content="http://i0.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.26.20-PM.png">
+<meta property="og:image" content="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/instrumentationtest.png">
+<meta property="og:image" content="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/edit-configurations.png">
+<meta property="og:image" content="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.42.43-PM.png">
+<meta property="og:image" content="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.46.19-PM.png">
+<meta property="og:image" content="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.35.01-PM.png">
+<meta property="og:image" content="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/settings.png">
+<meta property="og:image" content="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/configurations.png">
+<meta property="og:image" content="http://i0.wp.com/rexstjohn.com/wp-content/uploads/2014/01/test-config.png">
+<meta property="og:image" content="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/test.png">
+<meta property="og:image" content="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-7.10.25-PM.png">
+<meta property="og:image" content="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/LogCat.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo系列教程:（二）搭建hexo博客">
+<meta name="twitter:title" content="AndroidStudio单元测试——instrumentation">
 <meta name="twitter:description">
 
   
@@ -73,17 +85,17 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hexo-guide-2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-android-studio-guide-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-<a href="/2014/10/30/hexo-guide-2/" class="article-date">
-  <time datetime="2014-10-30T10:51:10.000Z" itemprop="datePublished">10月 30 2014</time>
+<a href="/2014/11/11/android-studio-guide-2/" class="article-date">
+  <time datetime="2014-11-11T14:04:55.000Z" itemprop="datePublished">11月 11 2014</time>
 </a>
 
 
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+    <a class="article-category-link" href="/categories/android-studio/">android_studio</a>
   </div>
 
   </div>
@@ -94,7 +106,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo系列教程:（二）搭建hexo博客
+      AndroidStudio单元测试——instrumentation
     </h1>
   
 
@@ -106,56 +118,55 @@
 		<div id="toc" class="toc-article">
 			<h2 class="toc-title"><span>文章目录</span></h2>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Git"><span class="toc-number">1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建hexo文件夹"><span class="toc-number">4.</span> <span class="toc-text">创建hexo文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖包"><span class="toc-number">5.</span> <span class="toc-text">安装依赖包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地查看"><span class="toc-number">6.</span> <span class="toc-text">本地查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册Github账号"><span class="toc-number">7.</span> <span class="toc-text">注册Github账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建repository"><span class="toc-number">8.</span> <span class="toc-text">创建repository</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-number">8.1.</span> <span class="toc-text">部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bugs"><span class="toc-number">9.</span> <span class="toc-text">bugs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tips"><span class="toc-number">10.</span> <span class="toc-text">tips</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Enabling_Unit_Testing_In_Android_Studio"><span class="toc-number">1.</span> <span class="toc-text">Enabling Unit Testing In Android Studio</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating_Your_Unit_Testing_Folder"><span class="toc-number">2.</span> <span class="toc-text">Creating Your Unit Testing Folder</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#*REMEMBER*"><span class="toc-number">3.</span> <span class="toc-text">*REMEMBER*</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuring_The_Project_For_Unit_Testing"><span class="toc-number">4.</span> <span class="toc-text">Configuring The Project For Unit Testing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running_Our_Unit_Tests"><span class="toc-number">5.</span> <span class="toc-text">Running Our Unit Tests</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The_following_sources_were_helpful_in_compiling_this_article:"><span class="toc-number">6.</span> <span class="toc-text">The following sources were helpful in compiling this article:</span></a></li></ol>
 		
 		</div>
 		
-        <p><a href="http://vincent-wjj.github.io/2014/10/30/my-new-post/" target="_blank" rel="external">上一节</a>对hexo进行了简单介绍，本节来讲讲怎么搭建hexo博客。<br><strong>注意</strong>：本节教程只针对Windows用户</p>
-<h1 id="安装Git">安装Git</h1>
-<p>下载 msysgit 并执行即可完成安装。</p>
-<h1 id="安装Node-js">安装Node.js</h1>
-<p>在 Windows 环境下安装 Node.js 非常简单，仅须下载安装文件并执行即可完成安装。</p>
-<h1 id="安装hexo">安装hexo</h1>
-<p>利用 npm 命令即可安装。（在任意位置点击鼠标右键，选择Git bash）</p>
-<blockquote>
-<p>$ npm install -g hexo </p>
-<h1 id="创建hexo文件夹">创建hexo文件夹</h1>
-<p>安装完成后，在你喜爱的文件夹下（如H:\hexo），执行以下指令(在H:\hexo内点击鼠标右键，选择Git bash)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。<br>$ hexo init</p>
-</blockquote>
-<h1 id="安装依赖包">安装依赖包</h1>
-<blockquote>
-<p>$ npm install</p>
-</blockquote>
-<h1 id="本地查看">本地查看</h1>
-<p>现在我们已经搭建起本地的hexo博客了，执行以下命令(在H:\hexo)，然后到浏览器输入localhost:4000看看。</p>
-<blockquote>
-<p>1 hexo generate<br> 2 hexo server</p>
-</blockquote>
-<p>浏览器中输入设置：hexo_config.yml中<br>好了，至此，本地博客已经搭建起来了，只是本地哦，别人看不到的。下面，我们要部署到Github。</p>
-<h1 id="注册Github账号">注册Github账号</h1>
-<p>已有账号可以跳过，没有的，请<a href="https://github.com/" target="_blank" rel="external">在此</a>进行注册，很简单，这里就不介绍了。<br><img src="/img/1.png" alt=""></p>
-<h1 id="创建repository">创建repository</h1>
-<p>在自己Github主页右下角，创建一个新的repository。比如我的Github账号是vincent-wjj，那么我应该创建的repository名字应该是zippera.github.io。</p>
-<h2 id="部署">部署</h2>
-<p>编辑_config.yml(在H:\hexo下)。你在部署时，要把下面的vincent-wjj都换成你的账号名。</p>
-<blockquote>
-<p>deploy:<br>  type: github<br>  repository: <a href="https://github.com/vincent-wjj/vincent-wjj.github.io.git" target="_blank" rel="external">https://github.com/vincent-wjj/vincent-wjj.github.io.git</a><br>  branch: master</p>
-</blockquote>
-<p>执行下列指令即可完成部署。</p>
-<blockquote>
-<p>hexo generate<br>hexo deploy</p>
-</blockquote>
-<p><strong>注意</strong>：有些新用户需要设置 ssh，否则上述命令会失败。ssh 的介绍和设置方法请看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">官方教程</a>，不用担心，很简单。<br><strong>记住</strong>：每次修改本地文件后，需要hexo generate才能保存。每次使用命令时，都要在H:\hexo目录下。<br>Okay,我们的博客已经完全搭建起来了，在浏览器访问vincent-wjj.github.io就能看到你的成就了！</p>
-<h1 id="bugs">bugs</h1>
-<ol>
-<li>在github部署完成之后，马上访问可能出现404错误，这是正常的，（最多）等待十分钟左右就可以访问了。如果还不行，那很可能是 github 发送给你的验证邮件你没有打开看，据多方反映，验证后就没问题了。</li>
-<li>如果在hexo d之后出现fatal: ‘username.github.io’ does not appear to be a git repository，一是检查 repo 的名字是否合乎规范、是否含有大写字母、config.yml 中的 deploy 配置是否正确，二是把 git bash 关掉，重新打开再执行命令。</li>
-<li>出现乱码的，不要使用 windows 中的「记事本」打开并编辑文件，推荐使用 sublime text，很简单。如果已经在「记事本」中编辑过，需要使用 sublime text 转码为「utf8」。</li>
-<li>y</li>
-<li>遇到什么其他的问题，不妨删除.deploy 和db.json 再重新生成试一试。<h1 id="tips">tips</h1>
-hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo generate<br>hexo d == hexo deploy<br>hexo s == hexo server<br>hexo n == hexo new<br>在下一节中，我们会介绍如何配置自己的网站，如何撰写和发表文章。</li>
-</ol>
-<p>转载至：<a href="http://zipperary.com/2013/05/29/hexo-guide-2/" target="_blank" rel="external">http://zipperary.com/2013/05/29/hexo-guide-2/</a><br><a id="more"></a></p>
+        <p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/02/vs1.png" alt=""><br>This article covers the basics of using Android Unit Tests with Android Studio.</p>
+<h1 id="Enabling_Unit_Testing_In_Android_Studio">Enabling Unit Testing In Android Studio</h1>
+<p>Many guides out there will encourage you to add some lines  in your “build.gradle” to enable “instrument tests” and also tell you to include the Android testing libraries in your dependencies…</p>
+<p>This is completely unnecessary and you won’t need to worry about doing that.</p>
+<p>Android Studio supports Android Unit Tests natively and you can enable them by setting a few options in your project configuration.</p>
+<p>Note: There are several popular unit testing frameworks such as <code>Robolectric</code> for Android which involve more set up and configuration than what I cover here. I hope to write a guide on that topic in the future.</p>
+<h1 id="Creating_Your_Unit_Testing_Folder">Creating Your Unit Testing Folder</h1>
+<p>I like to keep my unit tests in my main project package e.g. “com.mypath.tests.” You can put your own tests  wherever  you want. To get started, create a new directory “tests” in your desired test location like so:<br><img src="http://i0.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.26.20-PM.png" alt=""></p>
+<p>Next, create a new class and name it “ExampleTest.” Have it inherit from “InstrumentationTestCase:”</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/instrumentationtest.png" alt=""></p>
+<p>Lets add a simple test which we know will fail:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span> <span class="keyword">extends</span> <span class="title">InstrumentationTestCase</span> </span>{</div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>() <span class="keyword">throws</span> Exception {</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> reality = <span class="number">5</span>;</div><div class="line">        assertEquals(expected, reality);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h1 id="*REMEMBER*"><strong>*</strong>REMEMBER<strong>*</strong></h1>
+<p><strong><em>All test methods MUST start with the “test-” prefix or Android Studio will not detect them as tests and you will get all kinds of weird errors and nothing will work.</em></strong></p>
+<h1 id="Configuring_The_Project_For_Unit_Testing">Configuring The Project For Unit Testing</h1>
+<p>Now that we have a test case which is doomed for failure, we must now run it.</p>
+<p>Start by clicking “Run -&gt; Edit Configurations.”</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/edit-configurations.png" alt=""></p>
+<p>Now select “+ -&gt; Android Tests” from the upper left hand corner and select “Android Tests” and name your new test configuration “test” or something equally relevant.</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.42.43-PM.png" alt=""></p>
+<p>This will create a new test project configuration like this:</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.46.19-PM.png" alt=""></p>
+<p>Select your current app module from the drop down menu.</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-6.35.01-PM.png" alt=""></p>
+<p>Next, select the “All in Package” option and navigate to your “test” folder you just created. You can also select “All in Module” and Android Studio will automatically find any test inside your whole Module! You can also get more specific and select “Class” or even “Method” option to narrow the scope of your testing down further.</p>
+<p>The results should look like this:</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/settings.png" alt=""></p>
+<p>I also like to set the run configuration to “Show Chooser” so I can decide how to run the tests when needed:</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/configurations.png" alt=""></p>
+<p>Now click “Apply” and then “Close.” You should now see your test cases as being a runnable project configuration in the bar across the top of your Android Studio instance.</p>
+<p><img src="http://i0.wp.com/rexstjohn.com/wp-content/uploads/2014/01/test-config.png" alt=""></p>
+<h1 id="Running_Our_Unit_Tests">Running Our Unit Tests</h1>
+<p>I use <code>Genymotion for everything</code>, so fire up your Genymotion instance and run the test.</p>
+<p>Put a break point next to the assertion line in the test case we just created and click the “run debug mode.” The purpose is to prove to ourselves that Android Studio is really running our Unit Test case.</p>
+<p><img src="http://i2.wp.com/rexstjohn.com/wp-content/uploads/2014/01/test.png" alt=""></p>
+<p>When you start your tests, you will now see a special testing display window “Running Tests…”</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/Screen-Shot-2014-01-24-at-7.10.25-PM.png" alt=""></p>
+<p>When your test fails, click “Logcat” and view the results for a comprehensive output as to why your test failed:</p>
+<p><img src="http://i1.wp.com/rexstjohn.com/wp-content/uploads/2014/01/LogCat.png" alt=""></p>
+<p>If you go through the console, you will find the given reason should be: “junit.framework.AssertionFailedError: expected:<1> but was:<5>”</5></1></p>
+<p>Congratulations, you have failed!</p>
+<h1 id="The_following_sources_were_helpful_in_compiling_this_article:">The following sources were helpful in compiling this article:</h1>
+<p><a href="http://mobilengineering.blogspot.com/2012/05/tdd-testing-asynctasks-on-android.html" target="_blank" rel="external">http://mobilengineering.blogspot.com/2012/05/tdd-testing-asynctasks-on-android.html</a><br><a href="http://www.vogella.com/tutorials/AndroidTesting/article.html" target="_blank" rel="external">http://www.vogella.com/tutorials/AndroidTesting/article.html</a><br><a href="http://nikolaj.hesselholtskov.dk/2013/10/how-to-add-unit-tests-to-android-studio.html" target="_blank" rel="external">http://nikolaj.hesselholtskov.dk/2013/10/how-to-add-unit-tests-to-android-studio.html</a></p>
+<p>转载自：<a href="http://rexstjohn.com/unit-testing-with-android-studio/" target="_blank" rel="external">http://rexstjohn.com/unit-testing-with-android-studio/</a></p>
 
       
     </div>
@@ -166,11 +177,11 @@ hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo gen
 	  <!-- 百度分享 End -->
 	  
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
 
 	  
 <span>
-更新日期:<time datetime="2014-10-30T12:41:42.000Z" itemprop="dateModified">10月 30 2014</time>
+更新日期:<time datetime="2014-11-11T14:22:16.000Z" itemprop="dateModified">11月 11 2014</time>
 </span>
 
 
@@ -180,19 +191,10 @@ hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo gen
     
 <nav id="article-nav">
   
-    <a href="/2014/10/30/hexo-guide-3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hexo系列教程:（三）hexo博客的配置、使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/10/30/hexo-guide-1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/11/11/android-studio-guide-1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">hexo系列教程：（一）hexo介绍</div>
+      <div class="article-nav-title">android_studio快捷键</div>
     </a>
   
 </nav>
@@ -203,7 +205,7 @@ hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo gen
 
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-hexo-guide-2" data-title="hexo系列教程:（二）搭建hexo博客" data-url="http://yoursite.com/2014/10/30/hexo-guide-2/"></div>
+    <div class="ds-thread" data-thread-key="post-android-studio-guide-2" data-title="AndroidStudio单元测试——instrumentation" data-url="http://yoursite.com/2014/11/11/android-studio-guide-2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -225,7 +227,7 @@ hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo gen
           
   <div id="toc" class="toc-aside">
   <h2 class="toc-title">文章目录</h2>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Git"><span class="toc-number">1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建hexo文件夹"><span class="toc-number">4.</span> <span class="toc-text">创建hexo文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖包"><span class="toc-number">5.</span> <span class="toc-text">安装依赖包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地查看"><span class="toc-number">6.</span> <span class="toc-text">本地查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册Github账号"><span class="toc-number">7.</span> <span class="toc-text">注册Github账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建repository"><span class="toc-number">8.</span> <span class="toc-text">创建repository</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-number">8.1.</span> <span class="toc-text">部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bugs"><span class="toc-number">9.</span> <span class="toc-text">bugs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tips"><span class="toc-number">10.</span> <span class="toc-text">tips</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Enabling_Unit_Testing_In_Android_Studio"><span class="toc-number">1.</span> <span class="toc-text">Enabling Unit Testing In Android Studio</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating_Your_Unit_Testing_Folder"><span class="toc-number">2.</span> <span class="toc-text">Creating Your Unit Testing Folder</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#*REMEMBER*"><span class="toc-number">3.</span> <span class="toc-text">*REMEMBER*</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuring_The_Project_For_Unit_Testing"><span class="toc-number">4.</span> <span class="toc-text">Configuring The Project For Unit Testing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running_Our_Unit_Tests"><span class="toc-number">5.</span> <span class="toc-text">Running Our Unit Tests</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The_following_sources_were_helpful_in_compiling_this_article:"><span class="toc-number">6.</span> <span class="toc-text">The following sources were helpful in compiling this article:</span></a></li></ol>
   </div>
 
 <aside id="sidebar">
@@ -362,9 +364,9 @@ LGY_calendar.prototype = {
             html+='<span class="g-calendar-grey">'+(last_date-(first_day-1)+i)+'</span>';
         }
         //本月的显示天数
-        var postdate = new Date("Thu Oct 30 2014 18:51:10 GMT+0800"); 
+        var postdate = new Date("Tue Nov 11 2014 22:04:55 GMT+0800"); 
 		if (true && postdate.getFullYear() == year && postdate.getMonth() == month) { 
-			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span><a href="/2014/10/30/hexo-guide-3/" title="当天有6篇博客,第一篇:hexo系列教程:（三）hexo博客的配置、使用">30</a></span><span><a href="/2014/10/31/taobaocode-guide/" title="当天有2篇博客,第一篇:taobaocode-guide">31</a></span>';
+			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span><a href="/2014/11/11/linux-guide/" title="当天有3篇博客,第一篇:linux-guide">11</a></span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>';
 		} else {
 			for(var j=0;j<final_date;j++){        
 				html+='<span id="d'+(j+1)+'">'+(j+1)+'</span>';
@@ -402,7 +404,7 @@ LGY_calendar.prototype = {
     back:function(){
         var _that = this;
         this.oBack.onclick = function(){
-            var postdate = new Date("Thu Oct 30 2014 18:51:10 GMT+0800"); 
+            var postdate = new Date("Tue Nov 11 2014 22:04:55 GMT+0800"); 
             _that.year = postdate.getFullYear();
             _that.month = postdate.getMonth();
             // 填充日历
