@@ -74,6 +74,121 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/10/30/hexo-config/" class="article-date">
+  <time datetime="2014-10-30T12:10:34.000Z" itemprop="datePublished">10月 30 2014</time>
+</a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/30/hexo-config/">hexo 配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="设置google_analytics">设置google analytics</h1>
+<p>在themes/light/_config.yml中添加<br>google_analytics: [id]<br>这里的id填上你自己的谷歌分析的id即可，比如：UA-<strong><em>**</em></strong>-*</p>
+<h1 id="sitemap">sitemap</h1>
+<p>安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-sitemap <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
+
+<p>激活<br>在 <code>_config.yml</code>中 <code>plugins</code>下添加 <code>hexo-generator-sitemap</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-sitemap</div></pre></td></tr></table></figure>
+
+<h1 id="rss">rss</h1>
+<p>安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-feed <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
+
+<p>激活<br>在 <code>_config.yml 中 plugins</code>下添加 <code>hexo-generator-feed</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-feed</div></pre></td></tr></table></figure>
+
+<p>在<code>themes/light/_config.yml</code>中添加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="label">menu:</span></div><div class="line">  RSS: /atom.xml</div></pre></td></tr></table></figure>
+
+<h1 id="添加菜单">添加菜单</h1>
+<p>themes/light/_config.yml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">menu</span>:</div><div class="line">   Home: /</div><div class="line">   Archives: /archives</div><div class="line">   GitHub: https:<span class="comment">//github.com/howiefh</span></div></pre></td></tr></table></figure>
+
+<h1 id="修改新建post的框架">修改新建post的框架</h1>
+<p>scaffolds/post.md</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: hexo后记</div><div class="line">date: Fri Feb 07 2014 10:15:39 GMT+0800 (CST)</div><div class="line">categories:</div><div class="line"><span class="header">tags:</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<h1 id="修改widgets">修改widgets</h1>
+<p>themes/light/_config.yml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">widgets: </div><div class="line"> -<span class="ruby"> search</span></div><div class="line"> -<span class="ruby"> category</span></div><div class="line"> -<span class="ruby"> tag</span></div><div class="line"> -<span class="ruby"> twitter</span></div><div class="line"> -<span class="ruby"> tagcloud</span></div><div class="line"> -<span class="ruby"> recent_posts</span></div></pre></td></tr></table></figure>
+
+<h1 id="创建文件后在编辑器中打开">创建文件后在编辑器中打开</h1>
+<p>scripts/autoOpenNewPost.js</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(target)</span></span>{</div><div class="line">	spawn(<span class="string">'gvim'</span>, [target]);</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>使用<code>hexo new &quot;title&quot;</code>新建后会调用gvim打开新建的文件</p>
+<h1 id="read_more">read more</h1>
+<p>文章中添加<code>&lt;!--more--&gt;</code>可以实现read more功能。</p>
+<h1 id="重新部署问题">重新部署问题</h1>
+<p>修改后无法部署到github 删除 .deploy<br>删除tags 需要删除db.json</p>
+<p>pagination设置</p>
+<p>分页，设置每页显示10篇，archive，tag，category都激活每页10篇</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">per_page: <span class="number">10</span></div><div class="line"><span class="preprocessor"># Archives</span></div><div class="line"><span class="preprocessor">## 2: Enable pagination</span></div><div class="line"><span class="preprocessor">## 1: Disable pagination</span></div><div class="line"><span class="preprocessor">## 0: Fully Disable</span></div><div class="line">archive: <span class="number">2</span></div><div class="line">category: <span class="number">2</span></div><div class="line">tag: <span class="number">2</span></div></pre></td></tr></table></figure>
+
+<h1 id="widget增加日历">widget增加日历</h1>
+<p>安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/howiefh/hexo-calendar.git</div></pre></td></tr></table></figure>
+
+<p>配置：<br>Add the following content in the _config.yml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-calendar</div></pre></td></tr></table></figure>
+
+
+        
+          <p class="article-more-link">
+            <a href="/2014/10/30/hexo-config/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <a data-url="http://yoursite.com/2014/10/30/hexo-config/" data-id="nfd636h3eyd8n3sd" data_title="hexo 配置" data_summary="设置google analytics
+在themes/..." class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://yoursite.com/2014/10/30/hexo-config/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/10/30/hexo-config/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+
+	  
+<span>
+更新日期:<time datetime="2014-10-30T13:09:51.000Z" itemprop="dateModified">10月 30 2014</time>
+</span>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-esay-markdown" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -470,90 +585,9 @@ hexo现在支持更加简单的命令格式了，比如：<br>hexo g == hexo gen
 
 
   
-    <article id="post-hexo-guide-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-<a href="/2014/10/30/hexo-guide-1/" class="article-date">
-  <time datetime="2014-10-30T10:26:25.000Z" itemprop="datePublished">10月 30 2014</time>
-</a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/30/hexo-guide-1/">hexo系列教程：（一）hexo介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="什么是hexo？">什么是hexo？</h1>
-<p>hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的@tommy351。引用@<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">tommy351</a>的话，hexo：</p>
-<blockquote>
-<p>快速、简单且功能强大的 Node.js博客框架。<br>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-</blockquote>
-<p>类似于jekyll、Octopress、Wordpress，我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。本博客即使用hexo创建并托管在github上。</p>
-<h1 id="为什么要用hexo">为什么要用hexo</h1>
-<blockquote>
-<p>还是引用下作者的话：<br>不可思议的快速 ─ 只要一眨眼静态文件即生成完成<br>支持 Markdown<br>仅需一道指令即可部署到 GitHub Pages 和 Heroku<br>已移植 Octopress 插件<br>高扩展性、自订性<br>兼容于 Windows, Mac &amp; Linux</p>
-</blockquote>
-<p>我再加几条：<br>1、易用。不仅部署简单，平时使用中仅需要&gt;hexo new hexo generate hexo server hexo deploy四个命令。不像Jekyll需要很多繁琐的git命令。<br>2、轻。文件少、小，易理解，方便自定义。<br>3、用户多。虽然赶不上Jekyll和Octopress，但遇到什么问题都能搜索到答案，或者找到同样使用hexo的用户进行参考和咨询。</p>
-<h1 id="谁能使用hexo">谁能使用hexo</h1>
-<p>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有<strong>一定计算机基础，喜欢折腾</strong>的人。但是，不要恐惧，只要跟着本教程走，就能很方便地让自己的博客”飞起来”。</p>
-<h1 id="怎样搭建hexo博客">怎样搭建hexo博客</h1>
-<p>正题来了，请期待下一节。</p>
-<h1 id="注意">注意</h1>
-<p>本系列相关博客均根据hexo1.1.3版本，但更高版本也几乎完全适用。各版本所做更新修正，请参考<a href="https://github.com/hexojs/hexo/releases" target="_blank" rel="external">这里</a>。</p>
-<p>本文转载自：<a href="http://zipperary.com/2013/05/28/hexo-guide-1/" target="_blank" rel="external">http://zipperary.com/2013/05/28/hexo-guide-1/</a><br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/30/hexo-guide-1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-	  
-	  <a data-url="http://yoursite.com/2014/10/30/hexo-guide-1/" data-id="vk2702lgxq99y7mp" data_title="hexo系列教程：（一）hexo介绍" data_summary="什么是hexo？
-hexo()是一个基于Node.js..." class="article-share-link">Share</a>
-      
-
-      
-        <a href="http://yoursite.com/2014/10/30/hexo-guide-1/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/10/30/hexo-guide-1/">暂无评论</a>
-      
-	  
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
-
-	  
-<span>
-更新日期:<time datetime="2014-10-30T12:41:22.000Z" itemprop="dateModified">10月 30 2014</time>
-</span>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -611,7 +645,7 @@ hexo()是一个基于Node.js..." class="article-share-link">Share</a>
   <div class="widget-wrap">
     <h3 class="widget-title">archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -794,11 +828,11 @@ new LGY_calendar('g-calendar');
       <ul>
         
           <li>
-            <a href="/2014/11/11/android-studio-quickkey/">(no title)</a>
+            <a href="/2014/11/11/android/">android</a>
           </li>
         
           <li>
-            <a href="/2014/10/31/linux-1/">(no title)</a>
+            <a href="/2014/11/11/android-studio-quickkey/">(no title)</a>
           </li>
         
           <li>
@@ -806,11 +840,11 @@ new LGY_calendar('g-calendar');
           </li>
         
           <li>
-            <a href="/2014/10/31/taobaocode-guide/">taobaocode-guide</a>
+            <a href="/2014/10/31/linux-1/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2014/10/30/hexo-config/">hexo 配置</a>
+            <a href="/2014/10/31/taobaocode-guide/">taobaocode-guide</a>
           </li>
         
       </ul>
