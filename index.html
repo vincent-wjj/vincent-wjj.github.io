@@ -74,6 +74,217 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-interview-guide-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/11/12/interview-guide-1/" class="article-date">
+  <time datetime="2014-11-12T12:06:27.000Z" itemprop="datePublished">11月 12 2014</time>
+</a>
+
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/12/interview-guide-1/">Java面试题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		<div id="toc" class="toc-article">
+			<h2 class="toc-title"><span>文章目录</span></h2>
+		
+			
+		
+		</div>
+		
+        <p>1、请写出四种访问修饰符成员使用范围的区别：<br>public：同一个类；同包；不同包子类；不同包非子类。<br>private：同一个类。<br>protected：同一个类；同包；不同包子类。<br>default：同一个类；同包。<br>2、对象题目<br>String s1 = new String(“小白”); 这句话会创建两个字符串对象，一个在堆中，一个在常量池中。<br>String s1 = new “小白”; 这句话最多创建一个字符串对象，有可能不用创建对象。<br>3、描述一下接口和抽象类的区别？<br>（1）抽象类是类，它的子类不能再继承其它类了，但可以实现一个和多个接口。接口不是类，它的子接口可以继承多个接口。<br>（2）抽象类中是可以有不用abstract修饰的方法,而接口中只能有抽象方法，即方法都要用abstract修饰。<br>（3）抽象类可以实现接口，而接口是不能继承或实现抽象类的。<br>有人说，接口类似于抽象类，这是指它提供的方法只有方法头，而抽象类也有这样的情况。<br>但实际上，区别是很大的，接口提供了一种JAVA中类不能多继承时引起的不便的一种解决方案，提高了灵活性。同时，接更有利于实现程序的扩展。<br>还有这样回答：<br>    1.abstract class 在 Java 语言中表示的是一种继承关系，一个类只能使用一次继承关系。但是，一个类却可以实现多个interface。<br>    2.在abstract class 中可以有自己的数据成员，也可以有非abstarct的成员方法，而在interface中，只能够有静态的不能被修改的数据成员（也就是必须是static final的，不过在 interface中一般不定义数据成员），所有的成员方法都是abstract的。<br>    3.abstract class和interface所反映出的设计理念不同。其实abstract class表示的是”is-a”关系，interface表示的是”like-a”关系。<br>    4.实现抽象类和接口的类必须实现其中的所有方法。抽象类中可以有非抽象方法。接口中则不能有实现方法。<br>    5.接口中定义的变量默认是public static final 型，且必须给其初值，所以实现类中不能重新定义，也不能改变其值。<br>    6.抽象类中的变量默认是 friendly 型，其值可以在子类中重新定义，也可以重新赋值。<br>    7.接口中的方法默认都是 public,abstract 类型的。<br>4、java编程:<br>    (1)字符串this is a test 倒序输出 test is a this<br>    public class Main{<br>    public static void main(String[] args){<br>        String str = “this is a test”;</p>
+<pre><code>    String[] words = str.trim().split(<span class="string">" "</span>);<span class="comment">//去掉前后得空白后以空格为界线来分割，分割之后从入道一个数组中</span>
+
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = words.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--){
+    System.<span class="keyword">out</span>.print(words[i]+<span class="string">" "</span>);
+}
+}
+}
+
+<span class="keyword">public</span> <span class="keyword">string</span> <span class="title">ReverseString</span>(<span class="keyword">string</span> s)
+{
+       <span class="keyword">string</span>[] strs = s.split(<span class="string">" "</span>);
+       StringBuilder sb  = <span class="keyword">new</span> StringBuilder();
+       <span class="keyword">for</span> ( <span class="keyword">int</span> i= strs.length-<span class="number">1</span>;i&gt;= <span class="number">0</span>;i--)
+         {
+              sb.append(strs[i]);
+              sb.append(<span class="string">" "</span>);
+          }
+         <span class="keyword">return</span> sb.Tostring();
+}
+
+(<span class="number">2</span>)将给定的一字符串倒序输出。 
+import java.io.BufferedReader; 
+import java.io.IOException;  
+import java.io.InputStreamReader;   
+<span class="keyword">public</span> <span class="keyword">class</span> charDemo {    
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args){        
+BufferedReader br = <span class="keyword">null</span>;      
+String s = <span class="string">""</span>;      
+String s1 = <span class="string">""</span>;        
+<span class="keyword">try</span>{             
+br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.<span class="keyword">in</span>));          
+System.<span class="keyword">out</span>.println(<span class="string">"请输入字符并以回车结束:"</span>); <span class="comment">//读入键盘输入        </span>
+s = br.readLine();         
+StringBuffer ss = <span class="keyword">new</span> StringBuffer(s);        
+ss.reverse();<span class="comment">//StringBuffer类的逆序函数        </span>
+s1 = ss.toString();         
+System.<span class="keyword">out</span>.println(<span class="string">"你输入的是："</span> + s);        
+System.<span class="keyword">out</span>.println(<span class="string">"逆序以后是："</span> + s1);      
+} <span class="keyword">catch</span> (IOException e){        
+e.printStackTrace();      
+} <span class="keyword">catch</span> (Exception e){        
+e.printStackTrace();      
+} <span class="keyword">finally</span>{        
+<span class="keyword">try</span>{           
+br.close();         
+}<span class="keyword">catch</span>(Exception e){          
+e.printStackTrace();        
+}      
+}    
+} 
+
+(<span class="number">3</span>)字符串i love you very much 输出  i evol uoy yrev hcum 
+<span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">ReverseString</span>(String s)
+{
+       String[] strs = s.split(<span class="string">" "</span>);
+       StringBuilder sb  = <span class="keyword">new</span> StringBuilder();
+       <span class="keyword">for</span> ( <span class="keyword">int</span> i= <span class="number">0</span>;i&lt;=strs.length-<span class="number">1</span>;i++)
+         {
+
+              StringBuffer sb1 = <span class="keyword">new</span> StringBuffer(strs[i]);
+              sb1.reverse();
+              sb.append(sb1);
+              sb.append(<span class="string">" "</span>);
+          }
+
+       <span class="keyword">return</span> sb.toString();
+}
+(<span class="number">4</span>)java二叉树实现
+<span class="keyword">public</span> <span class="keyword">class</span> BinaryTree {
+
+<span class="keyword">private</span> Node root;<span class="comment">//根节点</span>
+
+<span class="comment">//添加节点，提供给类外部调用</span>
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="keyword">int</span> data){
+    <span class="keyword">if</span>(root==<span class="keyword">null</span>){
+        root = <span class="keyword">new</span> Node(data);
+    }<span class="keyword">else</span>{
+        root.addNode(data);
+    }
+}
+
+<span class="comment">//输出节点，提供给类外部调用</span>
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span>(){
+    <span class="keyword">if</span>(root!=<span class="keyword">null</span>){
+        root.printNode();
+    }
+}
+
+
+
+<span class="comment">//节点类</span>
+class Node{
+
+    <span class="keyword">private</span> <span class="keyword">int</span> data;<span class="comment">//当前节点数据</span>
+    <span class="keyword">private</span> Node left;<span class="comment">//左子树</span>
+    <span class="keyword">private</span> Node right;<span class="comment">//右子树</span>
+    <span class="keyword">public</span> <span class="title">Node</span>(<span class="keyword">int</span> data){
+        <span class="keyword">this</span>.data = data;
+    }        
+    <span class="comment">//添加节点</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNode</span>(<span class="keyword">int</span> data){
+        <span class="keyword">if</span>(<span class="keyword">this</span>.data&gt;data){
+            <span class="keyword">if</span>(<span class="keyword">this</span>.left==<span class="keyword">null</span>){
+                <span class="keyword">this</span>.left = <span class="keyword">new</span> Node(data);
+            }<span class="keyword">else</span>{
+                <span class="keyword">this</span>.left.addNode(data);
+            }
+        }<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.data&lt;=data){
+            <span class="keyword">if</span>(<span class="keyword">this</span>.right==<span class="keyword">null</span>){
+                <span class="keyword">this</span>.right = <span class="keyword">new</span> Node(data);
+            }<span class="keyword">else</span>{
+                <span class="keyword">this</span>.right.addNode(data);
+            }
+        }
+    }
+    <span class="comment">//输出节点(中序遍历：左根右)</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printNode</span>(){
+        <span class="keyword">if</span>(<span class="keyword">this</span>.left!=<span class="keyword">null</span>){
+            <span class="keyword">this</span>.left.printNode();
+        }
+        System.<span class="keyword">out</span>.print(<span class="keyword">this</span>.data+<span class="string">" "</span>);
+        <span class="keyword">if</span>(<span class="keyword">this</span>.right!=<span class="keyword">null</span>){
+            <span class="keyword">this</span>.right.printNode();
+        }
+    }
+}
+</code></pre><p>}</p>
+<pre><code><span class="javadoc">/**
+ * 二叉树实现
+ *<span class="javadoctag"> @author</span> lamp
+ *
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryTreeDemo</span> </span>{
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args) {
+        BinaryTree bt = <span class="keyword">new</span> BinaryTree();
+        bt.add(<span class="number">8</span>);
+        bt.add(<span class="number">3</span>);
+        bt.add(<span class="number">10</span>);
+        bt.add(<span class="number">1</span>);
+        bt.add(<span class="number">6</span>);
+        bt.add(<span class="number">14</span>);
+        bt.add(<span class="number">4</span>);
+        bt.add(<span class="number">7</span>);
+        bt.add(<span class="number">13</span>);
+
+        bt.print();
+    }
+
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <a data-url="http://yoursite.com/2014/11/12/interview-guide-1/" data-id="qhg44sztbwsvdzt1" data_title="Java面试题目" data_summary="1、请写出四种访问修饰符成员使用范围的区别：publi..." class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://yoursite.com/2014/11/12/interview-guide-1/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/11/12/interview-guide-1/">暂无评论</a>
+      
+	  
+      
+	  
+<span>
+更新日期:<time datetime="2014-11-12T14:10:07.000Z" itemprop="dateModified">11月 12 2014</time>
+</span>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-android-studio-guide-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -559,72 +770,6 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
 
 
   
-    <article id="post-taobaocode-guide" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-<a href="/2014/10/31/taobaocode-guide/" class="article-date">
-  <time datetime="2014-10-31T12:18:55.000Z" itemprop="datePublished">10月 31 2014</time>
-</a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/taobaoCode/">taobaoCode</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/31/taobaocode-guide/">taobaocode-guide</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-		
-		<div id="toc" class="toc-article">
-			<h2 class="toc-title"><span>文章目录</span></h2>
-		
-			
-		
-		</div>
-		
-        
-      
-    </div>
-    <footer class="article-footer">
-	  
-	  <a data-url="http://yoursite.com/2014/10/31/taobaocode-guide/" data-id="k2vzjc0kk12p0vz4" data_title="taobaocode-guide" data_summary="" class="article-share-link">Share</a>
-      
-
-      
-        <a href="http://yoursite.com/2014/10/31/taobaocode-guide/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/10/31/taobaocode-guide/">暂无评论</a>
-      
-	  
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a></li></ul>
-
-	  
-<span>
-更新日期:<time datetime="2014-10-31T12:19:33.000Z" itemprop="dateModified">10月 31 2014</time>
-</span>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -685,7 +830,7 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
   <div class="widget-wrap">
     <h3 class="widget-title">archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -868,6 +1013,10 @@ new LGY_calendar('g-calendar');
       <ul>
         
           <li>
+            <a href="/2014/11/12/interview-guide-1/">Java面试题目</a>
+          </li>
+        
+          <li>
             <a href="/2014/11/11/android-studio-guide-2/">AndroidStudio单元测试——instrumentation</a>
           </li>
         
@@ -881,10 +1030,6 @@ new LGY_calendar('g-calendar');
         
           <li>
             <a href="/2014/10/31/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/31/taobaocode-guide/">taobaocode-guide</a>
           </li>
         
       </ul>

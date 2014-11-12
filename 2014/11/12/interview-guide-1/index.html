@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Vincent&#39;s Blog</title>
+  <title>Java面试题目 | Vincent&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2014/10/31/hello-world/">
+<meta property="og:title" content="Java面试题目">
+<meta property="og:url" content="http://yoursite.com/2014/11/12/interview-guide-1/">
 <meta property="og:site_name" content="Vincent's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
+<meta name="twitter:title" content="Java面试题目">
 <meta name="twitter:description">
 
   
@@ -72,11 +72,11 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-interview-guide-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-<a href="/2014/10/31/hello-world/" class="article-date">
-  <time datetime="2014-10-31T12:41:47.000Z" itemprop="datePublished">10月 31 2014</time>
+<a href="/2014/11/12/interview-guide-1/" class="article-date">
+  <time datetime="2014-11-12T12:06:27.000Z" itemprop="datePublished">11月 12 2014</time>
 </a>
 
 
@@ -89,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Java面试题目
     </h1>
   
 
@@ -101,29 +101,162 @@
 		<div id="toc" class="toc-article">
 			<h2 class="toc-title"><span>文章目录</span></h2>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+			
 		
 		</div>
 		
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+        <p>1、请写出四种访问修饰符成员使用范围的区别：<br>public：同一个类；同包；不同包子类；不同包非子类。<br>private：同一个类。<br>protected：同一个类；同包；不同包子类。<br>default：同一个类；同包。<br>2、对象题目<br>String s1 = new String(“小白”); 这句话会创建两个字符串对象，一个在堆中，一个在常量池中。<br>String s1 = new “小白”; 这句话最多创建一个字符串对象，有可能不用创建对象。<br>3、描述一下接口和抽象类的区别？<br>（1）抽象类是类，它的子类不能再继承其它类了，但可以实现一个和多个接口。接口不是类，它的子接口可以继承多个接口。<br>（2）抽象类中是可以有不用abstract修饰的方法,而接口中只能有抽象方法，即方法都要用abstract修饰。<br>（3）抽象类可以实现接口，而接口是不能继承或实现抽象类的。<br>有人说，接口类似于抽象类，这是指它提供的方法只有方法头，而抽象类也有这样的情况。<br>但实际上，区别是很大的，接口提供了一种JAVA中类不能多继承时引起的不便的一种解决方案，提高了灵活性。同时，接更有利于实现程序的扩展。<br>还有这样回答：<br>    1.abstract class 在 Java 语言中表示的是一种继承关系，一个类只能使用一次继承关系。但是，一个类却可以实现多个interface。<br>    2.在abstract class 中可以有自己的数据成员，也可以有非abstarct的成员方法，而在interface中，只能够有静态的不能被修改的数据成员（也就是必须是static final的，不过在 interface中一般不定义数据成员），所有的成员方法都是abstract的。<br>    3.abstract class和interface所反映出的设计理念不同。其实abstract class表示的是”is-a”关系，interface表示的是”like-a”关系。<br>    4.实现抽象类和接口的类必须实现其中的所有方法。抽象类中可以有非抽象方法。接口中则不能有实现方法。<br>    5.接口中定义的变量默认是public static final 型，且必须给其初值，所以实现类中不能重新定义，也不能改变其值。<br>    6.抽象类中的变量默认是 friendly 型，其值可以在子类中重新定义，也可以重新赋值。<br>    7.接口中的方法默认都是 public,abstract 类型的。<br>4、java编程:<br>    (1)字符串this is a test 倒序输出 test is a this<br>    public class Main{<br>    public static void main(String[] args){<br>        String str = “this is a test”;</p>
+<pre><code>    String[] words = str.trim().split(<span class="string">" "</span>);<span class="comment">//去掉前后得空白后以空格为界线来分割，分割之后从入道一个数组中</span>
 
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = words.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--){
+    System.<span class="keyword">out</span>.print(words[i]+<span class="string">" "</span>);
+}
+}
+}
 
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<span class="keyword">public</span> <span class="keyword">string</span> <span class="title">ReverseString</span>(<span class="keyword">string</span> s)
+{
+       <span class="keyword">string</span>[] strs = s.split(<span class="string">" "</span>);
+       StringBuilder sb  = <span class="keyword">new</span> StringBuilder();
+       <span class="keyword">for</span> ( <span class="keyword">int</span> i= strs.length-<span class="number">1</span>;i&gt;= <span class="number">0</span>;i--)
+         {
+              sb.append(strs[i]);
+              sb.append(<span class="string">" "</span>);
+          }
+         <span class="keyword">return</span> sb.Tostring();
+}
 
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+(<span class="number">2</span>)将给定的一字符串倒序输出。 
+import java.io.BufferedReader; 
+import java.io.IOException;  
+import java.io.InputStreamReader;   
+<span class="keyword">public</span> <span class="keyword">class</span> charDemo {    
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args){        
+BufferedReader br = <span class="keyword">null</span>;      
+String s = <span class="string">""</span>;      
+String s1 = <span class="string">""</span>;        
+<span class="keyword">try</span>{             
+br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.<span class="keyword">in</span>));          
+System.<span class="keyword">out</span>.println(<span class="string">"请输入字符并以回车结束:"</span>); <span class="comment">//读入键盘输入        </span>
+s = br.readLine();         
+StringBuffer ss = <span class="keyword">new</span> StringBuffer(s);        
+ss.reverse();<span class="comment">//StringBuffer类的逆序函数        </span>
+s1 = ss.toString();         
+System.<span class="keyword">out</span>.println(<span class="string">"你输入的是："</span> + s);        
+System.<span class="keyword">out</span>.println(<span class="string">"逆序以后是："</span> + s1);      
+} <span class="keyword">catch</span> (IOException e){        
+e.printStackTrace();      
+} <span class="keyword">catch</span> (Exception e){        
+e.printStackTrace();      
+} <span class="keyword">finally</span>{        
+<span class="keyword">try</span>{           
+br.close();         
+}<span class="keyword">catch</span>(Exception e){          
+e.printStackTrace();        
+}      
+}    
+} 
 
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+(<span class="number">3</span>)字符串i love you very much 输出  i evol uoy yrev hcum 
+<span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">ReverseString</span>(String s)
+{
+       String[] strs = s.split(<span class="string">" "</span>);
+       StringBuilder sb  = <span class="keyword">new</span> StringBuilder();
+       <span class="keyword">for</span> ( <span class="keyword">int</span> i= <span class="number">0</span>;i&lt;=strs.length-<span class="number">1</span>;i++)
+         {
 
+              StringBuffer sb1 = <span class="keyword">new</span> StringBuffer(strs[i]);
+              sb1.reverse();
+              sb.append(sb1);
+              sb.append(<span class="string">" "</span>);
+          }
+
+       <span class="keyword">return</span> sb.toString();
+}
+(<span class="number">4</span>)java二叉树实现
+<span class="keyword">public</span> <span class="keyword">class</span> BinaryTree {
+
+<span class="keyword">private</span> Node root;<span class="comment">//根节点</span>
+
+<span class="comment">//添加节点，提供给类外部调用</span>
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span>(<span class="keyword">int</span> data){
+    <span class="keyword">if</span>(root==<span class="keyword">null</span>){
+        root = <span class="keyword">new</span> Node(data);
+    }<span class="keyword">else</span>{
+        root.addNode(data);
+    }
+}
+
+<span class="comment">//输出节点，提供给类外部调用</span>
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span>(){
+    <span class="keyword">if</span>(root!=<span class="keyword">null</span>){
+        root.printNode();
+    }
+}
+
+
+
+<span class="comment">//节点类</span>
+class Node{
+
+    <span class="keyword">private</span> <span class="keyword">int</span> data;<span class="comment">//当前节点数据</span>
+    <span class="keyword">private</span> Node left;<span class="comment">//左子树</span>
+    <span class="keyword">private</span> Node right;<span class="comment">//右子树</span>
+    <span class="keyword">public</span> <span class="title">Node</span>(<span class="keyword">int</span> data){
+        <span class="keyword">this</span>.data = data;
+    }        
+    <span class="comment">//添加节点</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNode</span>(<span class="keyword">int</span> data){
+        <span class="keyword">if</span>(<span class="keyword">this</span>.data&gt;data){
+            <span class="keyword">if</span>(<span class="keyword">this</span>.left==<span class="keyword">null</span>){
+                <span class="keyword">this</span>.left = <span class="keyword">new</span> Node(data);
+            }<span class="keyword">else</span>{
+                <span class="keyword">this</span>.left.addNode(data);
+            }
+        }<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.data&lt;=data){
+            <span class="keyword">if</span>(<span class="keyword">this</span>.right==<span class="keyword">null</span>){
+                <span class="keyword">this</span>.right = <span class="keyword">new</span> Node(data);
+            }<span class="keyword">else</span>{
+                <span class="keyword">this</span>.right.addNode(data);
+            }
+        }
+    }
+    <span class="comment">//输出节点(中序遍历：左根右)</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printNode</span>(){
+        <span class="keyword">if</span>(<span class="keyword">this</span>.left!=<span class="keyword">null</span>){
+            <span class="keyword">this</span>.left.printNode();
+        }
+        System.<span class="keyword">out</span>.print(<span class="keyword">this</span>.data+<span class="string">" "</span>);
+        <span class="keyword">if</span>(<span class="keyword">this</span>.right!=<span class="keyword">null</span>){
+            <span class="keyword">this</span>.right.printNode();
+        }
+    }
+}
+</code></pre><p>}</p>
+<pre><code><span class="javadoc">/**
+ * 二叉树实现
+ *<span class="javadoctag"> @author</span> lamp
+ *
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryTreeDemo</span> </span>{
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args) {
+        BinaryTree bt = <span class="keyword">new</span> BinaryTree();
+        bt.add(<span class="number">8</span>);
+        bt.add(<span class="number">3</span>);
+        bt.add(<span class="number">10</span>);
+        bt.add(<span class="number">1</span>);
+        bt.add(<span class="number">6</span>);
+        bt.add(<span class="number">14</span>);
+        bt.add(<span class="number">4</span>);
+        bt.add(<span class="number">7</span>);
+        bt.add(<span class="number">13</span>);
+
+        bt.print();
+    }
+
+}
+</code></pre>
       
     </div>
     <footer class="article-footer">
@@ -135,7 +268,7 @@
       
 	  
 <span>
-更新日期:<time datetime="2014-10-30T09:04:51.000Z" itemprop="dateModified">10月 30 2014</time>
+更新日期:<time datetime="2014-11-12T14:10:07.000Z" itemprop="dateModified">11月 12 2014</time>
 </span>
 
 
@@ -145,19 +278,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/11/11/linux-guide/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          linux-guide
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/10/31/taobaocode-guide/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/11/11/android-studio-guide-2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">taobaocode-guide</div>
+      <div class="article-nav-title">AndroidStudio单元测试——instrumentation</div>
     </a>
   
 </nav>
@@ -168,7 +292,7 @@
 
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-hello-world" data-title="Hello World" data-url="http://yoursite.com/2014/10/31/hello-world/"></div>
+    <div class="ds-thread" data-thread-key="post-interview-guide-1" data-title="Java面试题目" data-url="http://yoursite.com/2014/11/12/interview-guide-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -190,7 +314,7 @@
           
   <div id="toc" class="toc-aside">
   <h2 class="toc-title">文章目录</h2>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  
   </div>
 
 <aside id="sidebar">
@@ -327,9 +451,9 @@ LGY_calendar.prototype = {
             html+='<span class="g-calendar-grey">'+(last_date-(first_day-1)+i)+'</span>';
         }
         //本月的显示天数
-        var postdate = new Date("Fri Oct 31 2014 20:41:47 GMT+0800"); 
+        var postdate = new Date("Wed Nov 12 2014 20:06:27 GMT+0800"); 
 		if (true && postdate.getFullYear() == year && postdate.getMonth() == month) { 
-			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span><a href="/2014/10/30/hexo-guide-3/" title="当天有6篇博客,第一篇:hexo系列教程:（三）hexo博客的配置、使用">30</a></span><span><a href="/2014/10/31/taobaocode-guide/" title="当天有2篇博客,第一篇:taobaocode-guide">31</a></span>';
+			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span><a href="/2014/11/11/linux-guide/" title="当天有3篇博客,第一篇:linux-guide">11</a></span><span><a href="/2014/11/12/interview-guide-1/" title="Java面试题目">12</a></span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>';
 		} else {
 			for(var j=0;j<final_date;j++){        
 				html+='<span id="d'+(j+1)+'">'+(j+1)+'</span>';
@@ -367,7 +491,7 @@ LGY_calendar.prototype = {
     back:function(){
         var _that = this;
         this.oBack.onclick = function(){
-            var postdate = new Date("Fri Oct 31 2014 20:41:47 GMT+0800"); 
+            var postdate = new Date("Wed Nov 12 2014 20:06:27 GMT+0800"); 
             _that.year = postdate.getFullYear();
             _that.month = postdate.getMonth();
             // 填充日历
