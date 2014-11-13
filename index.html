@@ -74,6 +74,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Java-I-O" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/11/13/Java-I-O/" class="article-date">
+  <time datetime="2014-11-13T12:04:00.000Z" itemprop="datePublished">11月 13 2014</time>
+</a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/13/Java-I-O/">Java I/O流整理分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		<div id="toc" class="toc-article">
+			<h2 class="toc-title"><span>文章目录</span></h2>
+		
+			
+		
+		</div>
+		
+        <p>Java中的流，可以从不同的角度进行分类。<br>按照数据流的方向不同可以分为：输入流和输出流。<br>按照处理数据单位不同可以分为：字节流和字符流。<br>按照实现功能不同可以分为：节点流和处理流。</p>
+<p>输出流：<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332493808Gv0r.gif" alt=""><br>输入流：<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332493796QEdV.gif" alt=""><br>因此输入和输出都是从程序的角度来说的。<br><strong>字节流</strong>：一次读入或读出是8位二进制。<br><strong>字符流</strong>：一次读入或读出是16位二进制。<br>字节流和字符流的原理是相同的，只不过处理的单位不同而已。后缀是<code>Stream</code>是字节流，而后缀是<code>Reader</code>，<code>Writer</code>是字符流。</p>
+<p>节点流：直接与数据源相连，读入或读出。<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332494121hUHK.gif" alt=""><br>直接使用节点流，读写不方便，为了更快的读写文件，才有了处理流。<br>处理流：与节点流一块使用，在节点流的基础上，再套接一层，套接在节点流上的就是处理流。</p>
+<p><img src="http://hi.csdn.net/attachment/201203/23/0_1332494112YBmp.gif" alt=""></p>
+<p>Jdk提供的流继承了四大类：<code>InputStream</code>(字节输入流)，<code>OutputStream</code>（字节输出流），<code>Reader</code>（字符输入流），<code>Writer</code>（字符输出流）。<br>以下是java中io中常用的流。<br><img src="http://hi.csdn.net/attachment/201203/23/0_13324938595035.gif" alt=""></p>
+<p>字节输入流：<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332494091JTzG.gif" alt=""><br>字节输出流：<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332494083Aajx.gif" alt=""><br>字符输入流：<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332494314oOTe.gif" alt=""><br>字符输出流：<br><img src="http://hi.csdn.net/attachment/201203/23/0_1332494308NiSw.gif" alt=""></p>
+<p>简单介绍其上图：<br>对文件进行操作：<code>FileInputStream</code>（字节输入流），<code>FileOutputStream</code>（字节输出流），<code>FileReader</code>（字符输入流），<code>FileWriter</code>（字符输出流）<br>对管道进行操作：<code>PipedInputStream</code>（字节输入流）,<code>PipedOutStream</code>（字节输出流），<code>PipedReader</code>（字符输入流），<code>PipedWriter</code>（字符输出流）<br><code>PipedInputStream</code>的一个实例要和<code>PipedOutputStream</code>的一个实例共同使用，共同完成管道的读取写入操作，主要用于线程操作。<br>字节/字符数组：<code>ByteArrayInputStream</code>，<code>ByteArrayOutputStream</code>，<code>CharArrayReader</code>，<code>CharArrayWriter</code>是在内存中开辟了一个字节或字符数组。<br>Buffered缓冲流：：<code>BufferedInputStream</code>，<code>BufferedOutputStream</code>，<code>BufferedReader</code>,<code>BufferedWriter</code>,是带缓冲区的处理流，缓冲区的作用的主要目的是：避免每次和硬盘打交道，提高数据访问的效率。<br>转化流：I<code>nputStreamReader</code>/<code>OutputStreamWriter</code>，把字节转化成字符，字符转换为字节。<br>数据流：<code>DataInputStream</code>，<code>DataOutputStream</code>。<br>因为平时若是我们输出一个8个字节的long类型或4个字节的float类型，那怎么办呢？可以一个字节一个字节输出，也可以把转换成字符串输出，但是这样转换费时间，若是直接输出该多好啊，因此这个数据流就解决了我们输出数据类型的困难。数据流可以直接输出float类型或long类型，提高了数据读写的效率。<br>打印流：<code>printStream</code>，<code>printWriter</code>，一般是打印到控制台，可以进行控制打印的地方。<br>对象流：<code>ObjectInputStream</code>，<code>ObjectOutputStream</code>，把封装的对象直接输出，而不是一个个在转换成字符串再输出。<br>序列化流：<code>SequenceInputStream</code>。<br>对象序列化：把对象直接转换成二进制，写入介质中。<br>使用对象流需要实现<code>Serializable</code>接口，否则会报错。而若用<code>transien</code>t关键字修饰成员变量，不写入该成员变量，若是引用类型的成员变量为<code>null</code>，值类型的成员变量为<code>0</code>.</p>
+<p>转载自：<a href="http://blog.csdn.net/yuebinghaoyuan/article/details/7388059" target="_blank" rel="external">http://blog.csdn.net/yuebinghaoyuan/article/details/7388059</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <a data-url="http://yoursite.com/2014/11/13/Java-I-O/" data-id="pmik6tkgrmzn8wov" data_title="Java I/O流整理分析" data_summary="Java中的流，可以从不同的角度进行分类。按照数据流的..." class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://yoursite.com/2014/11/13/Java-I-O/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/11/13/Java-I-O/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java，I-O流/">Java，I/O流</a></li></ul>
+
+	  
+<span>
+更新日期:<time datetime="2014-11-13T12:23:20.000Z" itemprop="dateModified">11月 13 2014</time>
+</span>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-interview-guide-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -83,6 +157,10 @@
 
 
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -271,9 +349,11 @@ class Node{
       
 	  
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试题目/">笔试题目</a></li></ul>
+
 	  
 <span>
-更新日期:<time datetime="2014-11-12T14:10:07.000Z" itemprop="dateModified">11月 12 2014</time>
+更新日期:<time datetime="2014-11-13T12:05:03.000Z" itemprop="dateModified">11月 13 2014</time>
 </span>
 
 
@@ -692,84 +772,6 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-<a href="/2014/10/31/hello-world/" class="article-date">
-  <time datetime="2014-10-31T12:41:47.000Z" itemprop="datePublished">10月 31 2014</time>
-</a>
-
-
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/31/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-		
-		<div id="toc" class="toc-article">
-			<h2 class="toc-title"><span>文章目录</span></h2>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-		
-		</div>
-		
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-	  
-	  <a data-url="http://yoursite.com/2014/10/31/hello-world/" data-id="lcgpxijsusu52919" data_title="Hello World" data_summary="Welcome to Hexo! This is yo..." class="article-share-link">Share</a>
-      
-
-      
-        <a href="http://yoursite.com/2014/10/31/hello-world/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/10/31/hello-world/">暂无评论</a>
-      
-	  
-      
-	  
-<span>
-更新日期:<time datetime="2014-10-30T09:04:51.000Z" itemprop="dateModified">10月 30 2014</time>
-</span>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -800,7 +802,7 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android-studio/">android_studio</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/android-studio/">android_studio</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -810,7 +812,7 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓/">安卓</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java，I-O流/">Java，I/O流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓/">安卓</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔试题目/">笔试题目</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -820,7 +822,7 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/linux/" style="font-size: 15.33px; color: #5dbe94;">linux</a><a href="/tags/linux操作系统/" style="font-size: 13.00px; color: #7dc3de;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/安卓/" style="font-size: 17.67px; color: #3db94a;">安卓</a><a href="/tags/快捷键/" style="font-size: 15.33px; color: #5dbe94;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/测试/" style="font-size: 15.33px; color: #5dbe94;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 15.33px; color: #5dbe94;">淘宝，文章</a>
+      <a href="/tags/Java/" style="font-size: 15.33px; color: #5dbe94;">Java</a><a href="/tags/Java，I-O流/" style="font-size: 15.33px; color: #5dbe94;">Java，I/O流</a><a href="/tags/linux/" style="font-size: 15.33px; color: #5dbe94;">linux</a><a href="/tags/linux操作系统/" style="font-size: 13.00px; color: #7dc3de;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/安卓/" style="font-size: 17.67px; color: #3db94a;">安卓</a><a href="/tags/快捷键/" style="font-size: 15.33px; color: #5dbe94;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/测试/" style="font-size: 15.33px; color: #5dbe94;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 15.33px; color: #5dbe94;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 15.33px; color: #5dbe94;">笔试题目</a>
     </div>
   </div>
 
@@ -830,7 +832,7 @@ Alt+回车 导入包,自动修正Ctrl+N  ..." class="article-share-link">Share</
   <div class="widget-wrap">
     <h3 class="widget-title">archive</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -1013,6 +1015,10 @@ new LGY_calendar('g-calendar');
       <ul>
         
           <li>
+            <a href="/2014/11/13/Java-I-O/">Java I/O流整理分析</a>
+          </li>
+        
+          <li>
             <a href="/2014/11/12/interview-guide-1/">Java面试题目</a>
           </li>
         
@@ -1026,10 +1032,6 @@ new LGY_calendar('g-calendar');
         
           <li>
             <a href="/2014/11/11/linux-guide/">linux-guide</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/31/hello-world/">Hello World</a>
           </li>
         
       </ul>
