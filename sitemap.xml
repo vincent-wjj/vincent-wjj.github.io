@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2014/11/14/Program-write-guide/</loc>
+    <lastmod>2014-11-14T12:54:54.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2014/11/13/Java-I-O/</loc>
     <lastmod>2014-11-13T14:34:18.000Z</lastmod>
   </url>

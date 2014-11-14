@@ -1,0 +1,791 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
+  
+    <title>How to design your first programs | Vincent&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="junjiewang">
+    
+    <meta name="description" content="Now that you’ve learned some basics about programs, let’s look more closely at how to design a program. When you sit down to write a program, generall">
+    
+    
+    
+    
+    <link rel="alternate" href="atom.xml" title="Vincent&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='3F39b6410b1f60ccc1074b8360c639a606';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			</li>
+					<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a> </li>
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Vincent&#39;s Blog">Vincent&#39;s Blog</a></h1>
+				<a class="blog-motto">Walk steps step by step</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action=http://www.baidu.com target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					
+				</ul>
+                            </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/11/14/Program-write-guide/" title="How to design your first programs" itemprop="url">How to design your first programs</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="junjiewang">junjiewang</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-11-14T12:38:47.000Z" itemprop="datePublished">11月 14 2014</time>
+    更新日期:<time datetime="2014-11-14T12:54:54.000Z" itemprop="dateModified">11月 14 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_1:_Define_the_problem"><span class="toc-number">1.</span> <span class="toc-text">Step 1: Define the problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_2:_Define_your_targets"><span class="toc-number">2.</span> <span class="toc-text">Step 2: Define your targets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_3:_Make_a_heirarchy_of_tasks"><span class="toc-number">3.</span> <span class="toc-text">Step 3: Make a heirarchy of tasks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_4:_Figure_out_the_sequence_of_events"><span class="toc-number">4.</span> <span class="toc-text">Step 4: Figure out the sequence of events</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_5:_Figure_out_the_data_inputs_and_outputs_for_each_task"><span class="toc-number">5.</span> <span class="toc-text">Step 5: Figure out the data inputs and outputs for each task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_6:_Write_the_task_details"><span class="toc-number">6.</span> <span class="toc-text">Step 6: Write the task details</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_7:_Connect_the_data_inputs_and_outputs"><span class="toc-number">7.</span> <span class="toc-text">Step 7: Connect the data inputs and outputs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Words_of_advice_when_writing_programs"><span class="toc-number">8.</span> <span class="toc-text">Words of advice when writing programs</span></a></li></ol>
+		</div>
+		
+		<p>Now that you’ve learned some basics about programs, let’s look more closely at how to design a program. When you sit down to write a program, generally you have some sort of problem that you’d like to solve, or situation that you’d like to simulate. New programmers often have trouble figuring out how to convert that idea into actual code. But it turns out, you have many of the problem solving skills you need already, acquired from every day life.</p>
+<p>The most important thing to remember (and hardest thing to do) is to design your program before you start coding. In many regards, programming is like architecture. What would happen if you tried to build a house without following an architectural plan? Odds are, unless you were very talented, you’d end up with a house that had a lot of problems: leaky roofs, walls that weren’t straight, etc… Similarly, if you try to program before you have a good gameplan moving forward, you’ll likely find that your code has a lot of problems, and you’ll have to spend a lot of time fixing problems that could have been avoided altogether with a little design.</p>
+<p>A little up-front planning will save you both time and frustration in the long run.</p>
+<h2 id="Step_1:_Define_the_problem">Step 1: Define the problem</h2>
+<p>The first thing you need to figure out is what problem your program is attempting to solve. Ideally, you should be able to state this in a sentence or two. For example:</p>
+<blockquote>
+<ul>
+<li>I want to write a phone book application to help me keep track of my friend’s phone numbers.</li>
+<li>I want to write a random dungeon generator that will produce interesting looking caverns.</li>
+<li>I want to write a program that will take information about stocks and attempt to predict which ones I should buy.</li>
+</ul>
+</blockquote>
+<p>Although this step seems obvious, it’s also highly important. The worst thing you can do is write a program that doesn’t actually do what you (or your boss) wanted!</p>
+<h2 id="Step_2:_Define_your_targets">Step 2: Define your targets</h2>
+<p>When you are an experienced programmer, there are many other steps that typically would take place at this point, including:</p>
+<blockquote>
+<ul>
+<li>Understanding who your target user is</li>
+<li>Defining what target architecture and/or OS your program will run on<br>Determining what set of tools you will be using</li>
+<li>Determining whether you will write your program alone or as part of a team</li>
+<li>Collecting requirements (a documented list of what the program should do)</li>
+</ul>
+</blockquote>
+<p>However, as a new programmer, the answers to these questions are typically simple: You are writing a program for your own use, alone, on your own system, using an IDE you purchased or downloaded. This makes things easy, so we won’t spend any time on this step.</p>
+<h2 id="Step_3:_Make_a_heirarchy_of_tasks">Step 3: Make a heirarchy of tasks</h2>
+<p>In real life, we often need to perform tasks that are very complex. Trying to figure out how to do these tasks can be very challenging. In such cases, we often make use of the <strong><em>top down</em></strong> method of problem solving. That is, instead of solving a single complex task, we break that task into multiple subtasks, each of which is individually easier to solve. If those subtasks are still too difficult to solve, they can be broken down further. By continuously splitting complex tasks into simpler ones, you can eventually get to a point where each individual task is manageable, if not trivial.</p>
+<p>Let’s take a look at an example of this. Let’s say we want to write a report on carrots. Our task hierarchy currently looks like this:</p>
+<blockquote>
+<ul>
+<li>Write report on carrots</li>
+</ul>
+</blockquote>
+<p>Writing a report on carrots is a pretty big task to do in one sitting, so let’s break it into subtasks:</p>
+<blockquote>
+<ul>
+<li>Write report on carrots<ul>
+<li>Do research on carrots</li>
+<li>Write outline</li>
+<li>Fill in outline with details about carrots</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>That’s a more managable, as we now have three tasks that we can focus on individually. However, in this case, “Do research on carrots is somewhat vague”, so we can break it down further:</p>
+<blockquote>
+<ul>
+<li>Write report on carrots<ul>
+<li>Do research on carrots<ul>
+<li>Go to library and get book on carrots</li>
+<li>Look for information about carrots on internet</li>
+</ul>
+</li>
+<li>Write outline<ul>
+<li>Information about growing</li>
+<li>Information about processing</li>
+<li>Information about nutrition</li>
+</ul>
+</li>
+<li>Fill in outline with details about carrots</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Now we have a hierarchy of tasks, none of them particularly hard. By completing each of these relatively manageable sub-items, we can complete the more difficult overall task of writing a report on carrots.</p>
+<p>The other way to create a hierarchy of tasks is to do so from the <strong><em>bottom up</em></strong>. In this method, we’ll start from a list of easy tasks, and construct the hierarchy by grouping them.</p>
+<p>As an example, many people have to go to work or school on weekdays, so let’s say we want to solve the problem of “get from bed to work”. If you were asked what tasks you did in the morning to get from bed to work, you might come up with the following list:</p>
+<blockquote>
+<ul>
+<li>Pick out clothes</li>
+<li>Get dressed</li>
+<li>Eat breakfast</li>
+<li>Drive to work</li>
+<li>Brush your teeth</li>
+<li>Get out of bed</li>
+<li>Prepare breakfast</li>
+<li>Get in your car</li>
+<li>Take a shower</li>
+</ul>
+</blockquote>
+<p>Using the bottom up method, we can organize these into a hierarchy of items by looking for ways to group items with similarities together:</p>
+<blockquote>
+<ul>
+<li>Get from bed to work<ul>
+<li>Bedroom things<ul>
+<li>Get out of bed</li>
+<li>Pick out clothes</li>
+</ul>
+</li>
+<li>Bathroom things<ul>
+<li>Take a shower</li>
+<li>Brush your teeth</li>
+</ul>
+</li>
+<li>Breakfast things<ul>
+<li>Prepare breakfast</li>
+<li>Eat breakfast</li>
+</ul>
+</li>
+<li>Transportation things<ul>
+<li>Get in your car</li>
+<li>Drive to work</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>As it turns out, these task hierarchies are extremely useful in programming, because once you have a task hierarchy, you have essentially defined the structure of your overall program. The top level task (in this case, “Write a report on carrots” or “Get from bed to work”) becomes main() (because it is the main item you are trying to solve). The subitems become functions in the program.</p>
+<p>If it turns out that one of the items (functions) is too difficult to implement, simply split that item into multiple subitems, and have that function call multiple subfunctions that implement those new tasks. Eventually you should reach a point where each function in your program is trivial to implement.</p>
+<h2 id="Step_4:_Figure_out_the_sequence_of_events">Step 4: Figure out the sequence of events</h2>
+<p>Now that your program has a structure, it’s time to determine how to link all the tasks together. The first step is to determine the sequence of events that will be performed. For example, when you get up in the morning, what order do you do the above tasks? It might look like this:</p>
+<blockquote>
+<ul>
+<li>Get out of bed</li>
+<li>Pick out clothes</li>
+<li>Take a shower</li>
+<li>Get dressed</li>
+<li>Prepare breakfast</li>
+<li>Eat breakfast</li>
+<li>Brush your teeth</li>
+<li>Get in your car</li>
+<li>Drive to work</li>
+</ul>
+</blockquote>
+<p>If we were writing a calculator, we might do things in this order:</p>
+<blockquote>
+<ul>
+<li>Get first number from user</li>
+<li>Get mathematical operation from user</li>
+<li>Get second number from user</li>
+<li>Calculate result</li>
+<li>Print result</li>
+</ul>
+</blockquote>
+<p>This list essentially defines what will go into your main() function:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">int <span class="function">main</span>()</div><div class="line">{</div><div class="line">    <span class="function">GetOutOfBed</span>();</div><div class="line">    <span class="function">PickOutClothes</span>();</div><div class="line">    <span class="function">TakeAShower</span>();</div><div class="line">    <span class="function">GetDressed</span>();</div><div class="line">    <span class="function">PrepareBreakfast</span>();</div><div class="line">    <span class="function">EatBreakfast</span>();</div><div class="line">    <span class="function">BrushTeeth</span>();</div><div class="line">    <span class="function">GetInCar</span>();</div><div class="line">    <span class="function">DriveToWork</span>();</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>Or in the case of the calculator:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="type">int</span> main()</div><div class="line">{</div><div class="line">    // <span class="type">Get</span> first number <span class="keyword">from</span> user</div><div class="line">    <span class="type">GetUserInput</span>();</div><div class="line"> </div><div class="line">    // <span class="type">Get</span> mathematical operation <span class="keyword">from</span> user</div><div class="line">    <span class="type">GetMathematicalOperation</span>();</div><div class="line"> </div><div class="line">    // <span class="type">Get</span> second number <span class="keyword">from</span> user</div><div class="line">    <span class="type">GetUserInput</span>();</div><div class="line"> </div><div class="line">    // <span class="type">Calculate</span> <span class="literal">result</span></div><div class="line">    <span class="type">CalculateResult</span>();</div><div class="line"> </div><div class="line">    // <span class="type">Print</span> <span class="literal">result</span></div><div class="line">    <span class="type">PrintResult</span>();</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="Step_5:_Figure_out_the_data_inputs_and_outputs_for_each_task">Step 5: Figure out the data inputs and outputs for each task</h2>
+<p>Once you have a hierarchy and a sequence of events, the next thing to do is figure out what input data each task needs to operate, and what data it produces (if any). If you already have the input data from a previous step, that input data will become a parameter. If you are calculating output for use by some other function, that output will generally become a return value.</p>
+<p>When we are done, we should have prototypes for each function. In case you’ve forgotten, a function prototype is a declaration of a function that includes the function’s name, parameters, and return type, but does not implement the function.</p>
+<p>Let’s do a couple examples. GetUserInput() is pretty straightforward. We’re going to get a number from the user and return it back to the caller. Thus, the function prototype would look like this:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> GetUserInput()</div></pre></td></tr></table></figure>
+
+<p>In the calculator example, the CalculateResult() function will need to take 3 pieces of input: Two numbers and a mathematical operator. We should already have all three of these by the time we get to the point where this function is called, so these three pieces of data will be function parameters. The CalculateResult() function will calculate the result value, but it does not display the result itself. Consequently, we need to return that result as a return value so that other functions can use it.</p>
+<p>Given that, we could write the function prototype like this:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> CalculateResult(<span class="keyword">int</span> nInput1, <span class="keyword">char</span> chOperator, <span class="keyword">int</span> nInput2);</div></pre></td></tr></table></figure>
+
+<h2 id="Step_6:_Write_the_task_details">Step 6: Write the task details</h2>
+<p>In this step, for each task, you will write it’s actual implementation. If you have broken the tasks down into small enough pieces, each task should be fairly simple and straightforward. If a given task still seems overly-complex, perhaps it needs to be broken down into subtasks that can be more easily implemented.</p>
+<p>For example:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> GetMathematicalOperation()</div><div class="line">{</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Please enter an operator (+,-,*,or /): "</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">char</span> chOperation;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; chOperation;</div><div class="line"> </div><div class="line">    <span class="comment">// What if the user enters an invalid character?</span></div><div class="line">    <span class="comment">// We'll ignore this possibility for now</span></div><div class="line">    <span class="keyword">return</span> chOperation;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="Step_7:_Connect_the_data_inputs_and_outputs">Step 7: Connect the data inputs and outputs</h2>
+<p>Finally, the last step is to connect up the inputs and outputs of each task in whatever way is appropriate. For example, you might send the output of CalculateResult() into an input of PrintResult(), so it can print the calculated answer. This will often involve the use of intermediary variables to temporary store the result so it can be passed between functions. For example:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// nResult is a temporary value used to transfer the output of CalculateResult()</span></div><div class="line"><span class="comment">// into an input of PrintResult()</span></div><div class="line"><span class="keyword">int</span> nResult = CalculateResult(nInput1, chOperator, nInput2);</div><div class="line">PrintResult(nResult);</div></pre></td></tr></table></figure>
+
+<p>This tends to be much more readable than the alternative condensed version that doesn’t use a temporary variable:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">PrintResult</span>( <span class="function">CalculateResult</span>(nInput1, chOperator, nInput2) );</div></pre></td></tr></table></figure>
+
+<p>This is often the hardest step for new programmers to get the hang of.</p>
+<p>Note: To fully complete this example, you’ll need to utilize if statements, which we won’t cover for a while, but you’re welcome to take a sneak-peak at now.</p>
+<p>A fully completed version of the above calculator sample follows (hidden in case you want to take a stab at it yourself first):</p>
+<p>Show Solution</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "stdafx.h"</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"> </div><div class="line"><span class="keyword">int</span> GetUserInput()</div><div class="line">{</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Please enter an integer: "</span>;</div><div class="line">    <span class="keyword">int</span> nValue;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; nValue;</div><div class="line">    <span class="keyword">return</span> nValue;</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">char</span> GetMathematicalOperation()</div><div class="line">{</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Please enter an operator (+,-,*,or /): "</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">char</span> chOperation;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; chOperation;</div><div class="line">    <span class="comment">// What if the user enters an invalid character?</span></div><div class="line">    <span class="comment">// We'll ignore this possibility for now</span></div><div class="line">    <span class="keyword">return</span> chOperation;</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">int</span> CalculateResult(<span class="keyword">int</span> nX, <span class="keyword">char</span> chOperation, <span class="keyword">int</span> nY)</div><div class="line">{</div><div class="line">    <span class="keyword">if</span> (chOperation==<span class="string">'+'</span>)</div><div class="line">        <span class="keyword">return</span> nX + nY;</div><div class="line">    <span class="keyword">if</span> (chOperation==<span class="string">'-'</span>)</div><div class="line">        <span class="keyword">return</span> nX - nY;</div><div class="line">    <span class="keyword">if</span> (chOperation==<span class="string">'*'</span>)</div><div class="line">        <span class="keyword">return</span> nX * nY;</div><div class="line">    <span class="keyword">if</span> (chOperation==<span class="string">'/'</span>)</div><div class="line">        <span class="keyword">return</span> nX / nY;</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">void</span> PrintResult(<span class="keyword">int</span> nResult)</div><div class="line">{</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Your result is: "</span> &lt;&lt; nResult &lt;&lt; endl;</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">int</span> main()</div><div class="line">{</div><div class="line">    <span class="comment">// Get first number from user</span></div><div class="line">    <span class="keyword">int</span> nInput1 = GetUserInput();</div><div class="line"> </div><div class="line">    <span class="comment">// Get mathematical operation from user</span></div><div class="line">    <span class="keyword">char</span> chOperator = GetMathematicalOperation();</div><div class="line"> </div><div class="line">    <span class="comment">// Get second number from user</span></div><div class="line">    <span class="keyword">int</span> nInput2 = GetUserInput();</div><div class="line"> </div><div class="line">    <span class="comment">// Calculate result</span></div><div class="line">    <span class="keyword">int</span> nResult = CalculateResult(nInput1, chOperator, nInput2);</div><div class="line"> </div><div class="line">    <span class="comment">// Print result</span></div><div class="line">    PrintResult(nResult);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="Words_of_advice_when_writing_programs">Words of advice when writing programs</h2>
+<p><strong><em>Keep your program simple to start</em></strong>. Often new programmers have a grand vision for all the things they want their program to do. “I want to write a role-playing game with graphics and sound and random monsters and dungeons, with a town you can visit to sell the items that you find in the dungeon” If you try to write something too complex to start, you will become overwhelmed and discouraged at your lack of progress. Instead, make your first goal as simple as possible, something that is definitely within your reach. For example, “I want to be able to display a 2d representation of the world on the screen”.</p>
+<p><strong><em>Add features over time</em></strong>. Once you have your simple program working and working well, then you can add features to it. For example, once you can display your 2d world, add a character who can walk around. Once you can walk around, add walls that can impede your progress. Once you have walls, build a simple town out of them. Once you have a town, add merchants. By adding each feature incrementally your program will get progressively more complex without overwhelming you in the process.</p>
+<p><strong><em>Focus on one area at a time</em></strong>. Don’t try to code everything at once, and don’t divide your attention across multiple tasks. Focus on one task at a time, and see it through to completion as much as is possible. It is much better to have one fully working task and five that haven’t been started yet than six partially-working tasks. If you split your attention, you are more likely to make mistakes and forget important details.</p>
+<p><strong><em>Test each piece of code as you go</em></strong>. New programmers will often write the entire program in one pass. Then when they compile it for the first time, the compiler reports hundreds of errors. This can not only be intimidating, if your code doesn’t work, it may be hard to figure out why. Instead, write a piece of code, and then compile and test it immediately. If it doesn’t work, you’ll know exactly where the problem is, and it will be easy to fix. Once you are sure that the code works, move to the next piece and repeat. It may take longer to finish writing your code, but when you are done the whole thing should work, and you won’t have to spend twice as long trying to figure out why it doesn’t.</p>
+<p>Most new programmers will shortcut many of these steps and suggestions (because it seems like a lot of work and/or it’s not as much fun as writing the code). However, for any non-trivial project, following these steps will definitely save you a lot of time in the long run. A little planning up front saves a lot of debugging at the end.</p>
+<p>The good news is that once you become comfortable with all of these concepts, they will start coming naturally to you without even thinking about it. Eventually you will get to the point where you can write entire functions without any pre-planning at all.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/program-design/">program-design</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programs/">programs</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2014/11/14/Program-write-guide/" data-title="How to design your first programs | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2014/11/13/Java-I-O/"  title="Java I/O流整理分析">
+ <strong>NEXT:</strong><br/> 
+ <span>Java I/O流整理分析
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_1:_Define_the_problem"><span class="toc-number">1.</span> <span class="toc-text">Step 1: Define the problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_2:_Define_your_targets"><span class="toc-number">2.</span> <span class="toc-text">Step 2: Define your targets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_3:_Make_a_heirarchy_of_tasks"><span class="toc-number">3.</span> <span class="toc-text">Step 3: Make a heirarchy of tasks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_4:_Figure_out_the_sequence_of_events"><span class="toc-number">4.</span> <span class="toc-text">Step 4: Figure out the sequence of events</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_5:_Figure_out_the_data_inputs_and_outputs_for_each_task"><span class="toc-number">5.</span> <span class="toc-text">Step 5: Figure out the data inputs and outputs for each task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_6:_Write_the_task_details"><span class="toc-number">6.</span> <span class="toc-text">Step 6: Write the task details</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step_7:_Connect_the_data_inputs_and_outputs"><span class="toc-number">7.</span> <span class="toc-text">Step 7: Connect the data inputs and outputs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Words_of_advice_when_writing_programs"><span class="toc-number">8.</span> <span class="toc-text">Words of advice when writing programs</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
+		
+		
+		
+		<a href="https://github.com/vincent-wjj" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Java/" title="Java">Java<sup>2</sup></a></li>
+		
+			<li><a href="/categories/android-studio/" title="android_studio">android_studio<sup>2</sup></a></li>
+		
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>6</sup></a></li>
+		
+			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+		
+			<li><a href="/categories/programs/" title="programs">programs<sup>1</sup></a></li>
+		
+			<li><a href="/categories/taobaoCode/" title="taobaoCode">taobaoCode<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Java，I-O流/" title="Java，I/O流">Java，I/O流<sup>1</sup></a></li>
+		
+			<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
+		
+			<li><a href="/tags/linux操作系统/" title="linux操作系统">linux操作系统<sup>0</sup></a></li>
+		
+			<li><a href="/tags/program-design/" title="program-design">program-design<sup>1</sup></a></li>
+		
+			<li><a href="/tags/博客/" title="博客">博客<sup>6</sup></a></li>
+		
+			<li><a href="/tags/安卓/" title="安卓">安卓<sup>2</sup></a></li>
+		
+			<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
+		
+			<li><a href="/tags/文章/" title="文章">文章<sup>6</sup></a></li>
+		
+			<li><a href="/tags/测试/" title="测试">测试<sup>1</sup></a></li>
+		
+			<li><a href="/tags/淘宝，文章/" title="淘宝，文章">淘宝，文章<sup>1</sup></a></li>
+		
+			<li><a href="/tags/笔试题目/" title="笔试题目">笔试题目<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+      <li><a href="http://gengbiao.me" target="_blank" title="coney">coney's Blog</a></li>
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java，I-O流/" style="font-size: 13.33px;">Java，I/O流</a><a href="/tags/linux/" style="font-size: 13.33px;">linux</a><a href="/tags/linux操作系统/" style="font-size: 10.00px;">linux操作系统</a><a href="/tags/program-design/" style="font-size: 13.33px;">program-design</a><a href="/tags/博客/" style="font-size: 20.00px;">博客</a><a href="/tags/安卓/" style="font-size: 16.67px;">安卓</a><a href="/tags/快捷键/" style="font-size: 13.33px;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px;">文章</a><a href="/tags/测试/" style="font-size: 13.33px;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 13.33px;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 13.33px;">笔试题目</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+    
+            <p class="copyright"> © 2014 
+		
+		<a href="http://yoursite.com" target="_blank" title="junjiewang">junjiewang</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"junjie"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+<script>
+    
+        var _bdImg = '6';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'null', 'null');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
