@@ -1,115 +1,121 @@
-<!DOCTYPE html>
-<html>
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-  <title>hexo系列教程：（四）hexo博客的优化技巧 | Vincent&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hexo系列教程：（四）hexo博客的优化技巧">
-<meta property="og:url" content="http://yoursite.com/2014/10/30/hexo-guide-4/">
-<meta property="og:site_name" content="Vincent's Blog">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo系列教程：（四）hexo博客的优化技巧">
-<meta name="twitter:description">
+    <title>hexo系列教程：（四）hexo博客的优化技巧 | Vincent&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="junjiewang">
+    
+    <meta name="description" content="上一节中我们已经学会了用hexo发布博客，这里再介绍一些小技巧对博客站点进行优化，实现更加丰富的功能。在网上找了不少Hexo主题，最后还是觉得默认主题比较不错，还有一个Landscape-F感觉也挺好的。于是就在Landscape基础上主要参考Landscape-F对默认主题进行了一些优化，这样我的新主题就诞生了。
+安装指南
+安装
+1$ git clone https://github.com/howiefh/hexo-theme-landscape-f.git themes/landscape-f
 
-  
-    <link rel="alternative" href="/atom.xml" title="Vincent&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+Landscape-F需要安装Hexo 2.4 或以上版本
+启用
+修改你的博客根目录下的_config.yml配置文件中的theme属性，将其设置为landscape-f。
+更新
+升级前最好先备份原来的_config.yml 文件
+12cd themes/landscape-fgit pull
 
-  
+配置指南
+下面是本主题的配置文件内容，你也可以更改source/css/_variables.styl中的一些配色或图片，更改D:\Code\hexo\themes\landscape-f\_config.yml对主题进行微调。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051# Headermenu:  Home: /  Archives: /archivesrss: /atom.xmlgithub: https://github.com/howiefh# Contentexcerpt_link: Read Morefancybox: true# Sidebarsidebar: rightwidgets:- about_me#- category- tag- tagcloud- archive- calendar- recent_posts- duoshuo_recent_comments- links# Miscellaneousgoogle_analytics:favicon: /favicon.icotwitter:google_plus:fb_admins:fb_app_id:# Toctoc:  article: true   ## show contents in article.  aside: true     ## show contents in aside.# Scroll to topgo_top: true# duoshuoduoshuo_shortname: junjie# baidu sharebaidushare: true# blogrolllinks:- name: 404 page  link: # about meabout_me:  title: ABOUT ME  gravatar: wjj19890503@gmail.com  avatar: /images/github.jpg  texts:  - Hi,I&#39;m vincent.# display updateddisplay_updated: true
 
-  	<SCRIPT type=text/javascript src="/js/scrolltop.js"></SCRIPT>
+menu - 导航菜单rss - rss 链接github - github 链接excerpt_link - “Read More” 链接. 设置为false可以隐藏fancybox - 启用 Fancyboxsidebar - 侧边栏样式. 可以选择 left, right, bottom or false 进行设置.widgets - 侧边栏显示的小工具google_analytics - Google Analytics IDfavicon - Favicon 路径twitter - Twiiter IDgoogle_plus - Google+ IDtoc - 在文章和侧边栏显示文章目录（侧边栏的文章目录默认隐藏，按返回顶部下面的按钮可以显示）go_top - 返回顶部duoshuo_shortname - 多说short namebaidushare - 在文章中激活百度分享，如果设置为false将在文章中显示默认分享工具,首页仍旧使用默认分享工具。links - 在侧边栏显示友情链接，name链接名称，link链接地址about_me - 在侧边栏显示关于我。优先使用gravatar，如果没有填写gravatar，将使用设置的avatar图片。texts 可以是一些介绍的文字。display_updated - 在文章底部显示文章更新时间侧边栏
+Landscape-F提供了9种小工具。
+categorytagtagcloudarchiverecent_postsabout_mecalendarduoshuo_recent_commentslinks相比默认主题增加了About Me、日历、多说最近评论、友情链接，并且对tags、tagcloud、categories、archive 的样式做了调整，比如数字的显示。
+下面是是对hexo配置文件的修改\hexo\——config.yml
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889# Hexo Configuration## Docs: http://hexo.io/docs/configuration.html## Source: https://github.com/hexojs/hexo/# Sitetitle: Vincent&#39;s Blogsubtitle: Walk steps step by step #副标题，站点左上角description:author: junjiewangemail: wjj19890503@163.comlanguage: zh-CN# URL## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;url: http://yoursite.comroot: /permalink: :year/:month/:day/:title/tag_dir: tagsarchive_dir: archivescategory_dir: categoriescode_dir: downloads/codepermalink_defaults:# Directorysource_dir: sourcepublic_dir: public# Writingnew_post_name: :title.md # File name of new postsdefault_layout: posttitlecase: false # Transform title into titlecaseexternal_link: true # Open external links in new tabfilename_case: 0render_drafts: falsepost_asset_folder: falserelative_link: falsehighlight:  enable: true  line_number: true  tab_replace:# Category &amp; Tagdefault_category: uncategorizedcategory_map:tag_map:# Archives## 2: Enable pagination## 1: Disable pagination## 0: Fully Disablearchive: 1category: 1tag: 1# Server## Hexo uses Connect as a server## You can customize the logger format as defined in## http://www.senchalabs.org/connect/logger.htmlport: 4000server_ip: localhostlogger: falselogger_format: dev# Date / Time format## Hexo uses Moment.js to parse and display date## You can customize the date format as defined in## http://momentjs.com/docs/#/displaying/format/date_format: MMM D YYYYtime_format: H:mm:ss# Pagination## Set per_page to 0 to disable paginationper_page: 5pagination_dir: page# Disqusdisqus_shortname:duoshuo_shortname: junjie #这里要跟主题的配置文件一致，而且与你注册多说的short_name一致# Extensions## Plugins: https://github.com/hexojs/hexo/wiki/Plugins## Themes: https://github.com/hexojs/hexo/wiki/Themestheme: landscape-f# Deployment## Docs: http://hexo.io/docs/deployment.htmldeploy:  type: github  repository: https://github.com/vincent-wjj/vincent-wjj.github.io.git  branch: master">
+    
+    
+    
+    
+    <link rel="alternate" href="atom.xml" title="Vincent&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='3F39b6410b1f60ccc1074b8360c639a606';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Vincent&#39;s Blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Walk steps step by step</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-github-link" class="nav-icon" href="https://github.com/vincent-wjj" title="Github" target="_blank"></a>
-        
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Vincent&#39;s Blog">Vincent&#39;s Blog</a></h1>
+				<a class="blog-motto">Walk steps step by step</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action=http://www.baidu.com target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					</li>
+				</ul>
+                            </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/10/30/hexo-guide-4/" title="hexo系列教程：（四）hexo博客的优化技巧" itemprop="url">hexo系列教程：（四）hexo博客的优化技巧</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="junjiewang">junjiewang</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-10-30T11:42:29.000Z" itemprop="datePublished">10月 30 2014</time>
+    更新日期:<time datetime="2014-10-30T12:41:28.000Z" itemprop="dateModified">10月 30 2014</time>
+    
+  </p>
 </header>
-
-      <div class="outer">
-        <section id="main"><article id="post-hexo-guide-4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-<a href="/2014/10/30/hexo-guide-4/" class="article-date">
-  <time datetime="2014-10-30T11:42:29.000Z" itemprop="datePublished">10月 30 2014</time>
-</a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hexo系列教程：（四）hexo博客的优化技巧
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+	<div class="article-content">
+		
 		
 		<div id="toc" class="toc-article">
-			<h2 class="toc-title"><span>文章目录</span></h2>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装指南"><span class="toc-number">1.</span> <span class="toc-text">安装指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启用"><span class="toc-number">1.2.</span> <span class="toc-text">启用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">1.3.</span> <span class="toc-text">更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置指南"><span class="toc-number">2.</span> <span class="toc-text">配置指南</span></a></li></ol>
-		
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装指南"><span class="toc-number">1.</span> <span class="toc-text">安装指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启用"><span class="toc-number">1.2.</span> <span class="toc-text">启用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">1.3.</span> <span class="toc-text">更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置指南"><span class="toc-number">2.</span> <span class="toc-text">配置指南</span></a></li></ol>
 		</div>
 		
-        <p><a href="http://vincent-wjj.github.io/2014/10/30/hexo-guide-3/" target="_blank" rel="external">上一节</a>中我们已经学会了用hexo发布博客，这里再介绍一些小技巧对博客站点进行优化，实现更加丰富的功能。<br>在网上找了不少Hexo主题，最后还是觉得默认主题比较不错，还有一个Landscape-F感觉也挺好的。于是就在Landscape基础上主要参考Landscape-F对默认主题进行了一些优化，这样我的新主题就诞生了。</p>
+		<p><a href="http://vincent-wjj.github.io/2014/10/30/hexo-guide-3/" target="_blank" rel="external">上一节</a>中我们已经学会了用hexo发布博客，这里再介绍一些小技巧对博客站点进行优化，实现更加丰富的功能。<br>在网上找了不少Hexo主题，最后还是觉得默认主题比较不错，还有一个Landscape-F感觉也挺好的。于是就在Landscape基础上主要参考Landscape-F对默认主题进行了一些优化，这样我的新主题就诞生了。</p>
 <h1 id="安装指南">安装指南</h1>
 <h2 id="安装">安装</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/howiefh</span><span class="regexp">/hexo-theme-landscape-f.git themes/landscape</span>-f</div></pre></td></tr></table></figure>
@@ -131,448 +137,375 @@
 <p>下面是是对hexo配置文件的修改<code>\hexo\——config.yml</code></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: http://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># Site</div><div class="line">title: Vincent's Blog</div><div class="line">subtitle: Walk steps step by step #副标题，站点左上角</div><div class="line">description:</div><div class="line">author: junjiewang</div><div class="line">email: wjj19890503@163.com</div><div class="line">language: zh-CN</div><div class="line"></div><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, <span class="operator"><span class="keyword">set</span> url <span class="keyword">as</span> <span class="string">'http://yoursite.com/child'</span> <span class="keyword">and</span> root <span class="keyword">as</span> <span class="string">'/child/'</span></span></div><div class="line">url: http://yoursite.com</div><div class="line">root: /</div><div class="line">permalink: :<span class="keyword">year</span>/:<span class="keyword">month</span>/:<span class="keyword">day</span>/:title/</div><div class="line">tag_dir: tags</div><div class="line">archive_dir: archives</div><div class="line">category_dir: categories</div><div class="line">code_dir: downloads/code</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory</div><div class="line">source_dir: source</div><div class="line">public_dir: <span class="keyword">public</span></div><div class="line"></div><div class="line"># Writing</div><div class="line">new_post_name: :title.md # File name <span class="keyword">of</span> new posts</div><div class="line">default_layout: post</div><div class="line">titlecase: <span class="literal">false</span> # Transform title <span class="keyword">into</span> titlecase</div><div class="line">external_link: <span class="literal">true</span> # <span class="keyword">Open</span> <span class="keyword">external</span> links <span class="keyword">in</span> new tab</div><div class="line">filename_case: <span class="number">0</span></div><div class="line">render_drafts: <span class="literal">false</span></div><div class="line">post_asset_folder: <span class="literal">false</span></div><div class="line">relative_link: <span class="literal">false</span></div><div class="line">highlight:</div><div class="line">  enable: <span class="literal">true</span></div><div class="line">  line_number: <span class="literal">true</span></div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># Category & Tag</div><div class="line">default_category: uncategorized</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Archives</div><div class="line">## <span class="number">2</span>: Enable pagination</div><div class="line">## <span class="number">1</span>: Disable pagination</div><div class="line">## <span class="number">0</span>: Fully Disable</div><div class="line">archive: <span class="number">1</span></div><div class="line">category: <span class="number">1</span></div><div class="line">tag: <span class="number">1</span></div><div class="line"></div><div class="line"># <span class="keyword">Server</span></div><div class="line">## Hexo uses <span class="keyword">Connect</span> <span class="keyword">as</span> a <span class="keyword">server</span></div><div class="line">## You can customize the logger <span class="keyword">format</span> <span class="keyword">as</span> defined <span class="keyword">in</span></div><div class="line">## http://www.senchalabs.org/<span class="keyword">connect</span>/logger.html</div><div class="line">port: <span class="number">4000</span></div><div class="line">server_ip: localhost</div><div class="line">logger: <span class="literal">false</span></div><div class="line">logger_format: dev</div><div class="line"></div><div class="line"># <span class="built_in">Date</span> / <span class="keyword">Time</span> <span class="keyword">format</span></div><div class="line">## Hexo uses Moment.js <span class="keyword">to</span> <span class="keyword">parse</span> <span class="keyword">and</span> display <span class="built_in">date</span></div><div class="line">## You can customize the <span class="built_in">date</span> <span class="keyword">format</span> <span class="keyword">as</span> defined <span class="keyword">in</span></div><div class="line">## http://momentjs.com/docs/#/displaying/<span class="keyword">format</span>/</div><div class="line"><span class="keyword">date_format</span>: MMM D YYYY</div><div class="line"><span class="keyword">time_format</span>: H:mm:ss</div><div class="line"></div><div class="line"># Pagination</div><div class="line">## <span class="keyword">Set</span> per_page <span class="keyword">to</span> <span class="number">0</span> <span class="keyword">to</span> disable pagination</div><div class="line">per_page: <span class="number">5</span></div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Disqus</div><div class="line">disqus_shortname:</div><div class="line">duoshuo_shortname: junjie #这里要跟主题的配置文件一致，而且与你注册多说的short_name一致</div><div class="line"># Extensions</div><div class="line">## Plugins: https://github.com/hexojs/hexo/wiki/Plugins</div><div class="line">## Themes: https://github.com/hexojs/hexo/wiki/Themes</div><div class="line">theme: landscape-f</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: http://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: github</div><div class="line">  repository: https://github.com/vincent-wjj/vincent-wjj.github.io.git</div><div class="line">  branch: <span class="keyword">master</span></div></pre></td></tr></table></figure>
 
-<a id="more"></a>
-      
-    </div>
-    <footer class="article-footer">
-	  
-	  <!-- 百度分享 Start -->
-	  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
-	  <!-- 百度分享 End -->
-	  
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+<a id="more"></a>  
+	</div>
+		<footer class="article-footer clearfix">
 
-	  
-<span>
-更新日期:<time datetime="2014-10-30T12:41:28.000Z" itemprop="dateModified">10月 30 2014</time>
-</span>
-
-
-    </footer>
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/文章/">文章</a><a href="/tags/博客/">博客</a>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2014/10/30/esay-markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          轻松搞定Markdown
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/10/30/hexo-guide-3/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">hexo系列教程:（三）hexo博客的配置、使用</div>
-    </a>
-  
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/hexo/">hexo</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2014/10/30/hexo-guide-4/" data-title="hexo系列教程：（四）hexo博客的优化技巧 | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/10/30/esay-markdown/" title="轻松搞定Markdown">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  轻松搞定Markdown</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/10/30/hexo-guide-3/"  title="hexo系列教程:（三）hexo博客的配置、使用">
+ <strong>NEXT:</strong><br/> 
+ <span>hexo系列教程:（三）hexo博客的配置、使用
+</span>
+</a>
+</div>
+
 </nav>
 
-  
-</article>
-
-
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-hexo-guide-4" data-title="hexo系列教程：（四）hexo博客的优化技巧" data-url="http://yoursite.com/2014/10/30/hexo-guide-4/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'junjie'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  
+	
+<section class="comment">
+	<div class="ds-thread"></div>
 </section>
-        
-          
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
   <div id="toc" class="toc-aside">
-  <h2 class="toc-title">文章目录</h2>
+  <strong class="toc-title">文章目录</strong>
   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装指南"><span class="toc-number">1.</span> <span class="toc-text">安装指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启用"><span class="toc-number">1.2.</span> <span class="toc-text">启用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-number">1.3.</span> <span class="toc-text">更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置指南"><span class="toc-number">2.</span> <span class="toc-text">配置指南</span></a></li></ol>
   </div>
 
-<aside id="sidebar">
-
-  
-    
-<div class="widget-wrap">
-  <h3 class="widget-title">ABOUT ME</h3>
-  <ul class="widget about-me">
-    
-    <li><img class="author" title="About me" src="http://www.gravatar.com/avatar/2d4d8140ce05769ecdf75daa1da2908e?s=180" /></li>
-    
-    
-    <li>Hi,I'm vincent.This is a shared world.</li>
-    
-  </ul>
-</div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/android-studio/">android_studio</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/taobaoCode/">taobaoCode</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java，I-O流/">Java，I/O流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓/">安卓</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘宝，文章/">淘宝，文章</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔试题目/">笔试题目</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 15.33px; color: #5dbe94;">Java</a><a href="/tags/Java，I-O流/" style="font-size: 15.33px; color: #5dbe94;">Java，I/O流</a><a href="/tags/linux/" style="font-size: 15.33px; color: #5dbe94;">linux</a><a href="/tags/linux操作系统/" style="font-size: 13.00px; color: #7dc3de;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px; color: #1db400;">博客</a><a href="/tags/安卓/" style="font-size: 17.67px; color: #3db94a;">安卓</a><a href="/tags/快捷键/" style="font-size: 15.33px; color: #5dbe94;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px; color: #1db400;">文章</a><a href="/tags/测试/" style="font-size: 15.33px; color: #5dbe94;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 15.33px; color: #5dbe94;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 15.33px; color: #5dbe94;">笔试题目</a>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">archive</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    <div class="widget-wrap">
-  <h3 class="widget-title">日历</h3>
-  <div class="widget">
-    <div id="g-calendar" class="g-calendar">
-        <span class="g-calendar-prev"></span>
-		 
-        <span class="g-calendar-back"></span>
-        <span class="g-calendar-now"></span>
-		 
-        <span class="g-calendar-next"></span>
-        <div class="g-calendar-hd"></div>
-        <div class="g-calendar-tit"></div>
-        <div class="g-calendar-bd"></div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript">
-function LGY_calendar(wrapId, options){
-    this.oWrap = this.getId(wrapId);
-    this.oHead = this.getByClassName('g-calendar-hd',this.oWrap)[0];
-    this.oBody = this.getByClassName('g-calendar-bd',this.oWrap)[0];
-    this.oTit = this.getByClassName('g-calendar-tit',this.oWrap)[0];
-    this.oPrev = this.getByClassName('g-calendar-prev',this.oWrap)[0];
-    this.oNext = this.getByClassName('g-calendar-next',this.oWrap)[0];
-    this.oNow = this.getByClassName('g-calendar-now',this.oWrap)[0];
-    this.oBack = this.getByClassName('g-calendar-back',this.oWrap)[0];
-    this.init();
-}
-LGY_calendar.prototype = {
-    ///////////获取ID元素
-    getId:function(id){
-        return document.getElementById(id);
-    },
-    ////////获取css类名元素
-    getByClassName:function(className,parent){
-        var elem = [],
-            node = parent != undefined&&parent.nodeType==1?parent.getElementsByTagName('*'):document.getElementsByTagName('*'),
-            p = new RegExp("(^|\\s)"+className+"(\\s|$)");
-        for(var n=0,i=node.length;n<i;n++){
-            if(p.test(node[n].className)){
-                elem.push(node[n]);
-            }
-        }
-        return elem;
-    },
-    //填充日历
-    fillDate:function(year,month){
-        //本月份第一天是星期几-为显示上个月的天数做铺垫
-        var first_day = new Date(year,month,1).getDay(),
-        //如果刚好是星期天，则空出一行（显示上个月的天数）
-            first_day = first_day == 0?first_day=7:first_day;
-        //本月份最后一天是几号
-        var final_date = new Date(year,month+1,0).getDate(),
-        //上个月的最后一天是几号
-            last_date = new Date(year,month,0).getDate(),
-        //剩余的格子数--即排在末尾的格子数
-            surplus = 42 - first_day - final_date;
-		//设置年的链接
-		var yearHead = "<a href='/" + "archives/" + year + "/'>" + year + " "+ "</a>"; 
-		//设置年的链接
-		var monthHead = "";
-		var month1 = month + 1;
-		if (month1 < 10) {
-			monthHead = "<a href='/" + "archives/" + year + "/" + "0" + month1 + "/'>" + " " + month1 + " " + "</a>";
-		} else {
-			monthHead = "<a href='/" + "archives/" + year + "/" + month1 + "/'>" + " " + month1 + " " + "</a>";
-		}
-        //设置表头的日历
-        this.oHead.innerHTML = yearHead+'年'+monthHead+'月';
-        //填充日历执行
-        var html = '';
-        //上个月的显示天数
-        for(var i=0;i<first_day;i++){
-            html+='<span class="g-calendar-grey">'+(last_date-(first_day-1)+i)+'</span>';
-        }
-        //本月的显示天数
-        var postdate = new Date("Thu Oct 30 2014 19:42:29 GMT+0800"); 
-		if (true && postdate.getFullYear() == year && postdate.getMonth() == month) { 
-			html += '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span><a href="/2014/10/30/hexo-guide-3/" title="当天有6篇博客,第一篇:hexo系列教程:（三）hexo博客的配置、使用">30</a></span><span><a href="/2014/10/31/taobaocode-guide/" title="当天有2篇博客,第一篇:taobaocode-guide">31</a></span>';
-		} else {
-			for(var j=0;j<final_date;j++){        
-				html+='<span id="d'+(j+1)+'">'+(j+1)+'</span>';
-			}
-		}
-        //下个月的显示天数
-        for(var k=0;k<surplus;k++){
-            html+='<span class="g-calendar-grey">'+(k+1)+'</span>';
-        }
-        //fill
-        this.oBody.innerHTML = html;
-        // 当前状态
-        if(year==this.c_year&&this.c_month==month){
-            this.oBody.getElementsByTagName('span')[first_day+this.date-1].className='g-calendar-on';
-        }
-
-		// 对所有文章遍历,然后将有文章的日期加上链接,如果文章太多的话,生成页面会很大,去掉了
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
 		
-    },
-    // next切换
-    next:function(){
-        var _that = this;
-        this.oNext.onclick = function(){
-            _that.month++;
-            if(_that.month>11){
-                _that.month = 0;
-                _that.year++;
-            }
-            // 填充日历
-            _that.fillDate(_that.year,_that.month);
-        }
-        
-    },
-    // back 切换
-    back:function(){
-        var _that = this;
-        this.oBack.onclick = function(){
-            var postdate = new Date("Thu Oct 30 2014 19:42:29 GMT+0800"); 
-            _that.year = postdate.getFullYear();
-            _that.month = postdate.getMonth();
-            // 填充日历
-            _that.fillDate(_that.year,_that.month);
-        }
-        
-    },
-    // now切换
-    now:function(){
-        var _that = this;
-        this.oNow.onclick = function(){
-            var nowDate = new Date(); 
-            _that.year = nowDate.getFullYear();
-            _that.month = nowDate.getMonth();
-            // 填充日历
-            _that.fillDate(_that.year,_that.month);
-        }
-        
-    },
-    // prev切换
-    prev:function(){
-        var _that = this;
-        this.oPrev.onclick = function(){
-            _that.month--;
-            if(_that.month<0){
-                _that.month = 11;
-                _that.year--;
-            }
-            // 填充日历
-            _that.fillDate(_that.year,_that.month);
-        }
-        
-    },
-    init:function(){
-        this.oTit.innerHTML = '<span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>';
-        // 获取今天的日历时间
-        var now = new Date();
-        this.c_year = this.year = now.getFullYear();
-        this.c_month = this.month = now.getMonth();
-        this.date = now.getDate();
-        // 初始化--填充日历
-        this.fillDate(this.year,this.month);
-        //next切换
-        this.next();
-        //prev切换
-        this.prev();
-        //back 切换
-        this.back();
-        //now 切换
-        this.now();
-    }
-}
-new LGY_calendar('g-calendar');
-</script>
+		
+		
+		<a href="https://github.com/vincent-wjj" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+</div>
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2014/11/13/Java-I-O/">Java I/O流整理分析</a>
-          </li>
-        
-          <li>
-            <a href="/2014/11/12/interview-guide-1/">Java面试题目</a>
-          </li>
-        
-          <li>
-            <a href="/2014/11/11/android-studio-guide-2/">AndroidStudio单元测试——instrumentation</a>
-          </li>
-        
-          <li>
-            <a href="/2014/11/11/android-studio-guide-1/">android_studio快捷键</a>
-          </li>
-        
-          <li>
-            <a href="/2014/11/11/linux-guide/">linux-guide</a>
-          </li>
-        
-      </ul>
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Java/" title="Java">Java<sup>2</sup></a></li>
+		
+			<li><a href="/categories/android-studio/" title="android_studio">android_studio<sup>2</sup></a></li>
+		
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>6</sup></a></li>
+		
+			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+		
+			<li><a href="/categories/taobaoCode/" title="taobaoCode">taobaoCode<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Java，I-O流/" title="Java，I/O流">Java，I/O流<sup>1</sup></a></li>
+		
+			<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
+		
+			<li><a href="/tags/linux操作系统/" title="linux操作系统">linux操作系统<sup>0</sup></a></li>
+		
+			<li><a href="/tags/博客/" title="博客">博客<sup>6</sup></a></li>
+		
+			<li><a href="/tags/安卓/" title="安卓">安卓<sup>2</sup></a></li>
+		
+			<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
+		
+			<li><a href="/tags/文章/" title="文章">文章<sup>6</sup></a></li>
+		
+			<li><a href="/tags/测试/" title="测试">测试<sup>1</sup></a></li>
+		
+			<li><a href="/tags/淘宝，文章/" title="淘宝，文章">淘宝，文章<sup>1</sup></a></li>
+		
+			<li><a href="/tags/笔试题目/" title="笔试题目">笔试题目<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+      <li><a href="http://gengbiao.me" target="_blank" title="coney">coney's Blog</a></li>
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java，I-O流/" style="font-size: 13.33px;">Java，I/O流</a><a href="/tags/linux/" style="font-size: 13.33px;">linux</a><a href="/tags/linux操作系统/" style="font-size: 10.00px;">linux操作系统</a><a href="/tags/博客/" style="font-size: 20.00px;">博客</a><a href="/tags/安卓/" style="font-size: 16.67px;">安卓</a><a href="/tags/快捷键/" style="font-size: 13.33px;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px;">文章</a><a href="/tags/测试/" style="font-size: 13.33px;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 13.33px;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 13.33px;">笔试题目</a>
     </div>
   </div>
 
-
-  
-    
-<div class="widget-wrap">
-  <h3 class="widget-title">最新评论</h3>
-  <ul class="widget ds-recent-comments" data-num-items="5" data-show-avatars="0" data-show-title="1" data-show-time="1"></ul>
-</div>
-<!-- 需要多说的公用代码 -->
-
-
-  
-    
-<div class="widget-wrap">
-  <h3 class="widget-title">友情链接</h3>
-  <ul class="widget">
-    
-    <li><a href="https://github.com/zippera" target="_BLANK">404 page</a></li>
-    
-  </ul>
-</div>
-
-
-  
 
 </aside>
-
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2014 junjiewang<br>
-      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/howiefh/hexo-theme-landscape-f" target="_blank" title="Landscape-F">Landscape-F</a>
+</div>
     </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <footer><div id="footer" >
     
+            <p class="copyright"> © 2014 
+		
+		<a href="http://yoursite.com" target="_blank" title="junjiewang">junjiewang</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
 
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
 
 <script type="text/javascript">
   var duoshuoQuery = {short_name:"junjie"};
   (function() {
-	var ds = document.createElement('script');
-	ds.type = 'text/javascript';ds.async = true;
-	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	ds.charset = 'UTF-8';
-	(document.getElementsByTagName('head')[0] 
-		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
   })();
 </script> 
 
-<!-- 多说公共JS代码 end -->
-
-<!-- 百度分享 start -->
-
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","douban","bdysc","sqq","qq","hi","baidu","huaban","youdao","sdo","mail","xg","diandian","fx","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-<!-- 百度分享 end -->
-
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.min.js"></script>
--->
-<script src="/js/jquery.min.js" type="text/javascript"></script>
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script>
+    
+        var _bdImg = '6';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
 
 
-<div class="bottom-btn">
 
-	<a class="icon-gotop" href="javascript:void(0)" title="返回顶部"></a>
-	<script src="/js/gotop.js" type="text/javascript"></script>
-
-	<!--
-	<script src="/js/gotop.js"></script>
-	-->
-
-
-	<a class="icon-toc-toggle" href="javascript:void(0)" title="文章目录"></a>
-	<!--
-	<script src="/js/toc_aside_toggle.js"></script>
-	-->
-
-</div>
-<script src="/js/toc_aside_toggle.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'null', 'null');  
+ga('send', 'pageview');
+</script>
 
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-
-  </div>
-  <DIV style="DISPLAY: none" id=goTopBtn title="Scroll Back to Top"><IMG border=0 src="/images/top.jpg"></DIV>
-<SCRIPT type=text/javascript>goTopEx();</SCRIPT>
-</body>
+  </body>
 </html>
+
