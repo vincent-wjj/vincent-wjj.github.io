@@ -7,61 +7,14 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>hexo 配置 | Vincent&#39;s Blog</title>
+    <title>Vincent&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="junjiewang">
     
-    <meta name="description" content="设置google analytics
-在themes/light/_config.yml中添加google_analytics: [id]这里的id填上你自己的谷歌分析的id即可，比如：UA-**-*
-sitemap
-安装
-1npm install hexo-generator-sitemap --save
-
-激活在 _config.yml中 plugins下添加 hexo-generator-sitemap
-12plugins:- hexo-generator-sitemap
-
-rss
-安装
-1npm install hexo-generator-feed --save
-
-激活在 _config.yml 中 plugins下添加 hexo-generator-feed
-12plugins:- hexo-generator-feed
-
-在themes/light/_config.yml中添加
-12menu:  RSS: /atom.xml
-
-添加菜单
-themes/light/_config.yml
-1234menu:   Home: /   Archives: /archives   GitHub: https://github.com/howiefh
-
-修改新建post的框架
-scaffolds/post.md
-12345title: hexo后记date: Fri Feb 07 2014 10:15:39 GMT+0800 (CST)categories:tags:---
-
-修改widgets
-themes/light/_config.yml
-1234567widgets:  - search - category - tag - twitter - tagcloud - recent_posts
-
-创建文件后在编辑器中打开
-scripts/autoOpenNewPost.js
-1234var spawn = require(&#39;child_process&#39;).spawn;hexo.on(&#39;new&#39;, function(target){	spawn(&#39;gvim&#39;, [target]);});
-
-使用hexo new &amp;quot;title&amp;quot;新建后会调用gvim打开新建的文件
-read more
-文章中添加&amp;lt;!--more--&amp;gt;可以实现read more功能。
-重新部署问题
-修改后无法部署到github 删除 .deploy删除tags 需要删除db.json
-pagination设置
-分页，设置每页显示10篇，archive，tag，category都激活每页10篇
-12345678per_page: 10# Archives## 2: Enable pagination## 1: Disable pagination## 0: Fully Disablearchive: 2category: 2tag: 2
-
-widget增加日历
-安装
-1npm install git://github.com/howiefh/hexo-calendar.git
-
-配置：Add the following content in the _config.yml
-12plugins:- hexo-calendar">
+    <meta name="description" content="title: Java与C++在面向对象基本概念上的区分date: 2015-01-05 15:37:59categories:面试/笔试tags: C++,Java
+tagcloud: C++,Java
+一、引言    众所周知，C++和Java是当今两种主流的面向对象语言，对于两种语言的优劣比较">
     
     
     
@@ -275,15 +228,15 @@ widget增加日历
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/10/30/hexo-config/" title="hexo 配置" itemprop="url">hexo 配置</a>
+      <a href="/2015/01/05/the-difference-of-C-and-Java/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="junjiewang">junjiewang</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-10-30T12:10:34.000Z" itemprop="datePublished">10月 30 2014</time>
-    更新日期:<time datetime="2014-11-11T13:50:48.000Z" itemprop="dateModified">11月 11 2014</time>
+    <time datetime="2015-01-05T07:37:59.000Z" itemprop="datePublished">1月 5 2015</time>
+    更新日期:<time datetime="2015-01-05T07:39:41.000Z" itemprop="dateModified">1月 5 2015</time>
     
   </p>
 </header>
@@ -292,81 +245,23 @@ widget增加日历
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置google_analytics"><span class="toc-number">1.</span> <span class="toc-text">设置google analytics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sitemap"><span class="toc-number">2.</span> <span class="toc-text">sitemap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rss"><span class="toc-number">3.</span> <span class="toc-text">rss</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加菜单"><span class="toc-number">4.</span> <span class="toc-text">添加菜单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改新建post的框架"><span class="toc-number">5.</span> <span class="toc-text">修改新建post的框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改widgets"><span class="toc-number">6.</span> <span class="toc-text">修改widgets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建文件后在编辑器中打开"><span class="toc-number">7.</span> <span class="toc-text">创建文件后在编辑器中打开</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#read_more"><span class="toc-number">8.</span> <span class="toc-text">read more</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新部署问题"><span class="toc-number">9.</span> <span class="toc-text">重新部署问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#widget增加日历"><span class="toc-number">10.</span> <span class="toc-text">widget增加日历</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:_C++,Java"><span class="toc-number">1.</span> <span class="toc-text">tagcloud: C++,Java</span></a></li></ol>
 		</div>
 		
-		<h1 id="设置google_analytics">设置google analytics</h1>
-<p>在themes/light/_config.yml中添加<br>google_analytics: [id]<br>这里的id填上你自己的谷歌分析的id即可，比如：UA-<strong><em>**</em></strong>-*</p>
-<h1 id="sitemap">sitemap</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-sitemap <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>激活<br>在 <code>_config.yml</code>中 <code>plugins</code>下添加 <code>hexo-generator-sitemap</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-sitemap</div></pre></td></tr></table></figure>
-
-<h1 id="rss">rss</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-feed <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>激活<br>在 <code>_config.yml 中 plugins</code>下添加 <code>hexo-generator-feed</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-feed</div></pre></td></tr></table></figure>
-
-<p>在<code>themes/light/_config.yml</code>中添加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="label">menu:</span></div><div class="line">  RSS: /atom.xml</div></pre></td></tr></table></figure>
-
-<h1 id="添加菜单">添加菜单</h1>
-<p>themes/light/_config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">menu</span>:</div><div class="line">   Home: /</div><div class="line">   Archives: /archives</div><div class="line">   GitHub: https:<span class="comment">//github.com/howiefh</span></div></pre></td></tr></table></figure>
-
-<h1 id="修改新建post的框架">修改新建post的框架</h1>
-<p>scaffolds/post.md</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: hexo后记</div><div class="line">date: Fri Feb 07 2014 10:15:39 GMT+0800 (CST)</div><div class="line">categories:</div><div class="line"><span class="header">tags:</span></div><div class="line">---</div></pre></td></tr></table></figure>
-
-<h1 id="修改widgets">修改widgets</h1>
-<p>themes/light/_config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">widgets: </div><div class="line"> -<span class="ruby"> search</span></div><div class="line"> -<span class="ruby"> category</span></div><div class="line"> -<span class="ruby"> tag</span></div><div class="line"> -<span class="ruby"> twitter</span></div><div class="line"> -<span class="ruby"> tagcloud</span></div><div class="line"> -<span class="ruby"> recent_posts</span></div></pre></td></tr></table></figure>
-
-<h1 id="创建文件后在编辑器中打开">创建文件后在编辑器中打开</h1>
-<p>scripts/autoOpenNewPost.js</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(target)</span></span>{</div><div class="line">	spawn(<span class="string">'gvim'</span>, [target]);</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>使用<code>hexo new &quot;title&quot;</code>新建后会调用gvim打开新建的文件</p>
-<h1 id="read_more">read more</h1>
-<p>文章中添加<code>&lt;!--more--&gt;</code>可以实现read more功能。</p>
-<h1 id="重新部署问题">重新部署问题</h1>
-<p>修改后无法部署到github 删除 .deploy<br>删除tags 需要删除db.json</p>
-<p>pagination设置</p>
-<p>分页，设置每页显示10篇，archive，tag，category都激活每页10篇</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">per_page: <span class="number">10</span></div><div class="line"><span class="preprocessor"># Archives</span></div><div class="line"><span class="preprocessor">## 2: Enable pagination</span></div><div class="line"><span class="preprocessor">## 1: Disable pagination</span></div><div class="line"><span class="preprocessor">## 0: Fully Disable</span></div><div class="line">archive: <span class="number">2</span></div><div class="line">category: <span class="number">2</span></div><div class="line">tag: <span class="number">2</span></div></pre></td></tr></table></figure>
-
-<h1 id="widget增加日历">widget增加日历</h1>
-<p>安装</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/howiefh/hexo-calendar.git</div></pre></td></tr></table></figure>
-
-<p>配置：<br>Add the following content in the _config.yml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-calendar</div></pre></td></tr></table></figure>
-
-<a id="more"></a>
+		<p>title: Java与C++在面向对象基本概念上的区分<br>date: 2015-01-05 15:37:59<br>categories:面试/笔试<br>tags: C++,Java</p>
+<h2 id="tagcloud:_C++,Java">tagcloud: C++,Java</h2>
+<p>一、引言<br>    众所周知，C++和Java是当今两种主流的面向对象语言，对于两种语言的优劣比较，每个人都有自己不同的看法，比较一致的看法是C++是编译型高级语言而Java是解释型的，因此C++快速而Java兼容性好，C++适合底层控制而Java长于网络编程。不管怎么说，可以肯定的一点是两种语言还会在相当长的一段时间内并存下去，这要求我们在精通两者其一的同时，对另一个也应该至少清楚地掌握其框架结构。因为Java是从C++衍生出来的，所以两种语言在基本语法和概念上都有很多相似之处，然而它们之间也存在一些不可忽视的差异，本文试图通过比较其中在面向对象的基本概念上的一些区别，来谈一谈两者的特点。<br>二、最最基本的区别——Java是一种完全的面向对象语言<br>    面向对象技术中的对象就是现实世界中某个具体的实体在计算机逻辑中的映射和体现，而类则是同种对象的集合与抽象。所有的Java程序都是由类或者说是类的定义组成的。在我们的学习过程中应该自始至终地牢记这一点，因为这意味着Java是一种完全的面向对象语言。Java中的所有东西都必须置入一个类。不存在全局函数、全局数据，也没有像结构、枚举或者联合这种东西，一切只有“类”！<br>    然而C++则不同，比如C++的main方法是置于所有的类之外的，除此之外还可以在类外定义其它的函数。在C++中，全局变量、结构、枚举、联合等一些列源于C的概念仍然存在。对于在这个问题上的区别，不同的人会有不同的看法，C++的优点是灵活机动，而且比较利于C程序员接受，因为在C中成立的事情在C++中基本上不会出现差错，他们只需要了解C++多了哪些东西便可以了，然而也正因为如此，C++杂糅了面向对象和面向过程的双重概念，由此产生出的很多机制在强化某部分功能的同时破坏了程序的整体结构。<br>    与此相比，Java语言去除了C++中为了兼容C语言而保留的非面向对象的内容，对于对C比较习惯的人来说不是十分友好，在很多问题的处理上也显得有些弃简就繁，但是它以此换来了严谨和可靠的结构，以及在维护和管理上的方便。<br>    因此对两种语言的总体比较可以得出的结论是：C++更加灵活而Java更加严谨。<br>三、类定义和类方法的定义上的区别<br>    Java中没有独立的类声明，只有类定义。在定义类和类的方法（C++中称为成员函数）上，让我们用一个C++的典型类定义的片段来说明两者的不同：<br>    class score<br>    {<br>        score(int);<br>    };<br>    score::score(int x)<br>    {<br>        写下构造函数的具体定义<br>    }<br>    这个例子反映了C++和Java的三个不同之处：<br>    （1）在Java中，类定义采取几乎和C++一样的形式，只不过没有标志结束的分号。<br>    （2）Java中的所有方法都是在类的主体定义的而C++并非如此。在Java中我们必须将函数的定义置于类的内部，这种禁止在类外对方法定义的规定和Java的完全面向对象特性是吻合的。<br>    （3）Java中没有作用域范围运算符“::”。Java利用“.”做所有的事情，但可以不用考虑它，因为只能在一个类里定义元素。即使那些方法定义，也必须在一个类的内部，所以根本没有必要指定作用域的范围。而对于static方法的调用，也是通过使用ClassName.methodName()就可以了。<br>四、类和对象的建立与回收机制上的区别<br>    Java提供了与C++类似的构造函数。如果不自己定义一个，就会获得一个默认构造函数。而如果定义了一个非默认的构造函数，就不会为我们自动定义默认构造函数。这和C++是一样的。但是在Java中没有拷贝构造函数，因为所有自变量都是按引用传递的。<br>    静态初始化器是Java的一个独特概念，与构造函数对每个新建的对象初始化相对的，静态初始化器对每个类进行初始化，它不是方法，没有方法名、返回值和参数列表，在系统向内存加载时自动完成。<br>    另一方面，在C++中，对象的释放和回收是通过编程人员执行某种特殊的操作来实现的，像利用new运算符创建对象一样，利用delete运算符可以回收对象。但在Java语言中，为方便、简化编程并减少错误，对象的回收是由系统的垃圾回收机制自动完成的。Java的垃圾回收机制是一个系统后台线程，它与用户的程序共存，能够检测用户程序中各对象的状态。当它发现一个对象已经不能继续被程序利用时，就把这个对象记录下来，这种不能再使用的对象被称为内存垃圾。当垃圾达到一定数目且系统不是很忙时，垃圾回收线程会自动完成所有垃圾对象的内存释放工作，在这个过程中，在回收每个垃圾对象的同时，系统将自动调用执行它的终结器（finalize)方法。<br>    finalize()方法与C++中的析构函数（Destructor）有类似的地方，但是finalize()是由垃圾收集器调用的，而且只负责释放“资源”（如打开的文件、套接字、端口、URL等等）。如需在一个特定的地点做某样事情，必须创建一个特殊的方法，并调用它，不能依赖finalize()。而在另一方面，C++中的所有对象都会（或者说“应该”）破坏，但并非Java中的所有对象都会被当作“垃圾”收集掉。由于Java不支持析构函数的概念，所以在必要的时候，必须谨慎地创建一个清除方法。而且针对类内的基础类以及成员对象，需要明确调用所有清除方法。<br>五、重载方面的区别——Java没有运算符重载<br>    多态是面向对象程序设计的一个特殊特性，重载则是它的重要体现。在C++中，同时支持函数重载和运算符重载，而Java具有方法重载的能力，但不允许运算符重载。<br>六、继承方面的区别（一）——关于访问权限<br>    在C++中存在三种继承模式——公有继承、私有继承和保护继承。其中公有继承使基类中的非私有成员在派生类中的访问属性保持不变，保护继承使基类中的非私有成员在派生类中的访问属性都降一级，而私有继承使基类中的非私有成员都成为派生类中的私有成员。在Java中，只有公有继承被保留了下来，Java中的继承不会改变基础类成员的保护级别。我们不能在Java中指定public，private或者protected继承，这一点与C++是不同的。此外，在衍生类中的优先方法不能减少对基础类方法的访问。例如，假设一个成员在基础类中属于public，而我们用另一个方法代替了它，那么用于替换的方法也必须属于public（编译器会自动检查）。<br>七、继承方面的区别（二）——关于多继承<br>    所谓多重继承，是指一个子类可以有一个以上的直接父类。C++在语法上直接支持多继承，其格式为：<br>    class 派生类名：访问控制关键字 1 基类名1，访问控制关键字 2 基类名2，…<br>    Java出于简化程序结构的考虑，取消了语法上对多继承的直接支持，而是用接口来实现多重继承功能的结构。这样一来，对于仅仅设计成一个接口的东西，以及对于用extends关键字在现有功能基础上的扩展，两者之间便产生了一个明显的差异。不值得用abstract关键字产生一种类似的效果，因为我们不能创建属于那个类的一个对象。一个abstract（抽象）类可包含抽象方法（尽管并不要求在它里面包含什么东西），但它也能包含用于具体实现的代码。因此，它被限制成一个单一的继承。通过与接口联合使用，这一方案避免了对类似于C++虚基类那样的一些机制的需要。由此而来的，Java中没有virtual关键字。<br>八、其它方面的区别及结语<br>    以上我们介绍的，只是Java和C++在和面向对象的基本概念联系比较紧密的一些方面的比较，除了这些比较重要的基本区别之外，它们还在很多地方有着或多或少的不同，比如指针与引用的问题，异常机制的问题，流程控制的问题等等。通过两种语言在种种方面的差异我们可以很明显地感觉两者在风格上的差异。喜爱C++的人会说Java功能贫乏，喜爱Java的人则会说C++结构混乱，其实作为比较成熟的面向对象语言，不论是哪一种，只要我们能掌握它的整套体系和思想并勤加练习，都是可以很得心应手地运用的。写下这篇文章，更多的意义在于讲述如果你真的要从一门语言转到另一门的学习中应该留意些什么，而不是怂恿你做出偏向某一门语言的选择。<br>    所以不管你选择了哪一种语言，记住一点，语言本身并无高下，只有运用语言的人才有高下。</p>
+<p>转载自：<a href="http://blog.csdn.net/sjtu_huang/article/details/6917697" target="_blank" rel="external">http://blog.csdn.net/sjtu_huang/article/details/6917697</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/文章/">文章</a><a href="/tags/博客/">博客</a>
-  </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/hexo/">hexo</a>
-</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/10/30/hexo-config/" data-title="hexo 配置 | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/01/05/the-difference-of-C-and-Java/" data-title="Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -375,19 +270,11 @@ widget增加日历
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/10/31/taobaocode-guide/" title="taobaocode-guide">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  taobaocode-guide</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/10/30/esay-markdown/"  title="轻松搞定Markdown">
+<a href="/2014/12/09/mysql-guide-1/"  title="MySql 日期函数大全">
  <strong>NEXT:</strong><br/> 
- <span>轻松搞定Markdown
+ <span>MySql 日期函数大全
 </span>
 </a>
 </div>
@@ -404,7 +291,7 @@ widget增加日历
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置google_analytics"><span class="toc-number">1.</span> <span class="toc-text">设置google analytics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sitemap"><span class="toc-number">2.</span> <span class="toc-text">sitemap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rss"><span class="toc-number">3.</span> <span class="toc-text">rss</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加菜单"><span class="toc-number">4.</span> <span class="toc-text">添加菜单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改新建post的框架"><span class="toc-number">5.</span> <span class="toc-text">修改新建post的框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改widgets"><span class="toc-number">6.</span> <span class="toc-text">修改widgets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建文件后在编辑器中打开"><span class="toc-number">7.</span> <span class="toc-text">创建文件后在编辑器中打开</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#read_more"><span class="toc-number">8.</span> <span class="toc-text">read more</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新部署问题"><span class="toc-number">9.</span> <span class="toc-text">重新部署问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#widget增加日历"><span class="toc-number">10.</span> <span class="toc-text">widget增加日历</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:_C++,Java"><span class="toc-number">1.</span> <span class="toc-text">tagcloud: C++,Java</span></a></li></ol>
   </div>
 
 <div id="asidepart">
