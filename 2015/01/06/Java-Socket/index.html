@@ -7,14 +7,15 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>Vincent&#39;s Blog</title>
+    <title>Java-Socket编程 | Vincent&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="junjiewang">
     
-    <meta name="description" content="title: Java-Socket编程date: 2015-01-06 08:46:39categories:JavaSockettags: Java Socket
-tagcloud: Java-Socket编程
-java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
+    <meta name="description" content="java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket
+简单的Socket通信
+服务器端
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647">
     
     
     
@@ -228,7 +229,7 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/01/06/Java-Socket/" title="" itemprop="url"></a>
+      <a href="/2015/01/06/Java-Socket/" title="Java-Socket编程" itemprop="url">Java-Socket编程</a>
   </h1>
   <p class="article-author">By
     
@@ -236,7 +237,7 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
     </p>
   <p class="article-time">
     <time datetime="2015-01-06T00:46:39.000Z" itemprop="datePublished">1月 6 2015</time>
-    更新日期:<time datetime="2015-01-06T01:04:22.000Z" itemprop="dateModified">1月 6 2015</time>
+    更新日期:<time datetime="2015-01-06T01:07:22.000Z" itemprop="dateModified">1月 6 2015</time>
     
   </p>
 </header>
@@ -245,12 +246,10 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:_Java-Socket编程"><span class="toc-number">1.</span> <span class="toc-text">tagcloud: Java-Socket编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java_socket通信已经被封装好了主要使用两个类ServerSocket_和Socket"><span class="toc-number">2.</span> <span class="toc-text">java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的Socket通信"><span class="toc-number">2.1.</span> <span class="toc-text">简单的Socket通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程Socket通信"><span class="toc-number">2.2.</span> <span class="toc-text">多线程Socket通信</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java_socket通信已经被封装好了主要使用两个类ServerSocket_和Socket"><span class="toc-number">1.</span> <span class="toc-text">java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的Socket通信"><span class="toc-number">1.1.</span> <span class="toc-text">简单的Socket通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程Socket通信"><span class="toc-number">1.2.</span> <span class="toc-text">多线程Socket通信</span></a></li></ol></li></ol>
 		</div>
 		
-		<p>title: Java-Socket编程<br>date: 2015-01-06 08:46:39<br>categories:JavaSocket<br>tags: Java Socket</p>
-<h2 id="tagcloud:_Java-Socket编程">tagcloud: Java-Socket编程</h2>
-<h2 id="java_socket通信已经被封装好了主要使用两个类ServerSocket_和Socket">java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket</h2>
+		<h2 id="java_socket通信已经被封装好了主要使用两个类ServerSocket_和Socket">java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket</h2>
 <h3 id="简单的Socket通信">简单的Socket通信</h3>
 <p>服务器端</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">/<span class="keyword">*</span><span class="keyword">*</span></div><div class="line"> <span class="keyword">*</span> </div><div class="line"> <span class="keyword">*</span>/</div><div class="line">package com.vincent;</div><div class="line"></div><div class="line">import java.io.BufferedReader;</div><div class="line">import java.io.BufferedWriter;</div><div class="line">import java.io.InputStreamReader;</div><div class="line">import java.io.OutputStreamWriter;</div><div class="line">import java.io.PrintWriter;</div><div class="line">import java.net.ServerSocket;</div><div class="line">import java.net.Socket;</div><div class="line"></div><div class="line">/<span class="keyword">*</span><span class="keyword">*</span></div><div class="line"> <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> </div><div class="line"> <span class="keyword">*</span> 项目名称：JavaSocket</div><div class="line"> <span class="keyword">*</span> 程序名称：Server</div><div class="line"> <span class="keyword">*</span> 日期：2015-1-5 上午08:49:22</div><div class="line"> <span class="keyword">*</span> 作者：</div><div class="line"> <span class="keyword">*</span> 模块：</div><div class="line"> <span class="keyword">*</span> 描述：</div><div class="line"> <span class="keyword">*</span> 备注：</div><div class="line"> <span class="keyword">*</span> ------------------------------------------------------------</div><div class="line"> <span class="keyword">*</span> 修改历史</div><div class="line"> <span class="keyword">*</span> 序号  				日期        		修改人       修改原因</div><div class="line"> <span class="keyword">*</span> </div><div class="line"> <span class="keyword">*</span> 修改备注：</div><div class="line"> <span class="keyword">*</span> <span class="comment">@version </span></div><div class="line"> <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></div><div class="line"> <span class="keyword">*</span>/</div><div class="line">public class Server {</div><div class="line"></div><div class="line">	public static int PORT = 8080;</div><div class="line">	public static void main(String[] agrs) {</div><div class="line">		ServerSocket s = null;</div><div class="line">		Socket socket = null;</div><div class="line">		BufferedReader br = null;</div><div class="line">		PrintWriter pw = null;</div><div class="line">		try {</div><div class="line">			//1、创建一个服务器端Socket，即ServerSocket，指定绑定的端口，并监听此端口</div><div class="line">			s = new ServerSocket(PORT);</div><div class="line">			System.out.println(<span class="string">"ServerSocket Start:"</span>+s);</div><div class="line">			//2、调用accept()方法开始监听，等待客户端的连接</div><div class="line">			socket = s.accept();</div><div class="line">			System.out.println(<span class="string">"Connection accept socket:"</span>+socket);</div><div class="line">			////3、获取输入流，并读取客户端信息,用于接收客户端发来的请求</div><div class="line">			InputStream is = socket.getInputStream();//字节输入流</div><div class="line">			InputStreamReader isr = new InputStreamReader(is);//字节流转换为字符流</div><div class="line">			BufferedReader br = new BufferedReader(isr);</div><div class="line">		    //br = new BufferedReader(new InputStreamReader(socket.getInputStream()));</div><div class="line">		    while((info = br.readLine())!=null){</div><div class="line">				//循环读取客户端的信息</div><div class="line">				System.out.println(<span class="string">"我是服务器，客户端说："</span>+info);</div><div class="line">			}</div><div class="line">			socket.shutdownInput();//关闭输入流</div><div class="line">			//用于发送返回信息,可以不需要装饰这么多io流使用缓冲流时发送数据要注意调用.flush()方法</div><div class="line">			//4、获取输出流，用来响应客户端请求</div><div class="line">			OutputStream os = socket.getOutputStream();</div><div class="line">			PrintWriter pw = new PrintWriter(os);			</div><div class="line">			//pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);</div><div class="line">			pw.write(<span class="string">"欢迎您！"</span>);</div><div class="line">			pw.flush(); //调用flush()方法，刷新缓存</div><div class="line">			//5、关闭资源</div><div class="line">			pw.close();</div><div class="line">			os.close();</div><div class="line">			br.close();</div><div class="line">			isr.close();</div><div class="line">			is.close();</div><div class="line">			socket.close();</div><div class="line">		} catch (Exception e) {</div><div class="line">			// TODO Auto-generated catch block</div><div class="line">			e.printStackTrace();</div><div class="line">		}</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
@@ -265,12 +264,22 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java-Socket/">Java Socket</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/JavaSocket/">JavaSocket</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/01/06/Java-Socket/" data-title="Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/01/06/Java-Socket/" data-title="Java-Socket编程 | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -300,7 +309,7 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tagcloud:_Java-Socket编程"><span class="toc-number">1.</span> <span class="toc-text">tagcloud: Java-Socket编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java_socket通信已经被封装好了主要使用两个类ServerSocket_和Socket"><span class="toc-number">2.</span> <span class="toc-text">java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的Socket通信"><span class="toc-number">2.1.</span> <span class="toc-text">简单的Socket通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程Socket通信"><span class="toc-number">2.2.</span> <span class="toc-text">多线程Socket通信</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java_socket通信已经被封装好了主要使用两个类ServerSocket_和Socket"><span class="toc-number">1.</span> <span class="toc-text">java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的Socket通信"><span class="toc-number">1.1.</span> <span class="toc-text">简单的Socket通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程Socket通信"><span class="toc-number">1.2.</span> <span class="toc-text">多线程Socket通信</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -328,6 +337,8 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
 		
 			<li><a href="/categories/Java/" title="Java">Java<sup>2</sup></a></li>
 		
+			<li><a href="/categories/JavaSocket/" title="JavaSocket">JavaSocket<sup>1</sup></a></li>
+		
 			<li><a href="/categories/android-studio/" title="android_studio">android_studio<sup>2</sup></a></li>
 		
 			<li><a href="/categories/hexo/" title="hexo">hexo<sup>6</sup></a></li>
@@ -354,6 +365,8 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
 			<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Java/" title="Java">Java<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Java-Socket/" title="Java Socket">Java Socket<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Java，I-O流/" title="Java，I/O流">Java，I/O流<sup>1</sup></a></li>
 		
@@ -400,7 +413,7 @@ java socket通信已经被封装好了主要使用两个类ServerSocket 和S">
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/C/" style="font-size: 13.33px;">C++</a><a href="/tags/Java/" style="font-size: 16.67px;">Java</a><a href="/tags/Java，I-O流/" style="font-size: 13.33px;">Java，I/O流</a><a href="/tags/linux/" style="font-size: 13.33px;">linux</a><a href="/tags/linux操作系统/" style="font-size: 10.00px;">linux操作系统</a><a href="/tags/mysql-function/" style="font-size: 13.33px;">mysql,function</a><a href="/tags/program-design/" style="font-size: 13.33px;">program-design</a><a href="/tags/博客/" style="font-size: 20.00px;">博客</a><a href="/tags/安卓/" style="font-size: 16.67px;">安卓</a><a href="/tags/快捷键/" style="font-size: 13.33px;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px;">文章</a><a href="/tags/测试/" style="font-size: 13.33px;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 13.33px;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 13.33px;">笔试题目</a>
+       <a href="/tags/C/" style="font-size: 13.33px;">C++</a><a href="/tags/Java/" style="font-size: 16.67px;">Java</a><a href="/tags/Java-Socket/" style="font-size: 13.33px;">Java Socket</a><a href="/tags/Java，I-O流/" style="font-size: 13.33px;">Java，I/O流</a><a href="/tags/linux/" style="font-size: 13.33px;">linux</a><a href="/tags/linux操作系统/" style="font-size: 10.00px;">linux操作系统</a><a href="/tags/mysql-function/" style="font-size: 13.33px;">mysql,function</a><a href="/tags/program-design/" style="font-size: 13.33px;">program-design</a><a href="/tags/博客/" style="font-size: 20.00px;">博客</a><a href="/tags/安卓/" style="font-size: 16.67px;">安卓</a><a href="/tags/快捷键/" style="font-size: 13.33px;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px;">文章</a><a href="/tags/测试/" style="font-size: 13.33px;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 13.33px;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 13.33px;">笔试题目</a>
     </div>
   </div>
 
