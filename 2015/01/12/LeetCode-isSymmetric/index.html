@@ -7,29 +7,13 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>hexo系列教程：（一）hexo介绍 | Vincent&#39;s Blog</title>
+    <title>LeetCode-Symmetric Tree 对称树 | Vincent&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="junjiewang">
     
-    <meta name="description" content="什么是hexo？
-hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的@tommy351。引用@tommy351的话，hexo：
-
-快速、简单且功能强大的 Node.js博客框架。A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
-
-类似于jekyll、Octopress、Wordpress，我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。本博客即使用hexo创建并托管在github上。
-为什么要用hexo
-
-还是引用下作者的话：不可思议的快速 ─ 只要一眨眼静态文件即生成完成支持 Markdown仅需一道指令即可部署到 GitHub Pages 和 Heroku已移植 Octopress 插件高扩展性、自订性兼容于 Windows, Mac &amp;amp; Linux
-
-我再加几条：1、易用。不仅部署简单，平时使用中仅需要&amp;gt;hexo new hexo generate hexo server hexo deploy四个命令。不像Jekyll需要很多繁琐的git命令。2、轻。文件少、小，易理解，方便自定义。3、用户多。虽然赶不上Jekyll和Octopress，但遇到什么问题都能搜索到答案，或者找到同样使用hexo的用户进行参考和咨询。
-谁能使用hexo
-这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。但是，不要恐惧，只要跟着本教程走，就能很方便地让自己的博客”飞起来”。
-怎样搭建hexo博客
-正题来了，请期待下一节。
-注意
-本系列相关博客均根据hexo1.1.3版本，但更高版本也几乎完全适用。各版本所做更新修正，请参考这里。
-本文转载自：http://zipperary.com/2013/05/28/hexo-guide-1/">
+    <meta name="description" content="判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric Tree给出判断对称树的两种方法。
+先看看问题描述：Given a binary tree, check whether it is a mirror of itself (ie, symmetric ">
     
     
     
@@ -243,15 +227,15 @@ hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/10/30/hexo-guide-1/" title="hexo系列教程：（一）hexo介绍" itemprop="url">hexo系列教程：（一）hexo介绍</a>
+      <a href="/2015/01/12/LeetCode-isSymmetric/" title="LeetCode-Symmetric Tree 对称树" itemprop="url">LeetCode-Symmetric Tree 对称树</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="junjiewang">junjiewang</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-10-30T10:26:25.000Z" itemprop="datePublished">10月 30 2014</time>
-    更新日期:<time datetime="2014-10-30T12:41:22.000Z" itemprop="dateModified">10月 30 2014</time>
+    <time datetime="2015-01-12T08:06:12.000Z" itemprop="datePublished">1月 12 2015</time>
+    更新日期:<time datetime="2015-01-12T08:10:37.000Z" itemprop="dateModified">1月 12 2015</time>
     
   </p>
 </header>
@@ -260,47 +244,56 @@ hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态�
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是hexo？"><span class="toc-number">1.</span> <span class="toc-text">什么是hexo？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么要用hexo"><span class="toc-number">2.</span> <span class="toc-text">为什么要用hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#谁能使用hexo"><span class="toc-number">3.</span> <span class="toc-text">谁能使用hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎样搭建hexo博客"><span class="toc-number">4.</span> <span class="toc-text">怎样搭建hexo博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">5.</span> <span class="toc-text">注意</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric_Tree给出判断对称树的两种方法。"><span class="toc-number">1.</span> <span class="toc-text">判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric Tree给出判断对称树的两种方法。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一："><span class="toc-number"></span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二："><span class="toc-number"></span> <span class="toc-text">方法二：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、递归版本"><span class="toc-number">1.</span> <span class="toc-text">1、递归版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、非递归版本"><span class="toc-number">2.</span> <span class="toc-text">2、非递归版本</span></a></li></ol>
 		</div>
 		
-		<h1 id="什么是hexo？">什么是hexo？</h1>
-<p>hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的@tommy351。引用@<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">tommy351</a>的话，hexo：</p>
-<blockquote>
-<p>快速、简单且功能强大的 Node.js博客框架。<br>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-</blockquote>
-<p>类似于jekyll、Octopress、Wordpress，我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。本博客即使用hexo创建并托管在github上。</p>
-<h1 id="为什么要用hexo">为什么要用hexo</h1>
-<blockquote>
-<p>还是引用下作者的话：<br>不可思议的快速 ─ 只要一眨眼静态文件即生成完成<br>支持 Markdown<br>仅需一道指令即可部署到 GitHub Pages 和 Heroku<br>已移植 Octopress 插件<br>高扩展性、自订性<br>兼容于 Windows, Mac &amp; Linux</p>
-</blockquote>
-<p>我再加几条：<br>1、易用。不仅部署简单，平时使用中仅需要&gt;hexo new hexo generate hexo server hexo deploy四个命令。不像Jekyll需要很多繁琐的git命令。<br>2、轻。文件少、小，易理解，方便自定义。<br>3、用户多。虽然赶不上Jekyll和Octopress，但遇到什么问题都能搜索到答案，或者找到同样使用hexo的用户进行参考和咨询。</p>
-<h1 id="谁能使用hexo">谁能使用hexo</h1>
-<p>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有<strong>一定计算机基础，喜欢折腾</strong>的人。但是，不要恐惧，只要跟着本教程走，就能很方便地让自己的博客”飞起来”。</p>
-<h1 id="怎样搭建hexo博客">怎样搭建hexo博客</h1>
-<p>正题来了，请期待下一节。</p>
-<h1 id="注意">注意</h1>
-<p>本系列相关博客均根据hexo1.1.3版本，但更高版本也几乎完全适用。各版本所做更新修正，请参考<a href="https://github.com/hexojs/hexo/releases" target="_blank" rel="external">这里</a>。</p>
-<p>本文转载自：<a href="http://zipperary.com/2013/05/28/hexo-guide-1/" target="_blank" rel="external">http://zipperary.com/2013/05/28/hexo-guide-1/</a><br><a id="more"></a></p>
+		<h3 id="判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric_Tree给出判断对称树的两种方法。">判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric Tree给出判断对称树的两种方法。</h3>
+<p>先看看问题描述：<br>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).<br>For example, this binary tree is symmetric:</p>
+<pre><code>    1
+   / <span class="command">\
+</span>  2   2
+ / <span class="command">\ </span>/ <span class="command">\
+</span>3  4 4  3
+</code></pre><p>But the following is not:</p>
+<pre><code>    1
+   / <span class="command">\
+</span>  2   2
+   <span class="command">\ </span>  <span class="command">\
+</span>   3    3
+</code></pre><p>树的结构：</p>
+<p>struct TreeNode {<br>     int val;<br>     TreeNode <em>left;<br>     TreeNode </em>right;<br>     TreeNode(int x) : val(x), left(NULL), right(NULL) {}<br>};</p>
+<h2 id="方法一：">方法一：</h2>
+<p>层次遍历是最直观的方法。对数进行层次遍历，记录每一层的节点，然后对每一层的value组成的字符串判断是不是对称串。算法的时间复杂度为O(nlgn)，非最优,侥幸AC。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  bool isSymmetric(TreeNode *root) {</div><div class="line">    <span class="keyword">if</span>(!root)</div><div class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">if</span>(root<span class="variable">-&gt;left</span>==<span class="keyword">NULL</span> && root<span class="variable">-&gt;right</span>!=<span class="keyword">NULL</span> || root<span class="variable">-&gt;left</span>!=<span class="keyword">NULL</span> && root<span class="variable">-&gt;right</span>==<span class="keyword">NULL</span>)</div><div class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">if</span>(!root<span class="variable">-&gt;left</span> && !root<span class="variable">-&gt;right</span>)</div><div class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    mm.insert(make_pair(root<span class="variable">-&gt;left</span>,root<span class="variable">-&gt;right</span>));</div><div class="line">    <span class="keyword">return</span> judge();</div><div class="line">  }</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  multimap&lt;TreeNode*,TreeNode*&gt; mm;  <span class="comment">//存放每层的节点，将对称位置上的一对节点存在一个key-value对里面</span></div><div class="line"></div><div class="line">  bool judge(){</div><div class="line">    <span class="keyword">if</span>(mm.<span class="keyword">empty</span>())</div><div class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    multimap&lt;TreeNode*,TreeNode*&gt; tmp(mm);</div><div class="line">    mm.clear();</div><div class="line">    <span class="keyword">for</span>(multimap&lt;TreeNode*,TreeNode*&gt;::iterator it=tmp.begin();it!=tmp.end();++it){</div><div class="line">      <span class="keyword">if</span>(it<span class="variable">-&gt;first</span><span class="variable">-&gt;val</span>!=it<span class="variable">-&gt;second</span><span class="variable">-&gt;val</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">if</span>(it<span class="variable">-&gt;first</span><span class="variable">-&gt;left</span> && !it<span class="variable">-&gt;second</span><span class="variable">-&gt;right</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">if</span>(!it<span class="variable">-&gt;first</span><span class="variable">-&gt;left</span> && it<span class="variable">-&gt;second</span><span class="variable">-&gt;right</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">if</span>(it<span class="variable">-&gt;first</span><span class="variable">-&gt;right</span> && !it<span class="variable">-&gt;second</span><span class="variable">-&gt;left</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">if</span>(!it<span class="variable">-&gt;first</span><span class="variable">-&gt;right</span> && it<span class="variable">-&gt;second</span><span class="variable">-&gt;left</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">if</span>(it<span class="variable">-&gt;first</span><span class="variable">-&gt;right</span> && it<span class="variable">-&gt;second</span><span class="variable">-&gt;left</span>)</div><div class="line">        mm.insert(make_pair(it<span class="variable">-&gt;first</span><span class="variable">-&gt;right</span>,it<span class="variable">-&gt;second</span><span class="variable">-&gt;left</span>));</div><div class="line">      <span class="keyword">if</span>(it<span class="variable">-&gt;first</span><span class="variable">-&gt;left</span> && it<span class="variable">-&gt;second</span><span class="variable">-&gt;right</span>)</div><div class="line">        mm.insert(make_pair(it<span class="variable">-&gt;first</span><span class="variable">-&gt;left</span>,it<span class="variable">-&gt;second</span><span class="variable">-&gt;right</span>));</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> judge();  <span class="comment">//递归到树的下一层</span></div><div class="line">  }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h2 id="方法二：">方法二：</h2>
+<pre><code>不采用层次遍历。直接比较对称位置：<span class="attribute">left</span>的<span class="attribute">right</span>和<span class="attribute">right</span>的<span class="attribute">left</span>比较，<span class="attribute">left</span>的<span class="attribute">left</span>和<span class="attribute">right</span>的<span class="attribute">right</span>比较。时间复杂度<span class="function">O</span>(n)下面给出递归和非递归两个版本：
+</code></pre><h3 id="1、递归版本">1、递归版本</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</div><div class="line">  public:</div><div class="line">  bool isSymmetric(<span class="type">TreeNode</span> *root) {</div><div class="line">    <span class="keyword">return</span> root ? isSymmetric(root-&gt;<span class="keyword">left</span>, root-&gt;<span class="keyword">right</span>) : <span class="built_in">true</span>;</div><div class="line">  }</div><div class="line">  bool isSymmetric(<span class="type">TreeNode</span> *<span class="keyword">left</span>, <span class="type">TreeNode</span> *<span class="keyword">right</span>) {</div><div class="line">    <span class="keyword">if</span> (!<span class="keyword">left</span> && !<span class="keyword">right</span>) <span class="keyword">return</span> <span class="built_in">true</span>; </div><div class="line">    <span class="keyword">if</span> (!<span class="keyword">left</span> || !<span class="keyword">right</span>) <span class="keyword">return</span> <span class="built_in">false</span>; </div><div class="line">      <span class="keyword">return</span> <span class="keyword">left</span>-&gt;val == <span class="keyword">right</span>-&gt;val && isSymmetric(<span class="keyword">left</span>-&gt;<span class="keyword">left</span>, <span class="keyword">right</span>-&gt;<span class="keyword">right</span>)&& isSymmetric(<span class="keyword">left</span>-&gt;<span class="keyword">right</span>, <span class="keyword">right</span>-&gt;<span class="keyword">left</span>);</div><div class="line">  }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h3 id="2、非递归版本">2、非递归版本</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  bool isSymmetric (TreeNode* root) {</div><div class="line">    <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    stack&lt;TreeNode*&gt; s;</div><div class="line">    s.push(root<span class="variable">-&gt;left</span>);</div><div class="line">    s.push(root<span class="variable">-&gt;right</span>);</div><div class="line">    <span class="keyword">while</span> (!s.<span class="keyword">empty</span> ()) {</div><div class="line">      auto p = s.top (); s.pop();</div><div class="line">      auto q = s.top (); s.pop();</div><div class="line">      <span class="keyword">if</span> (!p && !q) <span class="keyword">continue</span>;</div><div class="line">      <span class="keyword">if</span> (!p || !q) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      <span class="keyword">if</span> (p<span class="variable">-&gt;val</span> != q<span class="variable">-&gt;val</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      s.push(p<span class="variable">-&gt;left</span>);</div><div class="line">      s.push(q<span class="variable">-&gt;right</span>);</div><div class="line">      s.push(p<span class="variable">-&gt;right</span>);</div><div class="line">      s.push(q<span class="variable">-&gt;left</span>);</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">  }</div><div class="line">};</div></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/文章/">文章</a><a href="/tags/博客/">博客</a>
+  <span></span> <a href="/tags/Symmetric-Tree/">Symmetric Tree</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/10/30/hexo-guide-1/" data-title="hexo系列教程：（一）hexo介绍 | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/01/12/LeetCode-isSymmetric/" data-title="LeetCode-Symmetric Tree 对称树 | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -309,14 +302,14 @@ hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/10/30/hexo-guide-2/" title="hexo系列教程:（二）搭建hexo博客">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  hexo系列教程:（二）搭建hexo博客</span>
+
+<div class="next">
+<a href="/2015/01/06/Java-Socket/"  title="Java-Socket编程">
+ <strong>NEXT:</strong><br/> 
+ <span>Java-Socket编程
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -330,7 +323,7 @@ hexo()是一个基于Node.js的静态博客程序，可以方便的生成静态�
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是hexo？"><span class="toc-number">1.</span> <span class="toc-text">什么是hexo？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么要用hexo"><span class="toc-number">2.</span> <span class="toc-text">为什么要用hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#谁能使用hexo"><span class="toc-number">3.</span> <span class="toc-text">谁能使用hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎样搭建hexo博客"><span class="toc-number">4.</span> <span class="toc-text">怎样搭建hexo博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">5.</span> <span class="toc-text">注意</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric_Tree给出判断对称树的两种方法。"><span class="toc-number">1.</span> <span class="toc-text">判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric Tree给出判断对称树的两种方法。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一："><span class="toc-number"></span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二："><span class="toc-number"></span> <span class="toc-text">方法二：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、递归版本"><span class="toc-number">1.</span> <span class="toc-text">1、递归版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、非递归版本"><span class="toc-number">2.</span> <span class="toc-text">2、非递归版本</span></a></li></ol>
   </div>
 
 <div id="asidepart">
