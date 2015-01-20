@@ -1,0 +1,737 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
+  
+    <title>ZigBee组网流程 | Vincent&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="junjiewang">
+    
+    <meta name="description" content="第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络
+第一步：Z-Stack  由 main（）函数开始执行，main（）函数共做了 2 件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统
+123456789int main( void )                    ">
+    
+    
+    
+    
+    <link rel="alternate" href="atom.xml" title="Vincent&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='3F39b6410b1f60ccc1074b8360c639a606';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			</li>
+					<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a> </li>
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Vincent&#39;s Blog">Vincent&#39;s Blog</a></h1>
+				<a class="blog-motto">Walk steps step by step</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action=http://www.baidu.com target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					
+				</ul>
+                            </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/01/20/ZigBee-NetWork-organization/" title="ZigBee组网流程" itemprop="url">ZigBee组网流程</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="junjiewang">junjiewang</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-01-20T07:47:01.000Z" itemprop="datePublished">1月 20 2015</time>
+    更新日期:<time datetime="2015-01-20T08:01:50.000Z" itemprop="dateModified">1月 20 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络"><span class="toc-number">1.</span> <span class="toc-text">第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：Z-Stack_由_main（）函数开始执行，main（）函数共做了_2_件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统"><span class="toc-number">1.0.1.</span> <span class="toc-text">第一步：Z-Stack  由 main（）函数开始执行，main（）函数共做了 2 件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步，进入_osal_init_system()函数，执行操作系统初始化"><span class="toc-number">1.0.2.</span> <span class="toc-text">第二步，进入 osal_init_system()函数，执行操作系统初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步，进入osalInitTasks()函数，执行操作系统任务初始化"><span class="toc-number">1.0.3.</span> <span class="toc-text">第三步，进入osalInitTasks()函数，执行操作系统任务初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步，进入ZDApp_init()函数，执行ZDApp层初始化"><span class="toc-number">1.0.4.</span> <span class="toc-text">第四步，进入ZDApp_init()函数，执行ZDApp层初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五步,转到ZDApp_event_loop()函数"><span class="toc-number">1.0.5.</span> <span class="toc-text">第五步,转到ZDApp_event_loop()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六步,执行ZDO_StartDevice()函数，启动设备"><span class="toc-number">1.0.6.</span> <span class="toc-text">第六步,执行ZDO_StartDevice()函数，启动设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第七步，分两种情况，1-协调器_2-路由器或终端设备"><span class="toc-number">1.0.7.</span> <span class="toc-text">第七步，分两种情况，1.协调器   2.路由器或终端设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在执行ZDApp_ProcessNetworkJoin()函数的时候，要分两种情况，一种是终端设备，一种是路由器："><span class="toc-number">1.0.8.</span> <span class="toc-text">在执行ZDApp_ProcessNetworkJoin()函数的时候，要分两种情况，一种是终端设备，一种是路由器：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第八步,执行ZDO状态改变事件"><span class="toc-number">1.0.9.</span> <span class="toc-text">第八步,执行ZDO状态改变事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第九步,执行ZDO_UpdateNwkStatus()函数，完成网络状态更新"><span class="toc-number">1.0.10.</span> <span class="toc-text">第九步,执行ZDO_UpdateNwkStatus()函数，完成网络状态更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第十步,执行zdoSendStateChangeMsg（）函数"><span class="toc-number">1.0.11.</span> <span class="toc-text">第十步,执行zdoSendStateChangeMsg（）函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第十一步,去执行MT_ProcessIncomingCommand()函数"><span class="toc-number">1.0.12.</span> <span class="toc-text">第十一步,去执行MT_ProcessIncomingCommand()函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二个功能：设备间的绑定"><span class="toc-number">2.</span> <span class="toc-text">第二个功能：设备间的绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#(1)终端设备向协调器发送终端设备绑定请求"><span class="toc-number">2.0.1.</span> <span class="toc-text">(1)终端设备向协调器发送终端设备绑定请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#(2)_协调器收到终端设备绑定请求End_Device_Bind_req"><span class="toc-number">2.0.2.</span> <span class="toc-text">(2) 协调器收到终端设备绑定请求End_Device_Bind_req</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）终端结点的响应"><span class="toc-number">2.0.3.</span> <span class="toc-text">（3）终端结点的响应</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三个功能：实现两个节点间的串口通信"><span class="toc-number">3.</span> <span class="toc-text">第三个功能：实现两个节点间的串口通信</span></a></li></ol>
+		</div>
+		
+		<h2 id="第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络">第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络</h2>
+<h4 id="第一步：Z-Stack_由_main（）函数开始执行，main（）函数共做了_2_件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统">第一步：Z-Stack  由 main（）函数开始执行，main（）函数共做了 2 件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int main( <span class="literal">void</span> )                          </div><div class="line">{</div><div class="line">  <span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line"><span class="comment">// Initialize the operating system</span></div><div class="line">osal_init_system();  <span class="comment">//第二步，操作系统初始化</span></div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">osal_start_system(); <span class="comment">//初始化完系统任务事件后，正式开始执行操作系统</span></div><div class="line">  <span class="attribute">...</span><span class="attribute">...</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第二步，进入_osal_init_system()函数，执行操作系统初始化">第二步，进入 osal_init_system()函数，执行操作系统初始化</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">uint8</span> osal_init_system( <span class="keyword">void</span> )      <span class="comment">//初始化操作系统，其中最重要的是，初始化操作系统的任务</span></div><div class="line">{</div><div class="line"><span class="comment">// Initialize the Memory Allocation System</span></div><div class="line">  osal_mem_init();</div><div class="line"><span class="comment">// Initialize the message queue</span></div><div class="line">  osal_qHead = NULL;</div><div class="line"><span class="comment">// Initialize the timers</span></div><div class="line">  osalTimerInit();</div><div class="line"><span class="comment">// Initialize the Power Management System</span></div><div class="line">  osal_pwrmgr_init();</div><div class="line"><span class="comment">// Initialize the system tasks.</span></div><div class="line">osalInitTasks();  <span class="comment">//第三步，执行操作系统任务初始化函数</span></div><div class="line"><span class="comment">// Setup efficient search for the first free block of heap.</span></div><div class="line">  osal_mem_kick();</div><div class="line">  <span class="keyword">return</span> (<span class="constant"> SUCCESS </span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第三步，进入osalInitTasks()函数，执行操作系统任务初始化">第三步，进入osalInitTasks()函数，执行操作系统任务初始化</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> osalInitTasks( <span class="keyword">void</span> )       <span class="comment">//第三步，初始化操作系统任务</span></div><div class="line">{</div><div class="line">  <span class="keyword">uint8</span> taskID = <span class="number">0</span>;</div><div class="line">  tasksEvents = (<span class="keyword">uint16</span> *)osal_mem_alloc( sizeof( <span class="keyword">uint16</span> ) * tasksCnt);</div><div class="line">  osal_memset( tasksEvents, <span class="number">0</span>, (sizeof( <span class="keyword">uint16</span> ) * tasksCnt));</div><div class="line"><span class="comment">//任务优先级由高向低依次排列，高优先级对应 taskID 的值反而小</span></div><div class="line">  macTaskInit( taskID++ ); <span class="comment">//不需要用户考虑</span></div><div class="line">  nwk_init( taskID++ );      <span class="comment">//不需要用户考虑</span></div><div class="line">  Hal_Init( taskID++ );      <span class="comment">//硬件抽象层初始化，需要我们考虑</span></div><div class="line"><span class="preprocessor">#if defined( MT_TASK )      </span></div><div class="line">  MT_TaskInit( taskID++ );</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">  APS_Init( taskID++ );       <span class="comment">//不需要用户考虑</span></div><div class="line"><span class="preprocessor">#if defined ( ZIGBEE_FRAGMENTATION ) </span></div><div class="line">  APSF_Init( taskID++ );</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">ZDApp_Init( taskID++ );   <span class="comment">//第四步，ZDApp层，初始化 ，执行ZDApp_init函数后，如果是协调器将建立网络，如果是终端设备将加入网络。</span></div><div class="line"><span class="preprocessor">#if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT ) </span></div><div class="line">  ZDNwkMgr_Init( taskID++ );</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">  SerialApp_Init( taskID );  <span class="comment">//应用层SerialApp层初始化，需要用户考虑     在此处设置了一个按键触发事件，</span></div><div class="line">                                         <span class="comment">//当有按键按下的时候，产生一个系统消息</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第四步，进入ZDApp_init()函数，执行ZDApp层初始化">第四步，进入ZDApp_init()函数，执行ZDApp层初始化</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//The first step</span></div><div class="line"><span class="literal">void</span> ZDApp_Init( uint8 task_id )     <span class="comment">//The first step,ZDApp层初始化。</span></div><div class="line">{</div><div class="line"><span class="comment">// Save the task ID</span></div><div class="line">  ZDAppTaskID <span class="subst">=</span> task_id;</div><div class="line"><span class="comment">// Initialize the ZDO global device short address storage</span></div><div class="line">  ZDAppNwkAddr<span class="built_in">.</span>addrMode <span class="subst">=</span> Addr16Bit;</div><div class="line">  ZDAppNwkAddr<span class="built_in">.</span>addr<span class="built_in">.</span>shortAddr <span class="subst">=</span> INVALID_NODE_ADDR;</div><div class="line">  (<span class="literal">void</span>)NLME_GetExtAddr();  <span class="comment">// Load the saveExtAddr pointer.</span></div><div class="line"><span class="comment">// Check for manual "Hold Auto Start"</span></div><div class="line">  ZDAppCheckForHoldKey();</div><div class="line"><span class="comment">// Initialize ZDO items and setup the device - type of device to create.</span></div><div class="line">  ZDO_Init();</div><div class="line"><span class="comment">// Register the endpoint description with the AF</span></div><div class="line">  <span class="comment">// This task doesn't have a Simple description, but we still need</span></div><div class="line">  <span class="comment">// to register the endpoint.</span></div><div class="line">  afRegister( (endPointDesc_t <span class="subst">*</span>)<span class="subst">&</span>ZDApp_epDesc );</div><div class="line"><span class="variable">#if</span> defined( ZDO_USERDESC_RESPONSE )</div><div class="line">  ZDApp_InitUserDesc();</div><div class="line"><span class="variable">#endif</span> <span class="comment">// ZDO_USERDESC_RESPONSE</span></div><div class="line"><span class="comment">// Start the device?</span></div><div class="line">  <span class="keyword">if</span> ( devState <span class="subst">!=</span> DEV_HOLD )        <span class="comment">//devState 初值为DEV_INIT ， 所以在初始化ZDA层时，就执行该条件语句</span></div><div class="line">  {</div><div class="line">ZDOInitDevice( <span class="number">0</span> );     <span class="comment">//The second step, 接着转到ZDOInitDevice（）函数，执行The third step;</span></div><div class="line">  }</div><div class="line">  <span class="keyword">else</span></div><div class="line">  {</div><div class="line"><span class="comment">// Blink LED to indicate HOLD_START</span></div><div class="line">    HalLedBlink ( HAL_LED_4, <span class="number">0</span>, <span class="number">50</span>, <span class="number">500</span> );</div><div class="line">  }</div><div class="line">  ZDApp_RegisterCBs();</div><div class="line">}</div><div class="line"><span class="comment">//The third step,执行ZDOInitDevice()函数，执行设备初始化</span></div><div class="line">uint8 ZDOInitDevice( uint16 startDelay )  <span class="comment">//The third step， ZDO层初始化设备，</span></div><div class="line">{</div><div class="line">   <span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line"><span class="comment">// Trigger the network start</span></div><div class="line">ZDApp_NetworkInit( extendedDelay );   <span class="comment">//网络初始化，跳到相应的函数里头，执行The fourth step</span></div><div class="line">   <span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line">}</div><div class="line"><span class="comment">//The fouth step,执行 ZDApp_NetWorkInit()函数</span></div><div class="line"><span class="literal">void</span> ZDApp_NetworkInit( uint16 delay )  <span class="comment">//The fourth step,网络初始化</span></div><div class="line">{</div><div class="line">  <span class="keyword">if</span> ( delay )</div><div class="line">  {</div><div class="line"><span class="comment">// Wait awhile before starting the device</span></div><div class="line">    osal_start_timerEx( ZDAppTaskID, ZDO_NETWORK_INIT, delay );    <span class="comment">//发送ZDO_NETWORK_INIT（网络初始化）消息到 ZDApp层，转到                                                                                                                  //ZDApp层，执行The fifth step  ， ZDApp_event_loop() 函数</span></div><div class="line">  }                                                             </div><div class="line">  <span class="keyword">else</span></div><div class="line">  {</div><div class="line">    osal_set_event( ZDAppTaskID, ZDO_NETWORK_INIT );</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第五步,转到ZDApp_event_loop()函数">第五步,转到ZDApp_event_loop()函数</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">UINT16 ZDApp_event_loop( <span class="typename">uint8</span> task_id, UINT16 events )</div><div class="line">{</div><div class="line"><span class="keyword">if</span> ( events & ZDO_NETWORK_INIT )   <span class="comment">//The fivth step，网络初始化事件处理</span></div><div class="line">  {</div><div class="line"><span class="comment">// Initialize apps and start the network</span></div><div class="line">    devState = DEV_INIT;</div><div class="line"><span class="comment">//设备逻辑类型，启动模式，信标时间，超帧长度，接着转到The sixth step，去启动设备，接着执行The sixth step,转到ZDO_StartDevice()</span></div><div class="line">ZDO_StartDevice( (<span class="typename">uint8</span>)ZDO_Config_Node_Descriptor.LogicalType, devStartMode, </div><div class="line">                     DEFAULT_BEACON_ORDER, DEFAULT_SUPERFRAME_ORDER );</div><div class="line"><span class="comment">// Return unprocessed events</span></div><div class="line">    <span class="keyword">return</span> (events ^ ZDO_NETWORK_INIT);</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第六步,执行ZDO_StartDevice()函数，启动设备">第六步,执行ZDO_StartDevice()函数，启动设备</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> ZDO_StartDevice( byte logicalType, devStartModes_t startMode, byte beaconOrder, byte superframeOrder ) <span class="comment">//The sixth step</span></div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line"><span class="keyword">if</span> ( ZG_BUILD_COORDINATOR_TYPE <span class="subst">&&</span> logicalType <span class="subst">==</span> NODETYPE_COORDINATOR )   <span class="comment">//当设备作为协调器时，执行这个条件语句。</span></div><div class="line">  {</div><div class="line">    <span class="keyword">if</span> ( startMode <span class="subst">==</span> MODE_HARD )</div><div class="line">    {</div><div class="line">      devState <span class="subst">=</span> DEV_COORD_STARTING; </div><div class="line"><span class="comment">//向网络层发送网络形成请求。当网络层执行 NLME_NetworkFormationRequest（）建立网络后，将给予 ZDO层反馈信息。</span></div><div class="line">       <span class="comment">// 接着转到The seventh step,去执行ZDApp层的  ZDO_NetworkFormationConfirmCB（）函数</span></div><div class="line">      ret <span class="subst">=</span> NLME_NetworkFormationRequest( zgConfigPANID, zgApsUseExtendedPANID, zgDefaultChannelList,</div><div class="line">                                          zgDefaultStartingScanDuration, beaconOrder,</div><div class="line">                                          superframeOrder, <span class="literal">false</span> );</div><div class="line">    }</div><div class="line"><span class="keyword">if</span> ( ZG_BUILD_JOINING_TYPE <span class="subst">&&</span> (logicalType <span class="subst">==</span> NODETYPE_ROUTER <span class="subst">||</span> logicalType <span class="subst">==</span> NODETYPE_DEVICE) ) <span class="comment">//当为终端设备或路由时</span></div><div class="line">  {</div><div class="line">    <span class="keyword">if</span> ( (startMode <span class="subst">==</span> MODE_JOIN) <span class="subst">||</span> (startMode <span class="subst">==</span> MODE_REJOIN) )</div><div class="line">    {</div><div class="line">      devState <span class="subst">=</span> DEV_NWK_DISC;</div><div class="line"><span class="comment">// zgDefaultChannelList与协调器形成网络的通道号匹配。 网络发现请求。</span></div><div class="line">      <span class="comment">// 继而转到ZDO_NetworkDiscoveryConfirmCB（）函数</span></div><div class="line">      ret <span class="subst">=</span> NLME_NetworkDiscoveryRequest( zgDefaultChannelList, zgDefaultStartingScanDuration );</div><div class="line">    }</div><div class="line">  }</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第七步，分两种情况，1-协调器_2-路由器或终端设备">第七步，分两种情况，1.协调器   2.路由器或终端设备</h4>
+<p>1）协调器</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> ZDO_NetworkFormationConfirmCB( ZStatus_t Status ) <span class="comment">//The seventh step，给予ZDO层网络形成反馈信息（协调器）</span></div><div class="line">{</div><div class="line">osal_set_event( ZDAppTaskID, ZDO_NETWORK_START ); <span class="comment">//发送网络启动事件 到 ZDApp层，接着转到ZDApp_event_loop（）函数                             </span></div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">}</div><div class="line">UINT16 ZDApp_event_loop( uint8 task_id, UINT16 events )</div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line"><span class="keyword">if</span> ( events <span class="subst">&</span> ZDO_NETWORK_START )  <span class="comment">// 网络启动事件</span></div><div class="line">    {</div><div class="line">ZDApp_NetworkStartEvt();    <span class="comment">//网络启动事件，接着跳转到The ninth step, 执行ZDApp_NetworkStartEvt()函数</span></div><div class="line">  <span class="attribute">...</span><span class="attribute">...</span></div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="literal">void</span> ZDApp_NetworkStartEvt( <span class="literal">void</span> )     <span class="comment">//处理网络启动事件</span></div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">osal_pwrmgr_device( PWRMGR_ALWAYS_ON );                           <span class="comment">//电源总是上电</span></div><div class="line">osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT ); <span class="comment">//设置网络状态改变事件，发送到ZDApp层，转到The tenth step,去</span></div><div class="line"><span class="attribute">...</span><span class="attribute">...</span>                                                                                                 <span class="comment">// ZDApp_event_loop（）函数，找到相对应的网络改变事件。</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>2)路由器或终端设备</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span>The seventh step（终端设备）， 当发现有网络存在时，网络层将给予 ZDO 层发现网络反馈信息</div><div class="line">ZStatus_t ZDO_NetworkDiscoveryConfirmCB( uint8 ResultCount, networkDesc_t *NetworkList )  </div><div class="line">{</div><div class="line">   .......</div><div class="line"><span class="regexp">//</span>把网络发现这个反馈消息，发送到ZDA层，转到 ZDApp_ProcessOSALMsg（），执行</div><div class="line">  ZDApp_SendMsg( ZDAppTaskID, ZDO_NWK_DISC_CNF, sizeof(ZDO_NetworkDiscoveryCfm_t), (uint8 *)&msg );</div><div class="line">}</div><div class="line"><span class="reserved">void</span> ZDApp_ProcessOSALMsg( osal_event_hdr_t *msgPtr )</div><div class="line">{</div><div class="line">   ......</div><div class="line">   <span class="reserved">case</span> <span class="attribute">ZDO_NWK_DISC_CNF</span>:      <span class="regexp">//</span> (终端设备），网络发现响应。</div><div class="line">   ......</div><div class="line"><span class="regexp">//</span>当发现有网络存在时，网络层将给予 ZDO 层发现网络反馈信息。然后由网络层发起加入网络请求，</div><div class="line">          <span class="regexp">//</span>如加入网络成功，则网络层将给予 ZDO 层加入网络反馈,执行NLME_JoinRequest()函数。然后转到 </div><div class="line">          <span class="regexp">//</span>The ninth step,执行 ZDO_JoinConfirmCB()函数</div><div class="line">            <span class="keyword">if</span> <span class="function"><span class="params">( NLME_JoinRequest( ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)-&gt;extendedPANID,</span></span></div><div class="line">                 BUILD_UINT16( ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)-&gt;panIdLSB, ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)-&gt;panIdMSB ),</div><div class="line">                 ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)-&gt;logicalChannel,</div><div class="line">                 ZDO_Config_Node_Descriptor.CapabilityFlags ) != ZSuccess )</div><div class="line">            {</div><div class="line">              <span class="title">ZDApp_NetworkInit</span><span class="params">( (uint16)(NWK_START_DELAY</span></div><div class="line">                  + ((uint16)(osal_rand()& EXTENDED_JOINING_RANDOM_MASK))) );</div><div class="line">            }</div><div class="line">          ......</div><div class="line">   }</div><div class="line"><span class="title">void</span> <span class="title">ZDO_JoinConfirmCB</span><span class="params">( uint16 PanId, ZStatus_t Status )</span>  //<span class="title">The</span> <span class="title">ninth</span> <span class="title">step</span>（终端设备）, 终端设备加入网络响应。</div><div class="line">{</div><div class="line">......</div><div class="line">//将<span class="title">ZDO_NWK_JOIN_IND</span>事件发送到<span class="title">ZDA</span>层，执行 <span class="title">ZDApp_ProcessOSALMsg</span>（）函数。</div><div class="line">  <span class="title">ZDApp_SendMsg</span><span class="params">( ZDAppTaskID, ZDO_NWK_JOIN_IND, sizeof(osal_event_hdr_t), (byte*)NULL )</span>;</div><div class="line">}</div><div class="line"><span class="title">void</span> <span class="title">ZDApp_ProcessOSALMsg</span><span class="params">( osal_event_hdr_t *msgPtr )</span></div><div class="line">{</div><div class="line">......</div><div class="line"><span class="title">case</span> <span class="title">ZDO_NWK_JOIN_IND</span>:            //终端设备，加入网络反馈信息事件。</div><div class="line">      <span class="title">if</span> <span class="params">( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )</span></div><div class="line">      {</div><div class="line"><span class="title">ZDApp_ProcessNetworkJoin</span><span class="params">()</span>; //转到<span class="title">ZDApp_ProcessNetworkJoin</span><span class="params">()</span>，执行<span class="title">ZDApp_ProcessNetworkJoin</span><span class="params">()</span>函数。</div><div class="line">      }</div><div class="line">      <span class="title">break</span>;</div><div class="line">......</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="在执行ZDApp_ProcessNetworkJoin()函数的时候，要分两种情况，一种是终端设备，一种是路由器：">在执行ZDApp_ProcessNetworkJoin()函数的时候，要分两种情况，一种是终端设备，一种是路由器：</h4>
+<p>3)终端设备：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> ZDApp_ProcessNetworkJoin( <span class="literal">void</span> )  <span class="comment">//处理网络加入事件。</span></div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line"><span class="keyword">if</span> ( nwkStatus <span class="subst">==</span> ZSuccess )</div><div class="line">    {</div><div class="line"><span class="comment">//设置 ZDO_STATE_CHANGE_EVT ，发送到ZDA层，执行 ZDApp_event_loop（）函数。</span></div><div class="line">      osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT ); </div><div class="line">    }</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>4)路由器：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> ZDApp_ProcessNetworkJoin( <span class="literal">void</span> ) </div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">  <span class="keyword">if</span> ( ZSTACK_ROUTER_BUILD )</div><div class="line">        {</div><div class="line"><span class="comment">// NOTE: first two parameters are not used, see NLMEDE.h for details</span></div><div class="line">          <span class="keyword">if</span> ( ZDO_Config_Node_Descriptor<span class="built_in">.</span>LogicalType <span class="subst">!=</span> NODETYPE_DEVICE )</div><div class="line">          {</div><div class="line">NLME_StartRouterRequest( <span class="number">0</span>, <span class="number">0</span>, <span class="literal">false</span> );               <span class="comment">//路由启动请求</span></div><div class="line">          }</div><div class="line">        }</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">}</div><div class="line"><span class="literal">void</span> ZDO_StartRouterConfirmCB( ZStatus_t Status )</div><div class="line">{</div><div class="line">  nwkStatus <span class="subst">=</span> (byte)Status;</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">  osal_set_event( ZDAppTaskID, ZDO_ROUTER_START );</div><div class="line">}</div><div class="line">UINT16 ZDApp_event_loop( uint8 task_id, UINT16 events )</div><div class="line">{</div><div class="line">  <span class="keyword">if</span> ( events <span class="subst">&</span> ZDO_ROUTER_START )</div><div class="line">    {</div><div class="line">      <span class="keyword">if</span> ( nwkStatus <span class="subst">==</span> ZSuccess )</div><div class="line">      {</div><div class="line">        <span class="keyword">if</span> ( devState <span class="subst">==</span> DEV_END_DEVICE )</div><div class="line">          devState <span class="subst">=</span> DEV_ROUTER;                         <span class="comment">//设备状态变成路由器</span></div><div class="line">        osal_pwrmgr_device( PWRMGR_ALWAYS_ON );</div><div class="line">      }</div><div class="line">      <span class="keyword">else</span></div><div class="line">      {</div><div class="line">        <span class="comment">// remain as end device!!</span></div><div class="line">      }</div><div class="line">      osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );     <span class="comment">//设置ZDO状态改变事件</span></div><div class="line">      <span class="comment">// Return unprocessed events</span></div><div class="line">      <span class="keyword">return</span> (events ^ ZDO_ROUTER_START);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第八步,执行ZDO状态改变事件">第八步,执行ZDO状态改变事件</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">UINT16 ZDApp_event_loop( uint8 task_id, UINT16 events )</div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line"><span class="keyword">if</span> ( events <span class="subst">&</span> ZDO_STATE_CHANGE_EVT )  <span class="comment">//The eighth step， 网络改变事件，这个事件就是在设备加入网络成功后，</span></div><div class="line">                                                                     <span class="comment">//并在网络中的身份确定后产生的一个事件</span></div><div class="line">  {</div><div class="line">ZDO_UpdateNwkStatus( devState );  <span class="comment">//更新网络状态，转到The eleventh step,执行 ZDO_UpdateNwkStatus（）函数。</span></div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第九步,执行ZDO_UpdateNwkStatus()函数，完成网络状态更新">第九步,执行ZDO_UpdateNwkStatus()函数，完成网络状态更新</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> ZDO_UpdateNwkStatus(devStates_t state)  <span class="comment">//The ninth step, 更新网络状态</span></div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">zdoSendStateChangeMsg(state, <span class="subst">*</span>(pItem<span class="subst">-&gt;</span>epDesc<span class="subst">-&gt;</span>task_id));  <span class="comment">//发送状态改变消息到zdo层，这是The tenth step,转到</span></div><div class="line">                                                                                                        <span class="comment">//zdoSendStateChangeMsg（）函数</span></div><div class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line">  ZDAppNwkAddr<span class="built_in">.</span>addr<span class="built_in">.</span>shortAddr <span class="subst">=</span> NLME_GetShortAddr();  <span class="comment">//调用NLME_GetShortAddr()函数，获得16位短地址。</span></div><div class="line">  (<span class="literal">void</span>)NLME_GetExtAddr();  <span class="comment">// Load the saveExtAddr pointer.  //获得64位的IEEE地址。</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第十步,执行zdoSendStateChangeMsg（）函数">第十步,执行zdoSendStateChangeMsg（）函数</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">static <span class="literal">void</span> zdoSendStateChangeMsg(uint8 state, uint8 taskId) <span class="comment">//The tenth step,</span></div><div class="line">{</div><div class="line">  osal_event_hdr_t <span class="subst">*</span>pMsg <span class="subst">=</span> (osal_event_hdr_t <span class="subst">*</span>)osal_msg_find(taskId, ZDO_STATE_CHANGE);</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">NULL</span> <span class="subst">==</span> pMsg)</div><div class="line">  {</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">NULL</span> <span class="subst">==</span> (pMsg <span class="subst">=</span> (osal_event_hdr_t <span class="subst">*</span>)osal_msg_allocate(sizeof(osal_event_hdr_t))))</div><div class="line">    {</div><div class="line">      <span class="comment">// Upon failure to notify any EndPoint of the state change, re-set the ZDO event to</span></div><div class="line">      <span class="comment">// try again later when more Heap may be available.</span></div><div class="line">      osal_set_event(ZDAppTaskID, ZDO_STATE_CHANGE_EVT);  <span class="comment">//如果ZDO状态没有任何改变，再一次，跳到</span></div><div class="line">                                                                                                        <span class="comment">//ZDO_STATE_CHANGE_EVT事件处理函数。</span></div><div class="line">    }</div><div class="line">    <span class="keyword">else</span></div><div class="line">    {</div><div class="line">      pMsg<span class="subst">-&gt;</span>event <span class="subst">=</span> ZDO_STATE_CHANGE;      <span class="comment">//如果ZDO状态改变了 了，把ZDO_STATE_CHANGE这个消息保存到pMsg</span></div><div class="line">      pMsg<span class="subst">-&gt;</span>status <span class="subst">=</span> state;</div><div class="line">      (<span class="literal">void</span>)osal_msg_send(taskId, (uint8 <span class="subst">*</span>)pMsg);    <span class="comment">//转到MT_TASK.C，去执行The eleven step, MT_ProcessIncomingCommand()函数</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">  <span class="attribute">...</span><span class="attribute">...</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="第十一步,去执行MT_ProcessIncomingCommand()函数">第十一步,去执行MT_ProcessIncomingCommand()函数</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> MT_ProcessIncomingCommand( mtOSALSerialData_t *msg )</div><div class="line">{</div><div class="line">......</div><div class="line"><span class="keyword">case</span> ZDO_STATE_CHANGE:        <span class="comment">//The thirteenth step, 接着跳到MT_ZdoStateChangeCB（）函数。 </span></div><div class="line">                                                      <span class="comment">//自此，协调器组网形成（终端设备成功加入网络）</span></div><div class="line">MT_ZdoStateChangeCB((osal_event_hdr_t *)msg);</div><div class="line">         <span class="keyword">break</span>;</div><div class="line">......</div><div class="line">}</div><div class="line"><span class="comment">//第五步，//初始化玩系统任务事件后，正是开始执行操作系统，此时操作系统不断的检测有没有任务事件发生，一旦检测到有事件发生，就转 //到相应的处理函数，进行处理。</span></div><div class="line"><span class="keyword">void</span> osal_start_system( <span class="keyword">void</span> )  <span class="comment">//第五步，正式执行操作系统</span></div><div class="line">{</div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> !defined ( ZBIT ) && !defined ( UBIT )</span></div><div class="line">  <span class="keyword">for</span>(;;)  <span class="comment">// Forever Loop     //死循环</span></div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">  {</div><div class="line">    uint8 idx = <span class="number">0</span>;</div><div class="line">    osalTimeUpdate();</div><div class="line">    Hal_ProcessPoll();  <span class="comment">// This replaces MT_SerialPoll() and osal_check_timer().</span></div><div class="line">    <span class="keyword">do</span> {</div><div class="line">      <span class="keyword">if</span> (tasksEvents[idx])  <span class="comment">// Task is highest priority that is ready.</span></div><div class="line">      {</div><div class="line">        <span class="keyword">break</span>;        <span class="comment">// 得到待处理的最高优先级任务索引号idx</span></div><div class="line">      }</div><div class="line">    } <span class="keyword">while</span> (++idx &lt; tasksCnt);</div><div class="line">    <span class="keyword">if</span> (idx &lt; tasksCnt)</div><div class="line">    {</div><div class="line">      uint16 events;</div><div class="line">      halIntState_t intState;</div><div class="line">      HAL_ENTER_CRITICAL_SECTION(intState);  <span class="comment">//进入临界区</span></div><div class="line">      events = tasksEvents[idx];             <span class="comment">//提取需要处理的任务中的事件</span></div><div class="line">      tasksEvents[idx] = <span class="number">0</span>;  <span class="comment">// Clear the Events for this task.   // 清除本次任务的事件</span></div><div class="line">      HAL_EXIT_CRITICAL_SECTION(intState);   <span class="comment">//退出临界区</span></div><div class="line">      events = (tasksArr[idx])( idx, events ); <span class="comment">//通过指针调用任务处理函数  ， 紧接着跳到相应的函数去处理，此为第五步</span></div><div class="line">      HAL_ENTER_CRITICAL_SECTION(intState);  <span class="comment">//进入临界区</span></div><div class="line">      tasksEvents[idx] |= events;  <span class="comment">// Add back unprocessed events to the current task.  // 保存未处理的事件</span></div><div class="line">      HAL_EXIT_CRITICAL_SECTION(intState);   <span class="comment">//退出临界区</span></div><div class="line">    }</div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> defined( POWER_SAVING )    </span></div><div class="line">    <span class="keyword">else</span>  <span class="comment">// Complete pass through all task events with no activity?</span></div><div class="line">    {</div><div class="line">      osal_pwrmgr_powerconserve();  <span class="comment">// Put the processor/system into sleep</span></div><div class="line">    }</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="第二个功能：设备间的绑定">第二个功能：设备间的绑定</h2>
+<p>—————-引用自蓝天白云         </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events )  <span class="comment">//当有事件传递到应用层的时候，执行此处</span></div><div class="line">{</div><div class="line"><span class="keyword">if</span> ( events <span class="subst">&</span> SYS_EVENT_MSG )   <span class="comment">// 有事件传递过来，故通过这个条件语句</span></div><div class="line">  {</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line"><span class="keyword">case</span> KEY_CHANGE:         <span class="comment">//键盘触发事件</span></div><div class="line">        SerialApp_HandleKeys( ((keyChange_t <span class="subst">*</span>)MSGpkt)<span class="subst">-&gt;</span>state, ((keyChange_t <span class="subst">*</span>)MSGpkt)<span class="subst">-&gt;</span>keys ); <span class="comment">//接着跳到相应的按键处理函数去执行</span></div><div class="line">        break;</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>ZDO终端设备绑定请求:设备能告诉协调器他们想建立绑定表格报告。该协调器将使协调并在这两个设备上创建绑定表格条目。在这里是以SerialApp例子为例。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> SerialApp_HandleKeys( uint8 shift, uint8 keys )</div><div class="line">{</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span></div><div class="line">    <span class="keyword">if</span> ( keys <span class="subst">&</span> HAL_KEY_SW_2 )       <span class="comment">// Joystick right</span></div><div class="line">    {</div><div class="line">     HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );</div><div class="line"><span class="comment">//终端设备绑定请求</span></div><div class="line">      <span class="comment">// Initiate an End Device Bind Request for the mandatory endpoint</span></div><div class="line">      dstAddr<span class="built_in">.</span>addrMode <span class="subst">=</span> Addr16Bit;</div><div class="line">      dstAddr<span class="built_in">.</span>addr<span class="built_in">.</span>shortAddr <span class="subst">=</span> <span class="number">0x0000</span>;     <span class="comment">// Coordinator 地址</span></div><div class="line">ZDP_EndDeviceBindReq( <span class="subst">&</span>dstAddr, NLME_GetShortAddr(),                <span class="comment">//终端设备绑定请求</span></div><div class="line">                            SerialApp_epDesc<span class="built_in">.</span>endPoint,</div><div class="line">                            SERIALAPP_PROFID,</div><div class="line">                            SERIALAPP_MAX_CLUSTERS,</div><div class="line">                           (cId_t <span class="subst">*</span>)SerialApp_ClusterList,</div><div class="line">                            SERIALAPP_MAX_CLUSTERS,</div><div class="line">                           (cId_t <span class="subst">*</span>)SerialApp_ClusterList,</div><div class="line">                            <span class="literal">FALSE</span> );</div><div class="line">    }</div><div class="line"><span class="attribute">...</span><span class="attribute">...</span></div><div class="line">    <span class="keyword">if</span> ( keys <span class="subst">&</span> HAL_KEY_SW_4 )</div><div class="line">    {</div><div class="line">      HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );</div><div class="line">      <span class="comment">// Initiate a Match Description Request (Service Discovery)</span></div><div class="line">      dstAddr<span class="built_in">.</span>addrMode <span class="subst">=</span> AddrBroadcast; <span class="comment">//广播地址</span></div><div class="line">      dstAddr<span class="built_in">.</span>addr<span class="built_in">.</span>shortAddr <span class="subst">=</span> NWK_BROADCAST_SHORTADDR;</div><div class="line">ZDP_MatchDescReq( <span class="subst">&</span>dstAddr, NWK_BROADCAST_SHORTADDR,                      <span class="comment">//描述符匹配请求 这也是两不同匹配方式，使用的按键不同</span></div><div class="line">                        SERIALAPP_PROFID,</div><div class="line">                        SERIALAPP_MAX_CLUSTERS,</div><div class="line">                       (cId_t <span class="subst">*</span>)SerialApp_ClusterList,</div><div class="line">                        SERIALAPP_MAX_CLUSTERS,</div><div class="line">                       (cId_t <span class="subst">*</span>)SerialApp_ClusterList,</div><div class="line">                        <span class="literal">FALSE</span> );</div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>说明：从上面可以看到，SW2是发送终端设备绑定请求方式，SW4是发送描述符匹配请求方式。如果按下SW2的话，使用终端设备绑定请求方式，这里是要通过终端告诉协调器他们想要建立绑定表格，协调器将协调这两个请求的设备，在两个设备上建立绑定表格条目。</p>
+<h4 id="(1)终端设备向协调器发送终端设备绑定请求">(1)终端设备向协调器发送终端设备绑定请求</h4>
+<p>调用ZDP_EndDeviceBindReq()函数发送绑定请求。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function">ZDP_EndDeviceBindReq</span>( &dstAddr,    <span class="comment">//目的地址设为0x0000；</span></div><div class="line">                        <span class="function">NLME_GetShortAddr</span>(),</div><div class="line">                        SerialApp_epDesc<span class="class">.endPoint</span>, <span class="comment">//EP号</span></div><div class="line">                        SERIALAPP_PROFID,<span class="comment">//Profile ID</span></div><div class="line">                     SERIALAPP_MAX_CLUSTERS,  <span class="comment">//输入簇的数目</span></div><div class="line">                (cId_t *)SerialApp_ClusterList, <span class="comment">//输入簇列表</span></div><div class="line">                    SERIALAPP_MAX_CLUSTERS, <span class="comment">//输出簇数目</span></div><div class="line">                 (cId_t *)SerialApp_ClusterList,<span class="comment">//输出簇列表</span></div><div class="line">                            FALSE );</div></pre></td></tr></table></figure>
+
+<p>该函数实际调用无线发送函数将绑定请求发送给协调器节点：默认clusterID为End_Device_Bind_req，最后通过AF_DataRequest()发送出去.<br>fillAndSend( &amp;ZDP_TransID, dstAddr, End_Device_Bind_req, len );<br>最后通过AF_DataRequest()发送出去，这里的&amp;afAddr，是目的地址; &amp;ZDApp_epDesc ,是端口号； clusterID,是簇号； len+1，是数据的长度；<br>//ZDP_TmpBuf-1，是数据的内容； transSeq,是数据的顺序号； ZDP_TxOptions,是发射的一个选项 ； AF_DEFAULT_RADIUS，是一个默认的半径（跳数）。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AF_DataRequest( &afAddr, &ZDApp_epDesc, clusterID,</div><div class="line">               (<span class="typename">uint16</span>)(<span class="built_in">len</span><span class="number">+1</span>), (<span class="typename">uint8</span>*)(ZDP_TmpBuf<span class="number">-1</span>),</div><div class="line">            transSeq, ZDP_TxOptions,  AF_DEFAULT_RADIUS );</div></pre></td></tr></table></figure>
+
+<h4 id="(2)_协调器收到终端设备绑定请求End_Device_Bind_req">(2) 协调器收到终端设备绑定请求End_Device_Bind_req</h4>
+<p>这个信息会传送到ZDO层，在ZDO层的事件处理函数中，调用ZDApp_ProcessOSALMsg( (osal_event_hdr_t *)msg_ptr );</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">UINT16 ZDApp_event_loop( <span class="keyword">byte</span> task_id, UINT16 events )</div><div class="line">{</div><div class="line">  uint8 *msg_ptr;</div><div class="line">  <span class="keyword">if</span> ( events & SYS_EVENT_MSG )</div><div class="line">  {</div><div class="line">    <span class="keyword">while</span> ( (msg_ptr = osal_msg_receive( ZDAppTaskID )) )</div><div class="line">    {</div><div class="line">ZDApp_ProcessOSALMsg( (osal_event_hdr_t *)msg_ptr );</div><div class="line">      <span class="comment">// Release the memory</span></div><div class="line">      osal_msg_deallocate( msg_ptr );</div><div class="line">    }</div><div class="line">    <span class="comment">// Return unprocessed events</span></div><div class="line"><span class="keyword">return</span> (events ^ SYS_EVENT_MSG);</div><div class="line">．．．．．．．．．．．．．．．．．．．．．</div><div class="line">  }</div><div class="line"><span class="keyword">void</span> ZDApp_ProcessOSALMsg( osal_event_hdr_t *msgPtr )</div><div class="line">{</div><div class="line">  <span class="comment">// Data Confirmation message fields</span></div><div class="line">  <span class="keyword">byte</span> sentEP;       <span class="comment">// This should always be 0</span></div><div class="line">  <span class="keyword">byte</span> sentStatus;</div><div class="line">  afDataConfirm_t *afDataConfirm;</div><div class="line">  <span class="keyword">switch</span> ( msgPtr-&gt;<span class="keyword">event</span> )</div><div class="line">  {</div><div class="line">    <span class="comment">// Incoming ZDO Message</span></div><div class="line">    <span class="keyword">case</span> AF_INCOMING_MSG_CMD:</div><div class="line">ZDP_IncomingData( (afIncomingMSGPacket_t *)msgPtr );</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>在ZDP_IncomingData( (afIncomingMSGPacket_t *)msgPtr );函数中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">void ZDP_IncomingData( afIncomingMSGPacket_t *pData )</div><div class="line">{</div><div class="line">  uint8 x = <span class="number">0</span>;</div><div class="line">  uint8 handled;</div><div class="line">  zdoIncomingMsg_t <span class="keyword">in</span>Msg;</div><div class="line">//解析clusterID这个消息</div><div class="line">  <span class="keyword">in</span>Msg.srcAddr.addrMode = Addr16Bit;</div><div class="line">  <span class="keyword">in</span>Msg.srcAddr.addr.shortAddr = pData-&gt;srcAddr.addr.shortAddr;</div><div class="line">  <span class="keyword">in</span>Msg.wasBroadcast = pData-&gt;wasBroadcast;</div><div class="line"><span class="keyword">in</span>Msg.clusterID = pData-&gt;clusterId;                       //这个clusterID，在这里指的是，终端设备发送过来的End_Device_Bind_req这个消息</div><div class="line">  <span class="keyword">in</span>Msg.SecurityUse = pData-&gt;SecurityUse;</div><div class="line">  <span class="keyword">in</span>Msg.asduLen = pData-&gt;cmd.DataLength-<span class="number">1</span>;</div><div class="line">  <span class="keyword">in</span>Msg.asdu = pData-&gt;cmd.Data+<span class="number">1</span>;</div><div class="line">  <span class="keyword">in</span>Msg.TransSeq = pData-&gt;cmd.Data[<span class="number">0</span>];</div><div class="line">  handled = ZDO_SendMsgCBs( &<span class="keyword">in</span>Msg );</div><div class="line"><span class="comment">#if defined( MT_ZDO_FUNC )</span></div><div class="line">  MT_Z<span class="keyword">do</span>Rsp( &<span class="keyword">in</span>Msg );</div><div class="line"><span class="comment">#endif</span></div><div class="line">  <span class="keyword">while</span> ( zdpMsgProcs[x].clusterID != <span class="number">0</span>xFFFF )</div><div class="line">  {</div><div class="line">    <span class="keyword">if</span> ( zdpMsgProcs[x].clusterID == <span class="keyword">in</span>Msg.clusterID )   //在zdpMsgProcs[]中,查找，看看有没有跟End_Device_Bind_req相匹配的描述符。</div><div class="line">    {</div><div class="line">      zdpMsgProcs[x].pFn( &<span class="keyword">in</span>Msg );</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line">    x++;</div><div class="line">  }</div><div class="line">  // Handle unhandled messages</div><div class="line">  <span class="keyword">if</span> ( !handled )</div><div class="line">    ZDApp_InMsgCB( &<span class="keyword">in</span>Msg );</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>因为ZDO信息处理表zdpMsgProcs[ ]没有对应的End_Device_Bind_req簇,因此没有调用ZDO信息处理表中的处理函数,但是前面的ZDO_SendMsgCBs()会把这个终端设备绑定请求发送到登记过这个ZDO信息的任务中去。那这个登记注册的程序在哪里呢？<br>   对于协调器来说，由于在void ZDApp_Init( byte task_id )函数中调用了ZDApp_RegisterCBs();面的函数。进行注册了终端绑定请求信息。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> ZDApp_RegisterCBs( <span class="keyword">void</span> )</div><div class="line">{</div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> defined ( ZDO_IEEEADDR_REQUEST ) || defined ( REFLECTOR )</span></div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, IEEE_addr_rsp );</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> defined ( ZDO_NWKADDR_REQUEST ) || defined ( REFLECTOR )</span></div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, NWK_addr_rsp );</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> defined ( ZDO_COORDINATOR )</span></div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, Bind_rsp );</div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, Unbind_rsp );</div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, End_Device_Bind_req );</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> defined ( REFLECTOR )</span></div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, Bind_req );</div><div class="line">  ZDO_RegisterForZDOMsg( ZDAppTaskID, Unbind_req );</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>因此，协调器节点的 ZDApp 接收到外界输入的数据后，由于注册了 ZDO 反馈消息，即ZDO_CB_MSG，ZDApp 层任务事件处理函数将进行处理：也就是调用下面的程序。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">UINT16 ZDApp_event_loop( <span class="keyword">byte</span> task_id, UINT16 events )</div><div class="line">{</div><div class="line">  uint8 *msg_ptr;</div><div class="line">  <span class="keyword">if</span> ( events & SYS_EVENT_MSG )</div><div class="line">  {</div><div class="line">    <span class="keyword">while</span> ( (msg_ptr = osal_msg_receive( ZDAppTaskID )) )</div><div class="line">    {</div><div class="line">ZDApp_ProcessOSALMsg( (osal_event_hdr_t *)msg_ptr );</div><div class="line">      <span class="comment">// Release the memory</span></div><div class="line">      osal_msg_deallocate( msg_ptr );</div><div class="line">    }</div><div class="line">    <span class="comment">// Return unprocessed events</span></div><div class="line"><span class="keyword">return</span> (events ^ SYS_EVENT_MSG);</div><div class="line">．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．</div><div class="line">  }</div></pre></td></tr></table></figure>
+
+<p>在这里调用函数ZDApp_ProcessOSALMsg( (osal_event_hdr_t *)msg_ptr );在这个函数中我们可以看到对ZDO_CB_MSG事件的处理</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> ZDApp_ProcessOSALMsg( osal_event_hdr_t *msgPtr )</div><div class="line">{</div><div class="line">  <span class="comment">// Data Confirmation message fields</span></div><div class="line">  <span class="keyword">byte</span> sentEP;       <span class="comment">// This should always be 0</span></div><div class="line">  <span class="keyword">byte</span> sentStatus;</div><div class="line">  afDataConfirm_t *afDataConfirm;</div><div class="line">  <span class="keyword">switch</span> ( msgPtr-&gt;<span class="keyword">event</span> )</div><div class="line">  {</div><div class="line">    <span class="comment">// Incoming ZDO Message</span></div><div class="line">    <span class="keyword">case</span> AF_INCOMING_MSG_CMD:</div><div class="line">      ZDP_IncomingData( (afIncomingMSGPacket_t *)msgPtr );</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> ZDO_CB_MSG:</div><div class="line">ZDApp_ProcessMsgCBs( (zdoIncomingMsg_t *)msgPtr );</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>调用ZDApp_ProcessMsgCBs（）函数。在这个函数中根据ClusterID（这里是 End_Device_Bind_req）选择相对应的匹配描述符处理函数</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void ZDApp_ProcessMsgCBs( zdoIncomingMsg_t *<span class="keyword">in</span>Msg )</div><div class="line">{</div><div class="line">.......</div><div class="line">    <span class="keyword">case</span> End_Device_Bind_req:</div><div class="line">      {</div><div class="line">        ZDEndDeviceBind_t <span class="built_in">bind</span>Req;</div><div class="line">        ZDO_ParseEndDeviceBindReq( <span class="keyword">in</span>Msg, &<span class="built_in">bind</span>Req );  //解析绑定请求信息</div><div class="line">ZDO_MatchEndDeviceBind( &<span class="built_in">bind</span>Req );                    //然后向发送绑定请求的节点发送绑定响应消息：</div><div class="line">        // Freeing the cluster lists - <span class="keyword">if</span> allocated.</div><div class="line">        <span class="keyword">if</span> ( <span class="built_in">bind</span>Req.numInClusters )</div><div class="line">          osal_mem_free( <span class="built_in">bind</span>Req.inClusters );</div><div class="line">        <span class="keyword">if</span> ( <span class="built_in">bind</span>Req.numOutClusters )</div><div class="line">          osal_mem_free( <span class="built_in">bind</span>Req.outClusters );</div><div class="line">      }</div><div class="line">      <span class="keyword">break</span>;</div><div class="line"><span class="comment">#endif    </span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>下面是ZDO_MatchEndDeviceBind（）函数的源代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> ZDO_MatchEndDeviceBind( ZDEndDeviceBind_t <span class="subst">*</span>bindReq )</div><div class="line">{</div><div class="line">  zAddrType_t dstAddr;</div><div class="line">  uint8 sendRsp <span class="subst">=</span> <span class="literal">FALSE</span>;</div><div class="line">  uint8 status;</div><div class="line"><span class="comment">// Is this the first request? 接收到的是第一个绑定请求</span></div><div class="line">  <span class="keyword">if</span> ( matchED <span class="subst">==</span> <span class="built_in">NULL</span> )</div><div class="line">  {</div><div class="line"><span class="comment">// Create match info structure 创建匹配信息结构体</span></div><div class="line">    matchED <span class="subst">=</span> (ZDMatchEndDeviceBind_t <span class="subst">*</span>)osal_mem_alloc( sizeof ( ZDMatchEndDeviceBind_t ) ); <span class="comment">//分配空间</span></div><div class="line">    <span class="keyword">if</span> ( matchED )</div><div class="line">    {</div><div class="line"><span class="comment">// Clear the structure 先进行清除操作</span></div><div class="line">      osal_memset( (uint8 <span class="subst">*</span>)matchED, <span class="number">0</span>, sizeof ( ZDMatchEndDeviceBind_t ) );</div><div class="line"><span class="comment">// Copy the first request's information 复制第一个请求信息</span></div><div class="line">    <span class="keyword">if</span> ( <span class="subst">!</span>ZDO_CopyMatchInfo( <span class="subst">&</span>(matchED<span class="subst">-&gt;</span>ed1), bindReq ) ) <span class="comment">//复制不成功后</span></div><div class="line">      {</div><div class="line">        status <span class="subst">=</span> ZDP_NO_ENTRY;</div><div class="line">        sendRsp <span class="subst">=</span> <span class="literal">TRUE</span>;</div><div class="line">      }</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span> <span class="comment">//分配空间不成功</span></div><div class="line">    {</div><div class="line">      status <span class="subst">=</span> ZDP_NO_ENTRY;</div><div class="line">      sendRsp <span class="subst">=</span> <span class="literal">TRUE</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span> ( <span class="subst">!</span>sendRsp ) <span class="comment">//分配空间成功 ，复制数据结构成功</span></div><div class="line">    {</div><div class="line"><span class="comment">// Set into the correct state 设置正确的设备状态</span></div><div class="line">      matchED<span class="subst">-&gt;</span>state <span class="subst">=</span> ZDMATCH_WAIT_REQ;</div><div class="line"><span class="comment">// Setup the timeout     设置计时时间APS_SetEndDeviceBindTimeout(AIB_MaxBindingTime,</span></div><div class="line">                        ZDO_EndDeviceBindMatchTimeoutCB );</div><div class="line">    }</div><div class="line">  }</div><div class="line">  <span class="keyword">else</span> <span class="comment">//接收到的不是第一个绑定请求</span></div><div class="line">  {</div><div class="line">      matchED<span class="subst">-&gt;</span>state <span class="subst">=</span> ZDMATCH_SENDING_BINDS; <span class="comment">//状态为绑定中</span></div><div class="line"><span class="comment">// Copy the 2nd request's information 拷贝第2个请求信息结构</span></div><div class="line">      <span class="keyword">if</span> ( <span class="subst">!</span>ZDO_CopyMatchInfo( <span class="subst">&</span>(matchED<span class="subst">-&gt;</span>ed2), bindReq ) ) <span class="comment">//拷贝不成功</span></div><div class="line">      {</div><div class="line">        status <span class="subst">=</span> ZDP_NO_ENTRY;</div><div class="line">        sendRsp <span class="subst">=</span> <span class="literal">TRUE</span>;</div><div class="line">      }</div><div class="line"><span class="comment">// Make a source match for ed1</span></div><div class="line">    <span class="comment">//对ed1的输出簇ID与ed2的输入簇ID进行比较，如果有符合的则会返回，相匹配的簇的数目</span></div><div class="line">      matchED<span class="subst">-&gt;</span>ed1numMatched <span class="subst">=</span> ZDO_CompareClusterLists(</div><div class="line">                  matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>numOutClusters, matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>outClusters,</div><div class="line">                  matchED<span class="subst">-&gt;</span>ed2<span class="built_in">.</span>numInClusters, matchED<span class="subst">-&gt;</span>ed2<span class="built_in">.</span>inClusters,  ZDOBuildBuf );</div><div class="line">      <span class="keyword">if</span> ( matchED<span class="subst">-&gt;</span>ed1numMatched )      <span class="comment">//如果有返回ed1相匹配的簇</span></div><div class="line">      {</div><div class="line"><span class="comment">// Save the match list 申请空间保存相匹配的簇列表</span></div><div class="line">        matchED<span class="subst">-&gt;</span>ed1Matched<span class="subst">=</span> osal_mem_alloc( (short)(matchED<span class="subst">-&gt;</span>ed1numMatched <span class="subst">*</span> sizeof ( uint16 )) );</div><div class="line">        <span class="keyword">if</span> ( matchED<span class="subst">-&gt;</span>ed1Matched )          <span class="comment">//分配成功</span></div><div class="line">        {</div><div class="line"><span class="comment">//保存相匹配的簇列表</span></div><div class="line">          osal_memcpy(matchED<span class="subst">-&gt;</span>ed1Matched,ZDOBuildBuf, (matchED<span class="subst">-&gt;</span>ed1numMatched <span class="subst">*</span> sizeof ( uint16 )) );</div><div class="line">        }</div><div class="line">        <span class="keyword">else</span> <span class="comment">//内存空间分配不成功</span></div><div class="line">        {</div><div class="line">          <span class="comment">// Allocation error, stop</span></div><div class="line">          status <span class="subst">=</span> ZDP_NO_ENTRY;</div><div class="line">          sendRsp <span class="subst">=</span> <span class="literal">TRUE</span>;</div><div class="line">        }</div><div class="line">      }</div><div class="line"><span class="comment">// Make a source match for ed2 以ed2为源</span></div><div class="line">    <span class="comment">//对ed2的终端匹配请求和ed1的簇列表相比较，返回相相匹配的簇的数目</span></div><div class="line">      matchED<span class="subst">-&gt;</span>ed2numMatched <span class="subst">=</span> ZDO_CompareClusterLists(</div><div class="line">                  matchED<span class="subst">-&gt;</span>ed2<span class="built_in">.</span>numOutClusters, matchED<span class="subst">-&gt;</span>ed2<span class="built_in">.</span>outClusters,</div><div class="line">                  matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>numInClusters, matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>inClusters, ZDOBuildBuf );</div><div class="line">      <span class="keyword">if</span> ( matchED<span class="subst">-&gt;</span>ed2numMatched )        <span class="comment">//如果匹配成功</span></div><div class="line">      {</div><div class="line"><span class="comment">// Save the match list 保存匹配的簇列表</span></div><div class="line">        matchED<span class="subst">-&gt;</span>ed2Matched <span class="subst">=</span> osal_mem_alloc( (short)(matchED<span class="subst">-&gt;</span>ed2numMatched <span class="subst">*</span> sizeof ( uint16 )) );</div><div class="line">        <span class="keyword">if</span> ( matchED<span class="subst">-&gt;</span>ed2Matched )</div><div class="line">        {</div><div class="line">          osal_memcpy( matchED<span class="subst">-&gt;</span>ed2Matched, ZDOBuildBuf, (matchED<span class="subst">-&gt;</span>ed2numMatched <span class="subst">*</span> sizeof ( uint16 )) );</div><div class="line">        }</div><div class="line">        <span class="keyword">else</span></div><div class="line">        {</div><div class="line">          <span class="comment">// Allocation error, stop</span></div><div class="line">          status <span class="subst">=</span> ZDP_NO_ENTRY;</div><div class="line">          sendRsp <span class="subst">=</span> <span class="literal">TRUE</span>;</div><div class="line">        }</div><div class="line">      }</div><div class="line"><span class="comment">//如果两个相请求的终端设备，有相匹配的簇，并且保存成功</span></div><div class="line">      <span class="keyword">if</span> ( (sendRsp <span class="subst">==</span> <span class="literal">FALSE</span>) <span class="subst">&&</span> (matchED<span class="subst">-&gt;</span>ed1numMatched <span class="subst">||</span> matchED<span class="subst">-&gt;</span>ed2numMatched) )</div><div class="line">      {</div><div class="line"><span class="comment">// Do the first unbind/bind state 发送响应信息给两个设备</span></div><div class="line">        ZDMatchSendState( ZDMATCH_REASON_START, ZDP_SUCCESS, <span class="number">0</span> );</div><div class="line">      }</div><div class="line">      <span class="keyword">else</span></div><div class="line">      {</div><div class="line">        status <span class="subst">=</span> ZDP_NO_MATCH;</div><div class="line">        sendRsp <span class="subst">=</span> <span class="literal">TRUE</span>;</div><div class="line">      }</div><div class="line">  }</div><div class="line">  <span class="keyword">if</span> ( sendRsp ) <span class="comment">//如果没有相匹配的或匹配不成功</span></div><div class="line">  {</div><div class="line"><span class="comment">// send response to this requester 发送匹配请求响应</span></div><div class="line">    dstAddr<span class="built_in">.</span>addrMode <span class="subst">=</span> Addr16Bit;      <span class="comment">//设置目的地址是16位的短地址</span></div><div class="line">dstAddr<span class="built_in">.</span>addr<span class="built_in">.</span>shortAddr <span class="subst">=</span> bindReq<span class="subst">-&gt;</span>srcAddr;</div><div class="line"><span class="comment">//发送绑定终端响应函数status = ZDP_NO_MATCH;</span></div><div class="line">    ZDP_EndDeviceBindRsp( bindReq<span class="subst">-&gt;</span>TransSeq, <span class="subst">&</span>dstAddr, status, bindReq<span class="subst">-&gt;</span>SecurityUse );</div><div class="line">    <span class="keyword">if</span> ( matchED<span class="subst">-&gt;</span>state <span class="subst">==</span> ZDMATCH_SENDING_BINDS )</div><div class="line">    {</div><div class="line"><span class="comment">// send response to first requester</span></div><div class="line">      dstAddr<span class="built_in">.</span>addrMode <span class="subst">=</span> Addr16Bit;</div><div class="line">      dstAddr<span class="built_in">.</span>addr<span class="built_in">.</span>shortAddr <span class="subst">=</span> matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>srcAddr;</div><div class="line">      ZDP_EndDeviceBindRsp( matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>TransSeq, <span class="subst">&</span>dstAddr, status, matchED<span class="subst">-&gt;</span>ed1<span class="built_in">.</span>SecurityUse );</div><div class="line">    }</div><div class="line"><span class="comment">// Process ended - release memory used</span></div><div class="line">    ZDO_RemoveMatchMemory();</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>ZDO_MatchEndDeviceBind()函数,如果协调器接收到接收到第一个绑定请求，则分配内存空间进行保存并计时，如果不是第一个绑定请求，则分别以第一个和第二个绑定请求为源绑定，进行比较匹配，如果比较匹配成功则发送匹配成功的信息End_Device_Bind_rsp给两个请求终端。因为在ZDMatchSendState()函数中也是调用了ZDP_EndDeviceBindRsp()函数，对匹配请求响应进行了发送。如果匹配不成功则发送匹配失败的信息给两个终端。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">uint8 ZDMatchSendState( uint8 reason, uint8 status, uint8 TransSeq )</div><div class="line">{</div><div class="line">．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．</div><div class="line"><span class="keyword">else</span></div><div class="line">  {</div><div class="line"><span class="comment">// Send the response messages to requesting devices</span></div><div class="line">    <span class="comment">// send response to first requester 发送响应信息给第一个请求终端，</span></div><div class="line">    dstAddr.addr.shortAddr = matchED<span class="variable">-&gt;ed1</span>.srcAddr;</div><div class="line">    ZDP_EndDeviceBindRsp( matchED<span class="variable">-&gt;ed1</span>.TransSeq, &dstAddr, rspStatus, matchED<span class="variable">-&gt;ed1</span>.SecurityUse );</div><div class="line"><span class="comment">// send response to second requester 发送响应信息给第二请求终端</span></div><div class="line">    <span class="keyword">if</span> ( matchED<span class="variable">-&gt;state</span> == ZDMATCH_SENDING_BINDS )</div><div class="line">    {</div><div class="line">      dstAddr.addr.shortAddr = matchED<span class="variable">-&gt;ed2</span>.srcAddr;</div><div class="line">      ZDP_EndDeviceBindRsp( matchED<span class="variable">-&gt;ed2</span>.TransSeq, &dstAddr, rspStatus, matchED<span class="variable">-&gt;ed2</span>.SecurityUse );</div><div class="line">    }</div><div class="line"><span class="comment">// Process ended - release memory used</span></div><div class="line">    ZDO_RemoveMatchMemory();</div><div class="line">  }</div><div class="line">  <span class="keyword">return</span> ( <span class="keyword">TRUE</span> );</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="（3）终端结点的响应">（3）终端结点的响应</h4>
+<p>由于终端节点在 SerialApp.c 中层注册过 End_Device_Bind_rsp 消息，因此当接收到协调器节点发来的绑定响应消息将交由 SerialApp 任务事件处理函数处理：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events )</div><div class="line">{</div><div class="line">  <span class="keyword">if</span> ( events & SYS_EVENT_MSG )</div><div class="line">  {</div><div class="line">    afIncomingMSGPacket_t *MSGpkt;</div><div class="line">    <span class="keyword">while</span> ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive(</div><div class="line">                                            SerialApp_TaskID )) )</div><div class="line">    {</div><div class="line">      <span class="keyword">switch</span> ( MSGpkt-&gt;hdr.<span class="keyword">event</span> )</div><div class="line">      {</div><div class="line">        <span class="keyword">case</span> ZDO_CB_MSG:</div><div class="line">SerialApp_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>然后，调用 SerialApp_ProcessZDOMsgs（）函数。进行事件处理。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> SerialApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg )</div><div class="line">{</div><div class="line">  <span class="keyword">switch</span> ( inMsg-&gt;clusterID )</div><div class="line">  {</div><div class="line">    <span class="keyword">case</span> End_Device_Bind_rsp:</div><div class="line">      <span class="keyword">if</span> ( ZDO_ParseBindRsp( inMsg ) == ZSuccess )</div><div class="line">      {</div><div class="line">        <span class="comment">// Light LED</span></div><div class="line">        HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );</div><div class="line">      }</div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> defined(BLINK_LEDS)</span></div><div class="line">      <span class="keyword">else</span></div><div class="line">      {</div><div class="line">        <span class="comment">// Flash LED to show failure</span></div><div class="line">        HalLedSet ( HAL_LED_4, HAL_LED_MODE_FLASH );</div><div class="line">      }</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">      <span class="keyword">break</span>;</div><div class="line">．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．．</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="第三个功能：实现两个节点间的串口通信">第三个功能：实现两个节点间的串口通信</h2>
+<p>“串口终端1”的数据，如何被“节点 1”所接收，并且发送出去的？<br>串口数据是由哪层来负责的呢？－－HAL。 。 。恩，猜对了。但这个肯定不是靠猜的，其中的过程<br>就不讲了。 让我们从主循环 （osal_start_system） 的Hal_ProcessPoll函数找下去 （用source  insight<br>的同学可以用 ctrl +） ，Hal_ProcessPoll ==&gt; HalUARTPoll ==&gt; HalUARTPollDMA<br>这个 HalUARTPollDMA 函数里最后有这样一句话：dmaCfg.uartCB(HAL_UART_DMA-1,  evt); 对dmaCfg.uartCB 这个函数进行了调用，ctrl  / 搜索这个 dmaCfg.uartCB，发现 SerialApp_Init 函数有两句话：<br>uartConfig.callBackFunc         = SerialApp_CallBack;<br>    HalUARTOpen (SERIAL_APP_PORT, &amp;uartConfig);<br>此处将 dmaCfg.uartCB 这个函数注册成为 SerialApp_CallBack， 也就是说 SerialApp_CallBack函数每次循环中被调用一次，对串口的内容进行查询，如果 DMA 中接收到了数据，则调用HalUARTRead，将 DMA 数据读至数据 buffer 并通过 AF_DataRequest 函数发送出去，注意：出去的信息的 CLUSTERID(信息簇ID)号为 SERIALAPP_CLUSTERID1。 总结一下这个过程：<br>     串口数据==&gt;DMA接收==&gt;主循环中通过SerialApp_CallBack 查询==&gt;从 DMA获取并发送到空中。<br>具体流程如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> SerialApp_Init( uint8 task_id )</div><div class="line">{</div><div class="line">......</div><div class="line">  uartConfig.configured           = TRUE;              <span class="comment">// 2x30 don't care - see uart driver.</span></div><div class="line">  uartConfig.baudRate             = SERIAL_APP_BAUD;</div><div class="line">  uartConfig.flowControl          = TRUE;</div><div class="line">  uartConfig.flowControlThreshold = SERIAL_APP_THRESH; <span class="comment">// 2x30 don't care - see uart driver.</span></div><div class="line">  uartConfig.rx.maxBufSize        = SERIAL_APP_RX_SZ;  <span class="comment">// 2x30 don't care - see uart driver.</span></div><div class="line">  uartConfig.tx.maxBufSize        = SERIAL_APP_TX_SZ;  <span class="comment">// 2x30 don't care - see uart driver.</span></div><div class="line">  uartConfig.idleTimeout          = SERIAL_APP_IDLE;   <span class="comment">// 2x30 don't care - see uart driver.</span></div><div class="line">  uartConfig.intEnable            = TRUE;              <span class="comment">// 2x30 don't care - see uart driver.</span></div><div class="line">  uartConfig.callBackFunc         = SerialApp_CallBack;      <span class="comment">//调用SerialApp_CallBack函数，对串口内容进行查询</span></div><div class="line">  HalUARTOpen (SERIAL_APP_PORT, &uartConfig);</div><div class="line">......</div><div class="line">}</div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> SerialApp_CallBack(uint8 port, uint8 <span class="keyword">event</span>)</div><div class="line">{</div><div class="line">  (<span class="keyword">void</span>)port;</div><div class="line"><span class="comment">//如果 DMA 中接收到了数据</span></div><div class="line">  <span class="keyword">if</span> ((<span class="keyword">event</span> & (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT)) &&</div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> SERIAL_APP_LOOPBACK</span></div><div class="line">      (SerialApp_TxLen &lt; SERIAL_APP_TX_MAX))</div><div class="line"><span class="preprocessor">#<span class="keyword">else</span></span></div><div class="line">      !SerialApp_TxLen)</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">  {</div><div class="line">SerialApp_Send();   <span class="comment">//调用串口发送函数，将从串口接受到的数据，发送出去</span></div><div class="line">  }</div><div class="line">}</div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> SerialApp_Send(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line"><span class="preprocessor">#<span class="keyword">if</span> SERIAL_APP_LOOPBACK         //初始化时，SERIAL_APP_LOOPBACK=false ，所以不执行<span class="keyword">if</span>这个预编译，转到<span class="keyword">else</span>去执行</span></div><div class="line">  <span class="keyword">if</span> (SerialApp_TxLen &lt; SERIAL_APP_TX_MAX)</div><div class="line">  {</div><div class="line">    SerialApp_TxLen += HalUARTRead(SERIAL_APP_PORT, SerialApp_TxBuf+SerialApp_TxLen+<span class="number">1</span>,</div><div class="line">                                                    SERIAL_APP_TX_MAX-SerialApp_TxLen);</div><div class="line">  }</div><div class="line">  <span class="keyword">if</span> (SerialApp_TxLen)</div><div class="line">  {</div><div class="line">    (<span class="keyword">void</span>)SerialApp_TxAddr;</div><div class="line">    <span class="keyword">if</span> (HalUARTWrite(SERIAL_APP_PORT, SerialApp_TxBuf+<span class="number">1</span>, SerialApp_TxLen))</div><div class="line">    {</div><div class="line">      SerialApp_TxLen = <span class="number">0</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span></div><div class="line">    {</div><div class="line">      osal_set_event(SerialApp_TaskID, SERIALAPP_SEND_EVT);</div><div class="line">    }</div><div class="line">  }</div><div class="line"><span class="preprocessor">#<span class="keyword">else</span></span></div><div class="line">  <span class="keyword">if</span> (!SerialApp_TxLen &&</div><div class="line">      (SerialApp_TxLen = HalUARTRead(SERIAL_APP_PORT, SerialApp_TxBuf+<span class="number">1</span>, SERIAL_APP_TX_MAX)))</div><div class="line">  {</div><div class="line">    <span class="comment">// Pre-pend sequence number to the Tx message.</span></div><div class="line">    SerialApp_TxBuf[<span class="number">0</span>] = ++SerialApp_TxSeq;</div><div class="line">  }</div><div class="line">  <span class="keyword">if</span> (SerialApp_TxLen)</div><div class="line">  {</div><div class="line">    <span class="keyword">if</span> (afStatus_SUCCESS != AF_DataRequest(&SerialApp_TxAddr,        <span class="comment">//通过AF_DataRequest()函数，将数据从空中发送出去</span></div><div class="line">                                           (endPointDesc_t *)&SerialApp_epDesc,</div><div class="line">                                            SERIALAPP_CLUSTERID1,</div><div class="line">                                            SerialApp_TxLen+<span class="number">1</span>, SerialApp_TxBuf,</div><div class="line">                                            &SerialApp_MsgID, <span class="number">0</span>, AF_DEFAULT_RADIUS))</div><div class="line">    {</div><div class="line">      osal_set_event(SerialApp_TaskID, SERIALAPP_SEND_EVT);   <span class="comment">//如果数据没有发送成功，重新发送</span></div><div class="line">    }</div><div class="line">  }</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">}</div><div class="line">UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events ) </div><div class="line">{</div><div class="line">    <span class="keyword">if</span> ( events & SERIALAPP_SEND_EVT )       <span class="comment">//当数据没有发送成功时</span></div><div class="line">      {</div><div class="line">SerialApp_Send();</div><div class="line">         <span class="keyword">return</span> ( events ^ SERIALAPP_SEND_EVT );</div><div class="line">      }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>节点2 在收到空中的信号后，如何传递给与其相连的串口终端？<br>节点 2 从空中捕获到信号后， 在应用层上首先收到信息的就是 SerialApp_ProcessEvent 这个函数了，它收到一个 AF_INCOMING_MSG_CMD 的事件，并通知 SerialApp_ProcessMSGCmd，执行以下代码 ：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line">UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events )  <span class="comment">//当有事件传递到应用层的时候，执行此处</span></div><div class="line">{</div><div class="line">  ......</div><div class="line">   <span class="keyword">while</span> ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SerialApp_TaskID )) )</div><div class="line">    {</div><div class="line">      <span class="keyword">switch</span> ( MSGpkt<span class="variable">-&gt;hdr</span>.event )</div><div class="line">      {</div><div class="line">         ......</div><div class="line">         <span class="keyword">case</span> AF_INCOMING_MSG_CMD:      <span class="comment">//在这个实验中，使用串口通讯时，触发的事件，从空中捕获到信号。</span></div><div class="line">SerialApp_ProcessMSGCmd( MSGpkt );  <span class="comment">//处理这个消息</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       ......</div><div class="line">      }</div><div class="line">    }</div><div class="line">}</div><div class="line">void SerialApp_ProcessMSGCmd( afIncomingMSGPacket_t *pkt )  <span class="comment">//对从空中捕获到的信号进行处理</span></div><div class="line">{</div><div class="line">  uint8 stat;</div><div class="line">  uint8 seqnb;</div><div class="line">  uint8 delay;</div><div class="line">  <span class="keyword">switch</span> ( pkt<span class="variable">-&gt;clusterId</span> )</div><div class="line">  {</div><div class="line"><span class="comment">// A message with a serial data block to be transmitted on the serial port.</span></div><div class="line">  <span class="keyword">case</span> SERIALAPP_CLUSTERID1:    <span class="comment">//节点一发送过来的信息的 CLUSTERID(信息簇ID)号为 SERIALAPP_CLUSTERID1</span></div><div class="line"><span class="comment">// Store the address for sending and retrying.</span></div><div class="line">    osal_memcpy(&SerialApp_RxAddr, &(pkt<span class="variable">-&gt;srcAddr</span>), sizeof( afAddrType_t ));</div><div class="line">    seqnb = pkt<span class="variable">-&gt;cmd</span>.Data[<span class="number">0</span>];</div><div class="line">  <span class="comment">// Keep message if not a repeat packet</span></div><div class="line">    <span class="keyword">if</span> ( (seqnb &gt; SerialApp_RxSeq) ||                    <span class="comment">// Normal</span></div><div class="line">        ((seqnb &lt; <span class="number">0x80</span> ) && ( SerialApp_RxSeq &gt; <span class="number">0x80</span>)) ) <span class="comment">// Wrap-around</span></div><div class="line">    {</div><div class="line">      <span class="comment">// Transmit the data on the serial port.</span></div><div class="line">      <span class="keyword">if</span> ( HalUARTWrite( SERIAL_APP_PORT, pkt<span class="variable">-&gt;cmd</span>.Data+<span class="number">1</span>, (pkt<span class="variable">-&gt;cmd</span>.DataLength-<span class="number">1</span>) ) )  <span class="comment">//通过串口发送数据到PC机</span></div><div class="line">      {</div><div class="line">        <span class="comment">// Save for next incoming message</span></div><div class="line">        SerialApp_RxSeq = seqnb;</div><div class="line">        stat = OTA_SUCCESS;</div><div class="line">      }</div><div class="line">      <span class="keyword">else</span></div><div class="line">      {</div><div class="line">        stat = OTA_SER_BUSY;</div><div class="line">      }</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span></div><div class="line">    {</div><div class="line">      stat = OTA_DUP_MSG;</div><div class="line">    }</div><div class="line">    <span class="comment">// Select approproiate OTA flow-control delay.</span></div><div class="line">    delay = (stat == OTA_SER_BUSY) ? SERIALAPP_NAK_DELAY : SERIALAPP_ACK_DELAY;</div><div class="line">    <span class="comment">// Build & send OTA response message.</span></div><div class="line">    SerialApp_RspBuf[<span class="number">0</span>] = stat;</div><div class="line">    SerialApp_RspBuf[<span class="number">1</span>] = seqnb;</div><div class="line">    SerialApp_RspBuf[<span class="number">2</span>] = LO_UINT16( delay );</div><div class="line">    SerialApp_RspBuf[<span class="number">3</span>] = HI_UINT16( delay );</div><div class="line">    osal_set_event( SerialApp_TaskID, SERIALAPP_RESP_EVT );  <span class="comment">//受到数据后，向节点1发送一个响应事件,跳到SerialApp_ProcessEvent()</span></div><div class="line">    osal_stop_timerEx(SerialApp_TaskID, SERIALAPP_RESP_EVT); </div><div class="line">    <span class="keyword">break</span>;</div><div class="line">......</div><div class="line">  }</div><div class="line">}</div><div class="line">UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events ) </div><div class="line">{</div><div class="line">......</div><div class="line">   <span class="keyword">if</span> ( events & SERIALAPP_RESP_EVT )    <span class="comment">//串口响应事件，表示成功接受来自节点1的数据，</span></div><div class="line">  {</div><div class="line">SerialApp_Resp();      <span class="comment">//向节点1发送  成功接受的response</span></div><div class="line">    <span class="keyword">return</span> ( events ^ SERIALAPP_RESP_EVT );</div><div class="line">  }</div><div class="line">......</div><div class="line">}</div><div class="line"><span class="keyword">static</span> void SerialApp_Resp(void)</div><div class="line">{</div><div class="line">  <span class="keyword">if</span> (afStatus_SUCCESS != AF_DataRequest(&SerialApp_RxAddr,         <span class="comment">//通过AF_DataRequest函数，讲接收成功响应从空中发送出去</span></div><div class="line">                                         (endPointDesc_t *)&SerialApp_epDesc,</div><div class="line">                                          SERIALAPP_CLUSTERID2,</div><div class="line">                                          SERIAL_APP_RSP_CNT, SerialApp_RspBuf,</div><div class="line">                                         &SerialApp_MsgID, <span class="number">0</span>, AF_DEFAULT_RADIUS))</div><div class="line">  {</div><div class="line">    osal_set_event(SerialApp_TaskID, SERIALAPP_RESP_EVT);   <span class="comment">//如果发送失败，重新发送</span></div><div class="line">  }</div><div class="line">}</div><div class="line">节点<span class="number">1</span>，接收到来自节点<span class="number">2</span>的response。</div><div class="line">UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events )</div><div class="line">{</div><div class="line">  ......</div><div class="line">   <span class="keyword">while</span> ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SerialApp_TaskID )) )</div><div class="line">    {</div><div class="line">      <span class="keyword">switch</span> ( MSGpkt<span class="variable">-&gt;hdr</span>.event )</div><div class="line">      {</div><div class="line">         ......</div><div class="line">         <span class="keyword">case</span> AF_INCOMING_MSG_CMD:      <span class="comment">//在这个实验中，使用串口通讯时，触发的事件，从空中捕获到信号。</span></div><div class="line">SerialApp_ProcessMSGCmd( MSGpkt );  <span class="comment">//处理这个消息</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       ......</div><div class="line">      }</div><div class="line">    }</div><div class="line">}</div><div class="line">SERIALAPP_CLUSTERID2代表接收到发送成功的response，取消自动重发，如果不，自动重发。</div><div class="line">void SerialApp_ProcessMSGCmd( afIncomingMSGPacket_t *pkt )</div><div class="line">{</div><div class="line">  ......</div><div class="line"><span class="comment">// A response to a received serial data block.</span></div><div class="line">  <span class="keyword">case</span> SERIALAPP_CLUSTERID2:        <span class="comment">//SerialWsn_CLUSTERID2代表接收到发送成功的response</span></div><div class="line">    <span class="keyword">if</span> ((pkt<span class="variable">-&gt;cmd</span>.Data[<span class="number">1</span>] == SerialApp_TxSeq) &&</div><div class="line">       ((pkt<span class="variable">-&gt;cmd</span>.Data[<span class="number">0</span>] == OTA_SUCCESS) || (pkt<span class="variable">-&gt;cmd</span>.Data[<span class="number">0</span>] == OTA_DUP_MSG)))</div><div class="line">    {</div><div class="line">      SerialApp_TxLen = <span class="number">0</span>;</div><div class="line">      osal_stop_timerEx(SerialApp_TaskID, SERIALAPP_SEND_EVT);  <span class="comment">//当收到发送成功的response，停止自动从发</span></div><div class="line">    }</div><div class="line">    <span class="keyword">else</span></div><div class="line">    {</div><div class="line"><span class="comment">// Re-start timeout according to delay sent from other device.</span></div><div class="line">      delay = BUILD_UINT16( pkt<span class="variable">-&gt;cmd</span>.Data[<span class="number">2</span>], pkt<span class="variable">-&gt;cmd</span>.Data[<span class="number">3</span>] );</div><div class="line">      osal_start_timerEx( SerialApp_TaskID, SERIALAPP_SEND_EVT, delay ); <span class="comment">//没有收到成功的response，自动重发</span></div><div class="line">    }</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/zigbee-智能家居/">zigbee,智能家居</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/ZigBee/">ZigBee</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/01/20/ZigBee-NetWork-organization/" data-title="ZigBee组网流程 | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/01/12/LeetCode-isSymmetric/"  title="LeetCode-Symmetric Tree 对称树">
+ <strong>NEXT:</strong><br/> 
+ <span>LeetCode-Symmetric Tree 对称树
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络"><span class="toc-number">1.</span> <span class="toc-text">第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：Z-Stack_由_main（）函数开始执行，main（）函数共做了_2_件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统"><span class="toc-number">1.0.1.</span> <span class="toc-text">第一步：Z-Stack  由 main（）函数开始执行，main（）函数共做了 2 件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步，进入_osal_init_system()函数，执行操作系统初始化"><span class="toc-number">1.0.2.</span> <span class="toc-text">第二步，进入 osal_init_system()函数，执行操作系统初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步，进入osalInitTasks()函数，执行操作系统任务初始化"><span class="toc-number">1.0.3.</span> <span class="toc-text">第三步，进入osalInitTasks()函数，执行操作系统任务初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步，进入ZDApp_init()函数，执行ZDApp层初始化"><span class="toc-number">1.0.4.</span> <span class="toc-text">第四步，进入ZDApp_init()函数，执行ZDApp层初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五步,转到ZDApp_event_loop()函数"><span class="toc-number">1.0.5.</span> <span class="toc-text">第五步,转到ZDApp_event_loop()函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六步,执行ZDO_StartDevice()函数，启动设备"><span class="toc-number">1.0.6.</span> <span class="toc-text">第六步,执行ZDO_StartDevice()函数，启动设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第七步，分两种情况，1-协调器_2-路由器或终端设备"><span class="toc-number">1.0.7.</span> <span class="toc-text">第七步，分两种情况，1.协调器   2.路由器或终端设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在执行ZDApp_ProcessNetworkJoin()函数的时候，要分两种情况，一种是终端设备，一种是路由器："><span class="toc-number">1.0.8.</span> <span class="toc-text">在执行ZDApp_ProcessNetworkJoin()函数的时候，要分两种情况，一种是终端设备，一种是路由器：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第八步,执行ZDO状态改变事件"><span class="toc-number">1.0.9.</span> <span class="toc-text">第八步,执行ZDO状态改变事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第九步,执行ZDO_UpdateNwkStatus()函数，完成网络状态更新"><span class="toc-number">1.0.10.</span> <span class="toc-text">第九步,执行ZDO_UpdateNwkStatus()函数，完成网络状态更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第十步,执行zdoSendStateChangeMsg（）函数"><span class="toc-number">1.0.11.</span> <span class="toc-text">第十步,执行zdoSendStateChangeMsg（）函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第十一步,去执行MT_ProcessIncomingCommand()函数"><span class="toc-number">1.0.12.</span> <span class="toc-text">第十一步,去执行MT_ProcessIncomingCommand()函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二个功能：设备间的绑定"><span class="toc-number">2.</span> <span class="toc-text">第二个功能：设备间的绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#(1)终端设备向协调器发送终端设备绑定请求"><span class="toc-number">2.0.1.</span> <span class="toc-text">(1)终端设备向协调器发送终端设备绑定请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#(2)_协调器收到终端设备绑定请求End_Device_Bind_req"><span class="toc-number">2.0.2.</span> <span class="toc-text">(2) 协调器收到终端设备绑定请求End_Device_Bind_req</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）终端结点的响应"><span class="toc-number">2.0.3.</span> <span class="toc-text">（3）终端结点的响应</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三个功能：实现两个节点间的串口通信"><span class="toc-number">3.</span> <span class="toc-text">第三个功能：实现两个节点间的串口通信</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
+		
+		
+		
+		<a href="https://github.com/vincent-wjj" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Java/" title="Java">Java<sup>2</sup></a></li>
+		
+			<li><a href="/categories/JavaSocket/" title="JavaSocket">JavaSocket<sup>1</sup></a></li>
+		
+			<li><a href="/categories/LeetCode/" title="LeetCode">LeetCode<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ZigBee/" title="ZigBee">ZigBee<sup>1</sup></a></li>
+		
+			<li><a href="/categories/android-studio/" title="android_studio">android_studio<sup>2</sup></a></li>
+		
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>6</sup></a></li>
+		
+			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+		
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>1</sup></a></li>
+		
+			<li><a href="/categories/programs/" title="programs">programs<sup>1</sup></a></li>
+		
+			<li><a href="/categories/taobaoCode/" title="taobaoCode">taobaoCode<sup>1</sup></a></li>
+		
+			<li><a href="/categories/面试-笔试/" title="面试/笔试">面试/笔试<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Java/" title="Java">Java<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Java-Socket/" title="Java Socket">Java Socket<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Java，I-O流/" title="Java，I/O流">Java，I/O流<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Symmetric-Tree/" title="Symmetric Tree">Symmetric Tree<sup>1</sup></a></li>
+		
+			<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
+		
+			<li><a href="/tags/linux操作系统/" title="linux操作系统">linux操作系统<sup>0</sup></a></li>
+		
+			<li><a href="/tags/mysql-function/" title="mysql,function">mysql,function<sup>1</sup></a></li>
+		
+			<li><a href="/tags/program-design/" title="program-design">program-design<sup>1</sup></a></li>
+		
+			<li><a href="/tags/zigbee-智能家居/" title="zigbee,智能家居">zigbee,智能家居<sup>1</sup></a></li>
+		
+			<li><a href="/tags/博客/" title="博客">博客<sup>6</sup></a></li>
+		
+			<li><a href="/tags/安卓/" title="安卓">安卓<sup>2</sup></a></li>
+		
+			<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
+		
+			<li><a href="/tags/文章/" title="文章">文章<sup>6</sup></a></li>
+		
+			<li><a href="/tags/测试/" title="测试">测试<sup>1</sup></a></li>
+		
+			<li><a href="/tags/淘宝，文章/" title="淘宝，文章">淘宝，文章<sup>1</sup></a></li>
+		
+			<li><a href="/tags/笔试题目/" title="笔试题目">笔试题目<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+      <li><a href="http://gengbiao.me" target="_blank" title="coney">coney's Blog</a></li>
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/C/" style="font-size: 13.33px;">C++</a><a href="/tags/Java/" style="font-size: 16.67px;">Java</a><a href="/tags/Java-Socket/" style="font-size: 13.33px;">Java Socket</a><a href="/tags/Java，I-O流/" style="font-size: 13.33px;">Java，I/O流</a><a href="/tags/Symmetric-Tree/" style="font-size: 13.33px;">Symmetric Tree</a><a href="/tags/linux/" style="font-size: 13.33px;">linux</a><a href="/tags/linux操作系统/" style="font-size: 10.00px;">linux操作系统</a><a href="/tags/mysql-function/" style="font-size: 13.33px;">mysql,function</a><a href="/tags/program-design/" style="font-size: 13.33px;">program-design</a><a href="/tags/zigbee-智能家居/" style="font-size: 13.33px;">zigbee,智能家居</a><a href="/tags/博客/" style="font-size: 20.00px;">博客</a><a href="/tags/安卓/" style="font-size: 16.67px;">安卓</a><a href="/tags/快捷键/" style="font-size: 13.33px;">快捷键</a><a href="/tags/文章/" style="font-size: 20.00px;">文章</a><a href="/tags/测试/" style="font-size: 13.33px;">测试</a><a href="/tags/淘宝，文章/" style="font-size: 13.33px;">淘宝，文章</a><a href="/tags/笔试题目/" style="font-size: 13.33px;">笔试题目</a>
+    </div>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+    
+            <p class="copyright"> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="junjiewang">junjiewang</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"junjie"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+<script>
+    
+        var _bdImg = '6';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'null', 'null');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
