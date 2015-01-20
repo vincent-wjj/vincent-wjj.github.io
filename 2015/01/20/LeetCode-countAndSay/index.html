@@ -7,10 +7,14 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>Vincent&#39;s Blog</title>
+    <title>LeetCode-countAndSay | Vincent&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="junjiewang">
+    
+    <meta name="description" content="The count-and-say sequence is the sequence of integers beginning as follows:
+#########1, 11, 21, 1211, 111221, …
+######1 is read off as “one 1” or 11.">
     
     
     
@@ -219,169 +223,91 @@
 
     </header>
     <div id="container">
-      <div id="main">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/01/20/LeetCode-countAndSay/" title="LeetCode-countAndSay" itemprop="url">LeetCode-countAndSay</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="junjiewang">junjiewang</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-01-20T08:16:44.000Z" itemprop="datePublished">1月 20 2015</time>
+    更新日期:<time datetime="2015-01-20T08:21:35.000Z" itemprop="dateModified">1月 20 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#The_count-and-say_sequence_is_the_sequence_of_integers_beginning_as_follows:"><span class="toc-number">1.</span> <span class="toc-text">The count-and-say sequence is the sequence of integers beginning as follows:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="##########1,_11,_21,_1211,_111221,_…"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">#########1, 11, 21, 1211, 111221, …</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#######1_is_read_off_as_“one_1”_or_11-"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">######1 is read off as “one 1” or 11.</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="####11_is_read_off_as_“two_1s”_or_21-"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">###11 is read off as “two 1s” or 21.</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="####21_is_read_off_as_“one_2,_then_one_1”_or_1211-"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">###21 is read off as “one 2, then one 1” or 1211.</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Given_an_integer_n,_generate_the_nth_sequence-"><span class="toc-number">2.</span> <span class="toc-text">Given an integer n, generate the nth sequence.</span></a></li></ol>
+		</div>
+		
+		<h3 id="The_count-and-say_sequence_is_the_sequence_of_integers_beginning_as_follows:">The count-and-say sequence is the sequence of integers beginning as follows:</h3>
+<h6 id="#########1,_11,_21,_1211,_111221,_…">#########1, 11, 21, 1211, 111221, …</h6>
+<h6 id="######1_is_read_off_as_“one_1”_or_11-">######1 is read off as “one 1” or 11.</h6>
+<h6 id="###11_is_read_off_as_“two_1s”_or_21-">###11 is read off as “two 1s” or 21.</h6>
+<h6 id="###21_is_read_off_as_“one_2,_then_one_1”_or_1211-">###21 is read off as “one 2, then one 1” or 1211.</h6>
+<h3 id="Given_an_integer_n,_generate_the_nth_sequence-">Given an integer n, generate the nth sequence.</h3>
+<p>Note: The sequence of integers will be represented as a string.<br>n = 1时，打印一个1。<br>n = 2时，看n=1那一行，念：1个1，所以打印：11。<br>n = 3时，看n=2那一行，念：2个1，所以打印：21。<br>n = 4时，看n=3那一行，念：一个2一个1，所以打印：1211。<br>以此类推。(注意这里n是从1开始的)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">public class <span class="type">Solution</span> {</div><div class="line">    //计算第n行要答应出的字符串</div><div class="line">    public <span class="type">String</span> countAndSay(<span class="type">int</span> n) {</div><div class="line">        //假设只有一行</div><div class="line">        <span class="type">String</span> <span class="literal">result</span> = <span class="string">"1"</span>;</div><div class="line">        <span class="type">int</span> i = <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(i&lt;n){</div><div class="line">            //第i行打印出的字符串</div><div class="line">            <span class="literal">result</span> = countAndSayForOneString(<span class="literal">result</span>);</div><div class="line">            i++;</div><div class="line">        }</div><div class="line">        //结果</div><div class="line">        <span class="keyword">return</span> <span class="literal">result</span>;</div><div class="line">    }</div><div class="line">    public <span class="type">String</span> countAndSayForOneString(<span class="type">String</span> <span class="keyword">in</span>){</div><div class="line">        <span class="type">char</span> tmp = <span class="keyword">in</span>.charAt(<span class="number">0</span>);</div><div class="line">        <span class="type">int</span> num = <span class="number">1</span>;</div><div class="line">        <span class="type">StringBuilder</span> newString = new <span class="type">StringBuilder</span>();</div><div class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="keyword">in</span>.length();i++){</div><div class="line">            <span class="keyword">if</span>(input.charAt(i)==tmp){</div><div class="line">                num++;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            }</div><div class="line">            //打印出每一个num个tmp</div><div class="line">            newString.append(<span class="type">Integer</span>.toString(num)+tmp);</div><div class="line">            tmp = <span class="keyword">in</span>.charAt(i);</div><div class="line">            num = <span class="number">1</span>;</div><div class="line">        }</div><div class="line">        //打印出最后一个num个tmp</div><div class="line">        newString.append(<span class="type">Integer</span>.toString(num)+tmp);</div><div class="line">        //打印出字符串</div><div class="line">        <span class="keyword">return</span> newString.toString();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/LeetCode/">LeetCode</a>
+  </div>
 
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/20/LeetCode-countAndSay/" title="LeetCode-countAndSay" itemprop="url">
-  
-      <time datetime="2015-01-20T08:16:44.000Z" itemprop="datePublished">1月 20 2015</time>
-    <h1 itemprop="name">LeetCode-countAndSay</h1>
-    
-     
-           <p itemprop="description" >The count-and-say sequence is the sequence of integers beginning as follows:
-#########1, 11, 21, 1211, 111221, …
-######1 is read off as “one</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/20/ZigBee-NetWork-organization/" title="ZigBee组网流程" itemprop="url">
-  
-      <time datetime="2015-01-20T07:47:01.000Z" itemprop="datePublished">1月 20 2015</time>
-    <h1 itemprop="name">ZigBee组网流程</h1>
-    
-     
-           <p itemprop="description" >第一个功能：协调器的组网，终端设备和路由设备发现网络以及加入网络
-第一步：Z-Stack  由 main（）函数开始执行，main（）函数共做了 2 件事：一是系统初始化，另外一件是开始执行轮转查询式操作系统
-123456789int main( void )          </p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/12/LeetCode-isSymmetric/" title="LeetCode-Symmetric Tree 对称树" itemprop="url">
-  
-      <time datetime="2015-01-12T08:06:12.000Z" itemprop="datePublished">1月 12 2015</time>
-    <h1 itemprop="name">LeetCode-Symmetric Tree 对称树</h1>
-    
-     
-           <p itemprop="description" >判断一个二叉树是否是轴对称的是一个经典的算法问题，下面结合leetcode上的Symmetric Tree给出判断对称树的两种方法。
-先看看问题描述：Given a binary tree, check whether it is a mirror of itself (ie, </p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/06/Java-Socket/" title="Java-Socket编程" itemprop="url">
-  
-      <time datetime="2015-01-06T00:46:39.000Z" itemprop="datePublished">1月 6 2015</time>
-    <h1 itemprop="name">Java-Socket编程</h1>
-    
-     
-           <p itemprop="description" >java socket通信已经被封装好了主要使用两个类ServerSocket 和Socket
-简单的Socket通信
-服务器端
-123456789101112131415161718192021222324252627282930313233343536373839404142</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/05/the-difference-of-C-and-Java/" title="Java与C++在面向对象概念上的区分" itemprop="url">
-  
-      <time datetime="2015-01-05T07:37:59.000Z" itemprop="datePublished">1月 5 2015</time>
-    <h1 itemprop="name">Java与C++在面向对象概念上的区分</h1>
-    
-     
-           <p itemprop="description" >一、引言    众所周知，C++和Java是当今两种主流的面向对象语言，对于两种语言的优劣比较，每个人都有自己不同的看法，比较一致的看法是C++是编译型高级语言而Java是解释型的，因此C++快速而Java兼容性好，C++适合底层控制而Java长于网络编程。不管怎么说，可以肯定的</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/12/09/mysql-guide-1/" title="MySql 日期函数大全" itemprop="url">
-  
-      <time datetime="2014-12-09T07:01:55.000Z" itemprop="datePublished">12月 9 2014</time>
-    <h1 itemprop="name">MySql 日期函数大全</h1>
-    
-     
-           <p itemprop="description" >对于每个类型拥有的值范围以及并且指定日期何时间值的有效格式的描述见7.3.6 日期和时间类型。  
-这里是一个使用日期函数的例子。下面的查询选择了所有记录，其date_col的值是在最后30天以内：  
-mysql&amp;gt; SELECT something FROM tableW</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/14/Program-write-guide/" title="How to design your first programs" itemprop="url">
-  
-      <time datetime="2014-11-14T12:38:47.000Z" itemprop="datePublished">11月 14 2014</time>
-    <h1 itemprop="name">How to design your first programs</h1>
-    
-     
-           <p itemprop="description" >Now that you’ve learned some basics about programs, let’s look more closely at how to design a program. When you sit down to write a program</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/13/Java-I-O/" title="Java I/O流整理分析" itemprop="url">
-  
-      <time datetime="2014-11-13T12:04:00.000Z" itemprop="datePublished">11月 13 2014</time>
-    <h1 itemprop="name">Java I/O流整理分析</h1>
-    
-     
-           <p itemprop="description" >Java中的流，可以从不同的角度进行分类。按照数据流的方向不同可以分为：输入流和输出流。按照处理数据单位不同可以分为：字节流和字符流。按照实现功能不同可以分为：节点流和处理流。
-输出流：输入流：因此输入和输出都是从程序的角度来说的。字节流：一次读入或读出是8位二进制。字符流：一次</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/12/interview-guide-1/" title="Java面试题目" itemprop="url">
-  
-      <time datetime="2014-11-12T12:06:27.000Z" itemprop="datePublished">11月 12 2014</time>
-    <h1 itemprop="name">Java面试题目</h1>
-    
-     
-           <p itemprop="description" >1、请写出四种访问修饰符成员使用范围的区别：public：同一个类；同包；不同包子类；不同包非子类。private：同一个类。protected：同一个类；同包；不同包子类。default：同一个类；同包。2、对象题目String s1 = new String(“小白”); 这</p>
-        
-    
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/11/android-studio-guide-2/" title="AndroidStudio单元测试——instrumentation" itemprop="url">
-  
-      <time datetime="2014-11-11T14:04:55.000Z" itemprop="datePublished">11月 11 2014</time>
-    <h1 itemprop="name">AndroidStudio单元测试——instrumentation</h1>
-    
-     
-           <p itemprop="description" >This article covers the basics of using Android Unit Tests with Android Studio.
-Enabling Unit Testing In Android Studio
-Many guides out ther</p>
-        
-    
-  </a>
-</section>
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+</div>
 
 
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/01/20/LeetCode-countAndSay/" data-title="LeetCode-countAndSay | Vincent&#39;s Blog" data-tsina="null" class="share clearfix">
+  </div>
 
 </div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/01/20/ZigBee-NetWork-organization/"  title="ZigBee组网流程">
+ <strong>NEXT:</strong><br/> 
+ <span>ZigBee组网流程
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#The_count-and-say_sequence_is_the_sequence_of_integers_beginning_as_follows:"><span class="toc-number">1.</span> <span class="toc-text">The count-and-say sequence is the sequence of integers beginning as follows:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="##########1,_11,_21,_1211,_111221,_…"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">#########1, 11, 21, 1211, 111221, …</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#######1_is_read_off_as_“one_1”_or_11-"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">######1 is read off as “one 1” or 11.</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="####11_is_read_off_as_“two_1s”_or_21-"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">###11 is read off as “two 1s” or 21.</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="####21_is_read_off_as_“one_2,_then_one_1”_or_1211-"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">###21 is read off as “one 2, then one 1” or 1211.</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Given_an_integer_n,_generate_the_nth_sequence-"><span class="toc-number">2.</span> <span class="toc-text">Given an integer n, generate the nth sequence.</span></a></li></ol>
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -501,8 +427,8 @@ Many guides out ther</p>
 
 </aside>
 </div>
-  </div>
-  <footer><div id="footer" >
+    </div>
+    <footer><div id="footer" >
     
             <p class="copyright"> © 2015 
 		
@@ -538,6 +464,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
@@ -557,7 +485,79 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"junjie"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
 
 
 
@@ -645,5 +645,5 @@ ga('send', 'pageview');
 
 
   </body>
- </html>
+</html>
 
